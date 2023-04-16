@@ -28,17 +28,6 @@ class RegisterController extends Controller
         return view('auth.register',['profs'=>$profs]);
 
     }
-    // public function creation(): View
-    // {
-    //     $profs = DB::table('users')
-    //         ->where('role', '=', 'partenaire')
-    //         ->get();
-    //     $id=1;
-    //     dd($profs);
-    //     return view('auth.register');
-    //     // return view('auth.register',['pfs'=>$profs]);
-
-    // }
     /**
      * Handle an incoming registration request.
      *
@@ -71,6 +60,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect('welcome');
     }
 }
