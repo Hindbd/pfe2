@@ -18,9 +18,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <style>
     .sidebar {
-      height: calc(100vh - 50px); /* set height to 100% viewport height minus height of the header */
+      height: calc(100vh - 10px); /* set height to 100% viewport height minus height of the header */
       overflow-y: scroll; /* add vertical scroll */
-      top: 60px; /* align it below the header */
+      top: 10px; /* align it below the header */
       left: 0; /* align it to the left */
       width: 250px; /* set the width */
     }

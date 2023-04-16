@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <style>
     .sidebar {
-      height: calc(100vh - 50px); /* set height to 100% viewport height minus height of the header */
+      height: calc(100vh - 10px); /* set height to 100% viewport height minus height of the header */
       overflow-y: scroll; /* add vertical scroll */
-      top: 60px; /* align it below the header */
+      top: 0px; /* align it below the header */
       left: 0; /* align it to the left */
       width: 250px; /* set the width */
     }

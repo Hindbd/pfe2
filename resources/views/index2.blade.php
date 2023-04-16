@@ -18,9 +18,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <style>
     .sidebar {
-      height: calc(100vh - 50px); /* set height to 100% viewport height minus height of the header */
+      height: calc(100vh - 10px); /* set height to 100% viewport height minus height of the header */
       overflow-y: scroll; /* add vertical scroll */
-      top: 60px; /* align it below the header */
+      top: 10px; /* align it below the header */
       left: 0; /* align it to the left */
       width: 250px; /* set the width */
     }
@@ -199,14 +199,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a href="./dashboard" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
-          </li> -->
+          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
