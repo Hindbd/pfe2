@@ -38,6 +38,9 @@ Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']
 Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/contacts',[App\Http\Controllers\ContactsController::class, 'index']);
-// Route::get('/dashboard', function () {
-//     return view('index2');
-// })->name('dashboard');
+ //Route::get('/register',)
+//  Route::get('/register', function () {
+//     return view('/');
+//  })->name('welcome');
+Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
+
