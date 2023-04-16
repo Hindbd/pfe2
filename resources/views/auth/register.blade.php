@@ -74,11 +74,12 @@
 
                                 <div class="col-md-6" >
                                 <select  name="encadrant">
+                                    <option></option>
                                      @foreach($profs as $prof)
                                         <option value='{{$prof->id}}'>{{$prof->name .' '.$prof->prenom}}</option>
-                                    @endforeach 
+                                    @endforeach  
                                     
-                                </select>
+                                </select> 
                             
                                     @error('encadrant')
                                         <span class="invalid-feedback" role="alert">

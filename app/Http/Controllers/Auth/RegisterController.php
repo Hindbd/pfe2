@@ -40,9 +40,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'role' => ['required', 'string', 'max:255'],
-            'encadrant' =>['nullable', 'string', 'max:255'],
+            // 'encadrant' =>['nullable', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'img'=>['nullable', 'string', 'max:255'],
+            // 'img'=>['nullable', 'string', 'max:255'],
 
         ]);
 
