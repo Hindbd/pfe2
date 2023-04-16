@@ -8,16 +8,28 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
-
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="prenom" class="col-md-4 col-form-label text-md-end">{{ __('Prenom') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
+
+                                @error('prenom')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
+                                @error('nom')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -36,6 +48,44 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+                    
+                        <div class="row mb-3">
+                            <label for="statut" class="col-md-4 col-form-label text-md-end">{{ __('Statut') }}</label>
+
+                            <div class="col-md-6">
+                            <select id="role" name="role">
+                                <option value="Prof">Enseignant</option>
+                                <option value="Doctorant">Doctorant</option>
+                                <option value="Partenaire">Partenaire</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                                @error('statut')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div id="doctorant_only" style="display:none;"  >
+                            <div class="row mb-3">
+                                <label for="encadrant" class="col-md-4 col-form-label text-md-end">{{ __('Encadrant') }}</label>
+
+                                <div class="col-md-6" >
+                                <select  name="encadrant">
+                                     @foreach($profs as $prof)
+                                        <option value='{{$prof->id}}'>{{$prof->name .' '.$prof->prenom}}</option>
+                                    @endforeach 
+                                    
+                                </select>
+                            
+                                    @error('encadrant')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
@@ -60,6 +110,25 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Add a picture') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="file" id="img" name="img">
+                            </div>
+                        </div>
+                        <script>
+                                  $(document).on('change','#role',function() {
+                                    if($(role).val()=='Doctorant'){
+                                        $("#doctorant_only").show();
+                                    }
+                                    else{
+                                        $("#doctorant_only").hide();
+                                    }
+                                    });
+
+                        </script>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
