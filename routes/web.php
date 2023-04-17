@@ -49,4 +49,11 @@ Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 // Route::get('/teams',[App\Http\Controllers\team2Controller::class, 'index']);
 
+// roles 
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/enseignant/dashboard', [EnseignantController::class, 'index'])->name('enseignant.dashboard');
+    Route::get('/membre/dashboard', [MembreController::class, 'index'])->name('membre.dashboard');
+});
+
 

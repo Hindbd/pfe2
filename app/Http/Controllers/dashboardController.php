@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -25,7 +26,12 @@ class dashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('index2',['user'=>$user]);
+        $admin = DB::table('users')
+        ->where('role', '=', 'admin')
+        ->get();
+        return view('mainHome',['admin'=>$admin,'user'=>$user]);
+
+        
 
     }
 }
