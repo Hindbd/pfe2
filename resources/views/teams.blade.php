@@ -397,20 +397,20 @@
                       <th style="width: 1%">#</th>
                       <th style="width: 10%">Team ID</th>
                       <th style="width: 30%">Team Members</th>
-                      <th style="width: 20%">respo team</th>
+                      <th style="width: 30%">Team Name</th>
+                      <th style="width: 20%">Team leader</th>
                       <!-- <th style="width: 10%" class="text-center">axes</th> -->
                       <th style="width: 60%"></th>
                   </tr>
               </thead>
               <tbody>
                   <tr>
-                    @foreach(@teams as $team)
+                    @foreach($teams as $team)
                       <td></td>
                       <td>
-                        <a>1</a>
+                        <a>{{$team->id}}</a>
                         <br/>
                         <small>
-                            Created {{$team->created_at}}
                         </small>
                       </td>
                       <td>
@@ -431,12 +431,12 @@
                       </td>
                       <td class="current_project">
                           <span>
-                              Project 1
+                          {{$team->nom}}
                           </span>
                       </td>
-                      <!-- <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td> -->
+                       <td class="project-state">
+                          <span class="badge badge-success">@if({{$user->id)}}={{$team->chef_equipe}}) $user->name</span>
+                      </td> 
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
                               <i class="fas fa-folder">

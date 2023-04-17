@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Equipe extends Model
+class pubs extends Model
 {
+    protected $table = 'pubs';
     use HasFactory;
-    protected $table = 'equipes';
-    
-    
     protected $fillable = [
         'id',
         'nom',
-        'chef_equipe',
+        'titre',
+        'contenu',
 
     ];
-
 }
