@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('role'); 
-            $table->unsignedBigInteger('encadrant')->nullable()->default(null);
+            $table->unsignedBigInteger('encadrant')->nullable()->default(NULL);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('img')->nullable()->default(null);;
+            $table->string('img')->nullable()->default(NULL);
             $table->timestamps();
         
         });

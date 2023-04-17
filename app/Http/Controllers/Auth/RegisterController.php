@@ -23,7 +23,7 @@ class RegisterController extends Controller
     public function create(): View
     {
         $profs = DB::table('users')
-            ->where('role', '=', 'prof')
+            ->where('role', '=', 'Enseignant')
             ->get();
         return view('auth.register',['profs'=>$profs]);
 

@@ -7,7 +7,6 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Project;
 
 
-
 class addProjectController extends Controller
 {
     public function index(){
@@ -18,18 +17,18 @@ class addProjectController extends Controller
 public function store(Request $request): RedirectResponse
 {
     $request->validate([
-        'prjName' => ['required', 'string', 'max:255'],
-        'prjDescription' => ['required', 'string', 'max:255'],
-        'inputDateDebut'=>['required', 'date'],
-        'inputDateFin'=>['required', 'date'],
+        'nom' => ['required', 'string', 'max:255'],
+        'description' => ['required', 'string', 'max:255'],
+        'date_debut'=>['required', 'date'],
+        'date_fin'=>['required', 'date'],
     ]);
 
     $prj = Project::create([
-        'nom' => $request->prjName,
-        'description' => $request->prjDescription,
-        'responsable_prj'=> $request->respoPrj,
-        'date_debut'=>$request->inputDateDebut,
-        'date_fin'=>$request->inputDateFin
+        'nom' => $request->nom,
+        'description' => $request->description,
+        'responsable_prj'=> $request->responsable_prj,
+        'date_debut'=>$request->date_debut,
+        'date_fin'=>$request->date_fin
     ]);
 
 

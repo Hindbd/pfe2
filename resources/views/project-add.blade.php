@@ -391,27 +391,25 @@
               <form method="POST" action="{{ route('project-ajout') }}">
               @csrf
               <div class="form-group">
-                <label for="inputName">Project Name</label>
-                <input type="text" id="inputName" class="form-control" name="prjName">
+                <label for="nom">Project Name</label>
+                <input type="text" id="nom" class="form-control" name="nom">
               </div>
               <div class="form-group">
-                <label for="inputDescription">Project Description</label>
-                <textarea id="inputDescription" class="form-control" rows="4" name="prjDescription"></textarea>
+                <label for="description">Project Description</label>
+                <textarea id="description" class="form-control" rows="4" name="description"></textarea>
               </div>
               <div class="form-group">
-              <select  name="respoPrj">
-                <option value="1">1</option>
-                <option value="2">2</option>           
-              </select>
+              <label for="responsable_prj">RESPO</label>
+              <input name="responsable_prj" type="text">
               </div>
               
             <div class="form-group">
-                <label for="inputDateDebut">Date de debut</label>
-                <input id="inputDateDebut" class="form-control" rows="4" placeholder="YY/MM/DD" name="inputDateDebut"></input>
+                <label for="date_debut">Date de debut</label>
+                <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_debut"></input>
               </div>
               <div class="form-group">
-                <label for="inputDateFin">Date de fin</label>
-                <input id="inputDateFin" class="form-control" rows="4" placeholder="YY/MM/DD" name="inputDateFin"></input>
+                <label for="date_fin">Date de fin</label>
+                <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_fin"></input>
               </div>
               <div class="row">
         <div class="col-12">
@@ -419,7 +417,7 @@
           <!-- <input type="submit" value="Create new Project" class="btn btn-success float-right"> -->
           <button type="submit" class="btn btn-primary">
                                     {{ __('Create project') }}
-                                </button>
+          </button>
         </div>
               </form>
             <!-- /.card-body -->

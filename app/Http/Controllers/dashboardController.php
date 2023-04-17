@@ -26,5 +26,6 @@ class dashboardController extends Controller
     {
         $user = Auth::user();
         return view('index2',['user'=>$user]);
+
     }
 }

@@ -33,9 +33,13 @@ Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
 Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
 Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);
 Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
-Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/contacts',[App\Http\Controllers\ContactsController::class, 'index']);
+
 Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
 Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('register');
+
+Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
+Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-ajout');
+
 

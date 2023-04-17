@@ -187,10 +187,14 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
+          @if($user->img='NULL')
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          @else
+          <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
+          @endif
         </div>
         <div class="info">
-          <a href="profile.blade.php" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{$user->name}}</a>
         </div>
       </div>
 
@@ -206,7 +210,7 @@
                 Dashboard
               </p>
             </a>
-          </li> -->
+          </li> 
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
