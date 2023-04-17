@@ -32,7 +32,6 @@ Route::get('/kanban',[App\Http\Controllers\kanbanController::class, 'index']);
 Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
 Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
 Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);
-Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
 Route::get('/contacts',[App\Http\Controllers\ContactsController::class, 'index']);
 
 Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
@@ -44,6 +43,7 @@ Route::post('/project-add', [App\Http\Controllers\addProjectController::class, '
 
 Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index2']);
 Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);
+Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);

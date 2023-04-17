@@ -401,9 +401,12 @@
               <div class="form-group">
               <label>responsable projet</label>
               <select  name="respoPrj">
-                <option></option>
-              <option value="1">koutti</option>
-              <option value="2">adrdor</option>
+                <!-- <option></option> -->
+              <!-- <option value="2">koutti</option>
+              <option value="3">adrdor</option> -->
+              @foreach($user as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+              @endforeach
               </select>
               </div>
               

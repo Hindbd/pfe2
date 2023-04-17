@@ -406,7 +406,9 @@
               <tbody>
                   <tr>
                     @foreach($teams as $team)
-                      <td></td>
+                    <td>
+                          #
+                      </td>
                       <td>
                         <a>{{$team->id}}</a>
                         <br/>
@@ -435,7 +437,10 @@
                           </span>
                       </td>
                        <td class="project-state">
-                          <span class="badge badge-success">@if({{$user->id)}}={{$team->chef_equipe}}) $user->name</span>
+                          <span class="">@if($user->id == $team->chef_equipe)
+                                                            {{ $user->name }}
+                                                            @endif
+                          </span>
                       </td> 
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
