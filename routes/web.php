@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('mainHome');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/mainHome', function () {
+    return view('mainHome');
 });
 Auth::routes();
 
