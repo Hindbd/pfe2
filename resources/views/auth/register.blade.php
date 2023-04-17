@@ -56,7 +56,7 @@
 
                             <div class="col-md-6">
                             <select id="role" name="role">
-                                <option value="Enseignant">Enseignant</option>
+                                <option value="">Enseignant</option>
                                 <option value="Doctorant">Doctorant</option>
                                 <option value="Partenaire">Partenaire</option>
                                 <option value="Autre">Autre</option>

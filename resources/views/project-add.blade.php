@@ -399,8 +399,12 @@
                 <textarea id="description" class="form-control" rows="4" name="description"></textarea>
               </div>
               <div class="form-group">
-              <label for="responsable_prj">RESPO</label>
-              <input name="responsable_prj" type="text">
+              <label>responsable projet</label>
+              <select  name="respoPrj">
+                <option></option>
+              <option value="1">koutti</option>
+              <option value="2">adrdor</option>
+              </select>
               </div>
               
             <div class="form-group">
@@ -423,32 +427,7 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-        <!-- </div>
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Budget</h3>
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputEstimatedBudget">Estimated budget</label>
-                <input type="number" id="inputEstimatedBudget" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputSpentBudget">Total amount spent</label>
-                <input type="number" id="inputSpentBudget" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputEstimatedDuration">Estimated project duration</label>
-                <input type="number" id="inputEstimatedDuration" class="form-control">
-              </div>
-            </div> -->
             <!-- /.card-body -->
           </div>
           <!-- /.card -->

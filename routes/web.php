@@ -33,13 +33,20 @@ Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
 Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
 Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);
 Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
-Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/contacts',[App\Http\Controllers\ContactsController::class, 'index']);
 
 Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
 Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('register');
 
+//projects
 Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-ajout');
+
+Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index2']);
+Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);
+
+//equipes
+Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
+Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'create']);
 
 

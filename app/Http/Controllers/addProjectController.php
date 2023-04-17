@@ -35,4 +35,14 @@ public function store(Request $request): RedirectResponse
 
     return redirect('index2');
 }
+public function index2(){
+    $user=Auth::user();
+    return view('project-detail',['user'=>$user]);
+    
+}
+public function index3(){
+    $user=Auth::user();
+    return view('project-edit',['user'=>$user]);
+    
+}
 }

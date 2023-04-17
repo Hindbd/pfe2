@@ -13,4 +13,9 @@ class TeamsController extends Controller
         $user=Auth::user();
         return view('teams',['user'=>$user]);
     }
+    
+    public function create(){
+        $teams=Auth::user();
+        return view('teams',['teams'=>$teams]);
+    }
 }
