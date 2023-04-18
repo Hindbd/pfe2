@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('mainHome');
-});
+// Route::get('/', function () {
+//     return view('mainHome');
+// });
 
-Route::get('/mainHome', function () {
-    return view('mainHome');
-});
+// Route::get('/mainHome', function () {
+//     return view('mainHome');
+// });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\dashboardController::class, 'index'])->name('home');
+Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
+Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
+Route::get('/home',[App\Http\Controllers\dashboardController::class, 'index'])->name('home');
+Route::get('/dashboard',[App\Http\Controllers\dashController::class, 'index']);
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
 Route::get('/timeline',[App\Http\Controllers\TimelineController::class, 'index']);
 Route::get('/calendar',[App\Http\Controllers\CalendarController::class, 'index']);

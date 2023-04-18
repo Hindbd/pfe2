@@ -74,9 +74,16 @@
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           @if (Route::has('login') && Auth::check())
-                <div class="top-right links">
-                    <a href="{{ url('/home') }}">{{Auth::user()->name}}</a>
-                </div>
+                    @foreach($admin as $adminUser)
+                          @if($user->role == $adminUser->role)
+                          <div class="top-right links">
+                              <a href="{{ url('/dashboard') }}">{{Auth::user()->name}}</a>
+                          </div>
+                          @else
+                          <p>not admin</p>
+                          @endif
+                    @endforeach
+
             @elseif (Route::has('login') && !Auth::check())
               <div class="container-fluid">
                 <div class="row top-right links">
