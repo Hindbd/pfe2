@@ -25,6 +25,9 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- dark mode switch -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -35,6 +38,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    
+  </style>
 </head>
 
 <body>
@@ -83,7 +90,6 @@
                           <p>not admin</p>
                           @endif
                     @endforeach
-
             @elseif (Route::has('login') && !Auth::check())
               <div class="container-fluid">
                 <div class="row top-right links">
@@ -94,6 +100,7 @@
             @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
+
       </nav><!-- .navbar -->
 
     </div>
@@ -874,7 +881,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

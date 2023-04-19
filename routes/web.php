@@ -25,6 +25,7 @@ Auth::routes();
 
 Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
 Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
+Route::get('/index2' , [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/home',[App\Http\Controllers\dashboardController::class, 'index'])->name('home');
 Route::get('/dashboard',[App\Http\Controllers\dashController::class, 'index']);
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
@@ -42,7 +43,7 @@ Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 's
 
 //projects
 Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
-Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-ajout');
+Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-add');
 
 Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index2']);
 Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);

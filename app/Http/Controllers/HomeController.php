@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('home');
+        //  $user = DB::table('users')->get();
+        $user = Auth::user();
+        // $posts = DB::table('pubs')->get();
+        // return view('welcome', ['posts' => $posts,'user' => $user,]);
+        return view('index2', ['user' => $user]);
     }
 }
