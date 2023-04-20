@@ -130,7 +130,7 @@
   <main id="main">
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
+    <!-- <section id="clients" class="clients section-bg">
       <div class="container">
 
         <div class="row" data-aos="zoom-in">
@@ -161,7 +161,7 @@
 
         </div>
 
-      </div>
+      </div> -->
     </section><!-- End Cliens Section -->
 
     <!-- ======= About Us Section ======= -->
@@ -214,7 +214,7 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
-              <h3>Notre axes de <strong>Recherche</strong></h3>
+              <h3>Nos axes de <strong>Recherche</strong></h3>
               <p>
               Le LabSIV se concentre sur des axes de recherche dans les domaines de l'informatique et de la vision qui ont un impact significatif sur la societé et l'industrie
               </p>

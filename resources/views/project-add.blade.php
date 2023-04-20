@@ -183,7 +183,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="profile.blade.php" class="d-block">{{$user->name}}</a>
+          <a href="profile.blade.php" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -404,7 +404,7 @@
                 <!-- <option></option> -->
               <!-- <option value="2">koutti</option>
               <option value="3">adrdor</option> -->
-              @foreach($user as $user)
+              @foreach($users as $user)
                 <option value="{{$user->id}}">{{$user->name}}</option>
               @endforeach
               </select>

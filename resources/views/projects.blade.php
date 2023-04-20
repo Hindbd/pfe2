@@ -312,7 +312,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="projects" class="nav-link">
+                <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All</p>
                 </a>

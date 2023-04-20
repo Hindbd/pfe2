@@ -328,13 +328,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-add" class="nav-link">
+                <a href="team-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Team</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-edit" class="nav-link">
+                <a href="team-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit Team</p>
                 </a>
