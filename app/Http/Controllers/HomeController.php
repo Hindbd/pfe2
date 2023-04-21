@@ -30,6 +30,6 @@ class HomeController extends Controller
         $user = Auth::user();
         // $posts = DB::table('pubs')->get();
         // return view('welcome', ['posts' => $posts,'user' => $user,]);
-        return view('index2', ['user' => $user]);
+        return view('adminDashboard', ['user' => $user]);
     }
 }

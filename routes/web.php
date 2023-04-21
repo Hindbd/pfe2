@@ -25,14 +25,33 @@ Auth::routes();
 
 Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
 Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
-Route::get('/index2' , [App\Http\Controllers\HomeController::class, 'index']);
+// Route::get('/adminDashboard' , [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/profDashboard' , [App\Http\Controllers\profDashController::class, 'index']);
+Route::get('/doctorantDashboard' , [App\Http\Controllers\docDashController::class, 'index']);
+Route::get('/partenaireDashboard' , [App\Http\Controllers\partDashController::class, 'index']);
 Route::get('/home',[App\Http\Controllers\dashboardController::class, 'index'])->name('home');
 Route::get('/dashboard',[App\Http\Controllers\dashController::class, 'index']);
+
+Route::middleware('auth')->group(function () {
+
+    Route::middleware('admin')->group(function () {
+        Route::get('/adminDashboard', [App\Http\Controllers\dashController::class, 'index']);
+    });
+    Route::middleware('Enseignant')->group(function () {
+        Route::get('/profDashboard', [App\Http\Controllers\profDashController::class, 'index']);
+    });
+    Route::middleware('Doctorant')->group(function () {
+        Route::get('/doctorantDashboard', [App\Http\Controllers\docDashController::class, 'index']);
+    });
+    Route::middleware('Partenaire')->group(function () {
+        Route::get('/partenaireDashboard', [App\Http\Controllers\partDashController::class, 'index']);
+    });
+
+});
+
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
 Route::get('/timeline',[App\Http\Controllers\TimelineController::class, 'index']);
 Route::get('/calendar',[App\Http\Controllers\CalendarController::class, 'index']);
-Route::get('/gallery',[App\Http\Controllers\galleryController::class, 'index']);
-Route::get('/kanban',[App\Http\Controllers\kanbanController::class, 'index']);
 Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
 Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
 Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);

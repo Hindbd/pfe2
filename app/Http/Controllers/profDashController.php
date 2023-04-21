@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
-class kanbanController extends Controller
+class profDashController extends Controller
 {
-    //
     public function index(){
-        $user=Auth::user();
-        return view('kanban',['user'=>$user]);
+        $user = Auth::user();
+        return view('profDashboard',['user'=>$user]);
     }
 }

@@ -218,12 +218,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="timeline" class="nav-link">
+          <a href="#" class="nav-link">
               <i class="nav-icon fas fa-timeline"></i>
               <p>
-                Timeline
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Publier</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="calendar" class="nav-link">
@@ -233,23 +248,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="gallery" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="kanban" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Kanban Board
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
@@ -277,7 +276,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="bi far bi-kanban nav-icon"></i>
@@ -289,19 +288,19 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
+                  <p>Voir tout</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="project-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Project</p>
+                  <p>Ajouter Projet</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Edit Project</p>
+                  <p>Modifier Projet</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -309,14 +308,14 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Details</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
-              <p>Teams
+              <p>Equipes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -324,21 +323,49 @@
               <li class="nav-item">
                 <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
+                  <p>Voir tout</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-add" class="nav-link">
+                <a href="team-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Team</p>
+                  <p>Ajouter Equipe</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit Team</p>
                 </a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Evénments
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="events" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
               </li>
+              <li class="nav-item">
+                <a href="event-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter événement</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="project-edit" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Team</p>
+                </a>
+              </li> -->
             </ul>
           </li>
           <li class="nav-item">

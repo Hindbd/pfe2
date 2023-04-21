@@ -41,9 +41,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="../../index3.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -221,22 +218,6 @@
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
                 Calendar
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="gallery" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="kanban" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Kanban Board
               </p>
             </a>
           </li>

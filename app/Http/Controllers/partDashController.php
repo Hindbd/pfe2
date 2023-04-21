@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
-class galleryController extends Controller
+class partDashController extends Controller
 {
     public function index(){
-        $user=Auth::user();
-        return view('gallery',['user'=>$user]);
+        $user = Auth::user();
+        return view('partenaireDashboard',['user'=>$user]);
     }
 }

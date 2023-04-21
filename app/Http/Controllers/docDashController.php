@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
-
 use Illuminate\Http\Request;
 
-class dashController extends Controller
+class docDashController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $user = Auth::user();
-        return view('adminDashboard',['user'=>$user]);
-
-        
-
+        return view('doctorantDashboard',['user'=>$user]);
     }
 }

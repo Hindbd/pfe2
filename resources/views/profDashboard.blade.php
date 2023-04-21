@@ -142,13 +142,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
+           <li class="nav-item">
+            <a href="profDashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
+          </li> 
           </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
@@ -159,27 +160,82 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-timeline"></i>
               <p>
-                Proposer un projet
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Publier</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un projet
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Projets
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projet actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projets anciennes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="propose" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Proposer un projet</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un event
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Equipes
+                <i class="fas fa-angle-left right"></i>
               </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="current-team" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipe actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="former-teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipes anciennes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="compose" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sign up for event</p>
             </a>
           </li>
           <li class="nav-item">
