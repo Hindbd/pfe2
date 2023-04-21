@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Teams</title>
+  <title>Admin | Add Project</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <style>
     .sidebar {
-      height: calc(100vh - 50px); /* set height to 100% viewport height minus height of the header */
+      height: calc(100vh - 10px); /* set height to 100% viewport height minus height of the header */
       overflow-y: scroll; /* add vertical scroll */
-      top: 60px; /* align it below the header */
+      top: 10px; /* align it below the header */
       left: 0; /* align it to the left */
       width: 250px; /* set the width */
     }
@@ -312,7 +312,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="projects" class="nav-link">
+                <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All</p>
                 </a>
@@ -361,12 +361,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Teams</h1>
+            <h1>Creer un Equipe</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Teams</li>
+              <li class="breadcrumb-item active">Team Add</li>
             </ol>
           </div>
         </div>
@@ -375,102 +375,120 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">General</h3>
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Teams</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <form method="POST" action="{{ route('project-add') }}">
+              @csrf
+              <div class="form-group">
+                <label for="nom">Nom d'equipes</label>
+                <input type="text" id="nom" class="form-control" name="nom">
+              </div>
+              <div class="form-group">
+                <label for="nom">Les membres</label>
+                <!-- <select name="members">
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+                </select> -->
+                <!-- Button to open the modal window -->
+<button type="button" data-toggle="modal" data-target="#userModal">Add Users</button>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+<!-- Modal window with user selection form -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Select Users to Add</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @foreach($users as $user)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{$user->id}}" name="members[]" id="user{{$user->id}}">
+                                <label class="form-check-label" for="user{{$user->id}}">{{$user->name}}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="addUsersBtn">Add Selected Users</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to add selected users to the list -->
+<script>
+    $(document).ready(function() {
+        // When the "Add Selected Users" button is clicked, add the selected users to the list
+        $('#addUsersBtn').click(function() {
+            // Get the selected users
+            var selectedUsers = $('input[name="members[]"]:checked').map(function() {
+                return $(this).val();
+            }).get();
+
+            // Add the selected users to the list
+            $.each(selectedUsers, function(index, value) {
+                var option = '<option value="' + value + '">' + $('#user' + value).next('.form-check-label').text() + '</option>';
+                $('select[name="members"]').append(option);
+            });
+
+            // Close the modal window
+            $('#userModal').modal('hide');
+        });
+    });
+</script>
+
+              </div>              
+              <div class="form-group">
+                <label for="nom">Chef d'equipe </label>
+                <select name="chef">
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+                </select>              
+                </div>
+              <div class="form-group">
+                <label for="nom">Les axes de recherche</label>
+                @foreach($axes as $axe)
+                <option value="{{$axe->id}}">{{$axe->name}}</option>
+                @endforeach
+              </div>
+              <div class="row">
+        <div class="col-12">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <!-- <input type="submit" value="Create new Project" class="btn btn-success float-right"> -->
+          <button type="submit" class="btn btn-primary">
+                                    {{ __('Create project') }}
+          </button>
+        </div>
+              </form>
+            <!-- /.card-body -->
           </div>
-        </div>
-        <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">#</th>
-                      <th style="width: 10%">Team ID</th>
-                      <th style="width: 30%">Team Members</th>
-                      <th style="width: 30%">Team Name</th>
-                      <th style="width: 20%">Team leader</th>
-                      <!-- <th style="width: 10%" class="text-center">axes</th> -->
-                      <th style="width: 60%"></th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    @foreach($teams as $team)
-                    <td>
-                          #
-                      </td>
-                      <td>
-                        <a>{{$team->id}}</a>
-                        <br/>
-                        <small>
-                        </small>
-                      </td>
-                      <!-- <td> -->
-                        <td></td>
-                          <!-- <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                              </li>
-                          </ul>
-                      </td> -->
-                      <td class="current_project">
-                          <span>
-                          {{$team->nom}}
-                          </span>
-                      </td>
-                       <td class="project-state">
-                            @foreach($users as $user)
-                          @if($user->id == $team->chef_equipe)
-                                                            {{ $user->name }}
-                                                            @endif
-                                                            @endforeach
-                      </td> 
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
-                      @endforeach
-                  </tr>
-                 
-              </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
+          <!-- /.card -->
 
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>

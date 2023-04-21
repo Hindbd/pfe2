@@ -51,7 +51,7 @@ Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'i
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
-// Route::get('/teams',[App\Http\Controllers\team2Controller::class, 'index']);
+Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
 
 // roles 
 Route::middleware('auth')->group(function () {

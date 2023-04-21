@@ -14,8 +14,8 @@ class addProjectController extends Controller
         // $user = DB::table('user');
         // $users=User::all();
         $users = DB::table('users')
-        ->where('role', '=', 'Enseignat')
-        ->orWhere('role', '=', 'Encadrant')
+        ->where('role', '=', 'Enseignant')
+        ->orWhere('role', '=', 'Doctorant')
         ->get();
         return view('project-add',['users'=>$users]);
 }
