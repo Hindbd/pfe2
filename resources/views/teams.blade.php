@@ -180,7 +180,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="profile.blade.php" class="d-block">{{$user->name}}</a>
+          <a href="profile.blade.php" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -396,8 +396,9 @@
                         <small>
                         </small>
                       </td>
-                      <td>
-                          <ul class="list-inline">
+                      <!-- <td> -->
+                        <td></td>
+                          <!-- <ul class="list-inline">
                               <li class="list-inline-item">
                                   <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
                               </li>
@@ -411,17 +412,18 @@
                                   <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
                               </li>
                           </ul>
-                      </td>
+                      </td> -->
                       <td class="current_project">
                           <span>
                           {{$team->nom}}
                           </span>
                       </td>
                        <td class="project-state">
-                          <span class="">@if($user->id == $team->chef_equipe)
+                            @foreach($users as $user)
+                          @if($user->id == $team->chef_equipe)
                                                             {{ $user->name }}
                                                             @endif
-                          </span>
+                                                            @endforeach
                       </td> 
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">

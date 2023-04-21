@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Projects</title>
+  <title>Admin | Kanban Board</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <style>
@@ -27,8 +31,7 @@
     } */
   </style>
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -38,7 +41,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="../index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -76,7 +82,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -92,7 +98,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -108,7 +114,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -218,6 +224,22 @@
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
                 Calendar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="gallery" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="kanban" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Kanban Board
               </p>
             </a>
           </li>
@@ -336,129 +358,191 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  <div class="content-wrapper kanban">
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1>Projects</h1>
+            <h1>Kanban Board</h1>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 d-none d-sm-block">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Projects</li>
+              <li class="breadcrumb-item active">Kanban Board</li>
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
-    <section class="content">
+    <section class="content pb-3">
+      <div class="container-fluid h-100">
+        <div class="card card-row card-secondary">
+          <div class="card-header">
+            <h3 class="card-title">
+              Backlog
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="card card-info card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create Labels</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#3</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox1" disabled>
+                  <label for="customCheckbox1" class="custom-control-label">Bug</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox2" disabled>
+                  <label for="customCheckbox2" class="custom-control-label">Feature</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox3" disabled>
+                  <label for="customCheckbox3" class="custom-control-label">Enhancement</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox4" disabled>
+                  <label for="customCheckbox4" class="custom-control-label">Documentation</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox5" disabled>
+                  <label for="customCheckbox5" class="custom-control-label">Examples</label>
+                </div>
+              </div>
+            </div>
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create Issue template</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#4</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox1_1" disabled>
+                  <label for="customCheckbox1_1" class="custom-control-label">Bug Report</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" type="checkbox" id="customCheckbox1_2" disabled>
+                  <label for="customCheckbox1_2" class="custom-control-label">Feature Request</label>
+                </div>
+              </div>
+            </div>
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create PR template</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#6</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card card-light card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create Actions</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#7</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Projects</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+              </div>
+              <div class="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  Aenean commodo ligula eget dolor. Aenean massa.
+                  Cum sociis natoque penatibus et magnis dis parturient montes,
+                  nascetur ridiculus mus.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">
-                          ID
-                      </th>
-                      <th style="width: 20%">
-                          Project Name
-                      </th>
-                      <th style="width: 20%">
-                          Responsable Projet
-                      </th>
-                      <th>
-                          Description
-                      </th>
-                      <!-- <th style="width: 8%" class="text-center">
-                          
-                      </th> -->
-                      <th style="width: 10%">
-                        Date debut
-                      </th>
-                      <th style="width: 10%">
-                        Date fin
-                      </th>
-                      <th></th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                  @foreach($projects as $project)
-                      <td>
-                          {{$project->id}}
-                      </td>
-                      <td>
-                          <a>
-                            {{$project->nom}}
-                          </a>
-                          <br/>
-                      </td>
-                      <td>
-                      @if($user->id == $project->responsable_prj)
-                      {{ $user->name }}
-                      @endif
-                      </td>
-                      <td class="project_progress">
-                        {{$project->description}}
-                      </td>
-                      <td class="project-state">
-                        {{$project->date_debut}}
-                      </td>
-                      <td class="project-state">
-                        {{$project->date_fin}}
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="project-edit">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
-                      @endforeach
-                  </tr>
-                  
-                        
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
+        <div class="card card-row card-primary">
+          <div class="card-header">
+            <h3 class="card-title">
+              To Do
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create first milestone</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#5</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.card-body -->
+        <div class="card card-row card-default">
+          <div class="card-header bg-info">
+            <h3 class="card-title">
+              In Progress
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="card card-light card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Update Readme</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#2</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  Aenean commodo ligula eget dolor. Aenean massa.
+                  Cum sociis natoque penatibus et magnis dis parturient montes,
+                  nascetur ridiculus mus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-row card-success">
+          <div class="card-header">
+            <h3 class="card-title">
+              Done
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="card-title">Create repo</h5>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-link">#1</a>
+                  <a href="#" class="btn btn-tool">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- /.card -->
-
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -469,12 +553,24 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Ekko Lightbox -->
+<script src="../plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- Filterizr-->
+<script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+
+  })
+</script>
 </body>
 </html>

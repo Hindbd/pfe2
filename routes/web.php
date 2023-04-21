@@ -64,13 +64,13 @@ Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 's
 Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-add');
 
-Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index2']);
+Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);
-Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
+// Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
-// Route::get('/teams',[App\Http\Controllers\team2Controller::class, 'index']);
+Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
 
 // roles 
 Route::middleware('auth')->group(function () {

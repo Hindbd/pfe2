@@ -5,14 +5,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Project;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class addProjectController extends Controller
 {
     public function index(){
-        $user=Auth::user();
-        return view('project-add',['user'=>$user]);
-        
+        // $user = DB::table('user');
+        // $users=User::all();
+        $users = DB::table('users')
+        ->where('role', '=', 'Enseignant')
+        ->orWhere('role', '=', 'Doctorant')
+        ->get();
+        return view('project-add',['users'=>$users]);
 }
 public function store(Request $request): RedirectResponse
 {
