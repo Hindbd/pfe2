@@ -80,15 +80,23 @@
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           @if (Route::has('login') && Auth::check())
-                    @foreach($admin as $adminUser)
-                          @if($user->role == $adminUser->role)
+                          @if($user->role == 'admin')
                           <div class="top-right links">
-                              <a href="{{ url('/dashboard') }}">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/adminDashboard') }}">{{Auth::user()->name}}</a>
                           </div>
-                          @else
-                          <p>not admin</p>
+                          @elseif($user->role == 'prof')
+                          <div class="top-right links">
+                              <a href="{{ url('/profDashboard') }}">{{Auth::user()->name}}</a>
+                          </div>
+                          @elseif($user->role == 'doctorant')
+                          <div class="top-right links">
+                              <a href="{{ url('/doctorantDashboard') }}">{{Auth::user()->name}}</a>
+                          </div>
+                          @elseif($user->role == 'partenaire')
+                          <div class="top-right links">
+                              <a href="{{ url('/partenaireDashboard') }}">{{Auth::user()->name}}</a>
+                          </div>
                           @endif
-                    @endforeach
             @elseif (Route::has('login') && !Auth::check())
               <div class="container-fluid">
                 <div class="row top-right links">
@@ -590,11 +598,14 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <!-- <form action="{{ route('contact') }}" method="post" role="form" class="php-email-form"> -->
+              <form action="{{ route('contact') }}" method="post" >
+              @csrf
+
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="nom" class="form-control" id="nom" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
@@ -603,17 +614,17 @@
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <input type="text" class="form-control" name="sujet" id="sujet" required>
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
+              <!-- <div class="my-3"> -->
+                <!-- <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
+                <div class="sent-message">Your message has been sent. Thank you!</div> -->
+              <!-- </div> -->
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>

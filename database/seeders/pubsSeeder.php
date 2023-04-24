@@ -20,14 +20,14 @@ class pubsSeeder extends Seeder
         // pubs::factory() ->count(10)
         //                  ->create();   
         
-            $faker = Faker::create();
-                DB::table('pubs')->insert([
-                    'name' => $faker->name,
-                    'titre' => $faker->text(20),
-                    'contenu' => $faker->text
-                    ,
-                ]);
-        } 
+        //     $faker = Faker::create();
+        //         DB::table('pubs')->insert([
+        //             'name' => $faker->name,
+        //             'titre' => $faker->text(20),
+        //             'contenu' => $faker->text
+        //             ,
+        //         ]);
+        // } 
     }
     // $pubs = new pubs;
     // $pubs->id= 1;
@@ -37,3 +37,4 @@ class pubsSeeder extends Seeder
     // $pubs->date = '2023-03-11 10:30:00'; // Manually set the date to March 11, 2023 at 10:30:00 AM
     // $pubs->save();
     // }
+}

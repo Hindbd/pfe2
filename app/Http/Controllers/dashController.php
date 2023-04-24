@@ -12,8 +12,20 @@ class dashController extends Controller
     {
         $user = Auth::user();
         return view('adminDashboard',['user'=>$user]);
-
-        
-
+    }
+    public function index2()
+    {
+        $user = Auth::user();
+        return view('adminDashboard',['user'=>$user]);
+    }
+    public function index3()
+    {
+        $user = Auth::user();
+        return view('adminDashboard',['user'=>$user]);
+    }
+    public function index4()
+    {
+        $user = Auth::user();
+        return view('adminDashboard',['user'=>$user]);
     }
 }

@@ -56,10 +56,10 @@
 
                             <div class="col-md-6">
                             <select id="role" name="role">
-                                <option value="Enseignant">Enseignant</option>
-                                <option value="Doctorant">Doctorant</option>
+                                <option value="prof">Professeur</option>
+                                <option value="doctorant">Doctorant</option>
                                 <option value="Partenaire">Partenaire</option>
-                                <option value="Autre">Autre</option>
+                                <!-- <option value="Autre">Autre</option> -->
                             </select>
                                 @error('statut')
                                     <span class="invalid-feedback" role="alert">

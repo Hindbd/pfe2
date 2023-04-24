@@ -24,30 +24,34 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
+Route::post('/',[App\Http\Controllers\Controller::class, 'storeContact'])->name('contact');
+Route::get('/',[App\Http\Controllers\Controller::class, 'create'])->name('contact');
 Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
+Route::get('/home',[App\Http\Controllers\Controller::class, 'index']);
 // Route::get('/adminDashboard' , [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/profDashboard' , [App\Http\Controllers\profDashController::class, 'index']);
 Route::get('/doctorantDashboard' , [App\Http\Controllers\docDashController::class, 'index']);
 Route::get('/partenaireDashboard' , [App\Http\Controllers\partDashController::class, 'index']);
-Route::get('/home',[App\Http\Controllers\dashboardController::class, 'index'])->name('home');
-Route::get('/dashboard',[App\Http\Controllers\dashController::class, 'index']);
+// Route::get('/home',[App\Http\Controllers\dashboardController::class, 'index'])->name('home');
+// Route::get('/dashboard',[App\Http\Controllers\dashController::class, 'index']);
 
-Route::middleware('auth')->group(function () {
+// roles 
+ Route::middleware('auth')->group(function () {
 
-    Route::middleware('admin')->group(function () {
-        Route::get('/adminDashboard', [App\Http\Controllers\dashController::class, 'index']);
+     Route::middleware('admin')->group(function () {
+         Route::get('/adminDashboard', [App\Http\Controllers\dashController::class, 'index']);
+      });
+     Route::middleware('Enseignant')->group(function () {
+         Route::get('/profDashboard', [App\Http\Controllers\dashController::class, 'index2']);
+     });
+     Route::middleware('Doctorant')->group(function () {
+         Route::get('/doctorantDashboard', [App\Http\Controllers\dashController::class, 'index3']);
+     });
+     Route::middleware('Partenaire')->group(function () {
+         Route::get('/partenaireDashboard', [App\Http\Controllers\dashController::class, 'index4']);
     });
-    Route::middleware('Enseignant')->group(function () {
-        Route::get('/profDashboard', [App\Http\Controllers\profDashController::class, 'index']);
-    });
-    Route::middleware('Doctorant')->group(function () {
-        Route::get('/doctorantDashboard', [App\Http\Controllers\docDashController::class, 'index']);
-    });
-    Route::middleware('Partenaire')->group(function () {
-        Route::get('/partenaireDashboard', [App\Http\Controllers\partDashController::class, 'index']);
-    });
-
-});
+ });
+ 
 
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
 Route::get('/timeline',[App\Http\Controllers\TimelineController::class, 'index']);
@@ -71,12 +75,5 @@ Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'i
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
-
-// roles 
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/enseignant/dashboard', [EnseignantController::class, 'index'])->name('enseignant.dashboard');
-    Route::get('/membre/dashboard', [MembreController::class, 'index'])->name('membre.dashboard');
-});
 
 
