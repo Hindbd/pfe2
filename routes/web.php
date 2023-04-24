@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
 Route::post('/',[App\Http\Controllers\Controller::class, 'storeContact'])->name('contact');
-Route::get('/',[App\Http\Controllers\Controller::class, 'create'])->name('contact');
+// Route::get('/',[App\Http\Controllers\Controller::class, 'create'])->name('contact');
 Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
 Route::get('/home',[App\Http\Controllers\Controller::class, 'index']);
 // Route::get('/adminDashboard' , [App\Http\Controllers\HomeController::class, 'index']);
@@ -70,7 +70,7 @@ Route::post('/project-add', [App\Http\Controllers\addProjectController::class, '
 
 Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index']);
 Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);
-// Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
+Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);

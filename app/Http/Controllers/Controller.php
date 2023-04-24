@@ -15,6 +15,7 @@ class Controller extends BaseController
 {
     // use AuthorizesRequests, ValidatesRequests;
     public function index(){
+        // $msgs=Contact::all();
         $user = Auth::user();
          return view('mainHome',['user'=>$user]);
     }
