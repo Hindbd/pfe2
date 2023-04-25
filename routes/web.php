@@ -75,5 +75,11 @@ Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
+//axes
+Route::get('/add-axe',[App\Http\Controllers\TeamsController::class, 'index3']);
+Route::post('/add-axe',[App\Http\Controllers\TeamsController::class, 'storeAxe'])->name('axe-add');
+Route::get('/axes',[App\Http\Controllers\TeamsController::class, 'index4']);
+
+
 
 

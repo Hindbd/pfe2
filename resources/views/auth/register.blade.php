@@ -121,7 +121,7 @@
                         </div>
                         <script>
                                   $(document).on('change','#role',function() {
-                                    if($(role).val()=='Doctorant'){
+                                    if($(role).val()=='doctorant'){
                                         $("#doctorant_only").show();
                                     }
                                     else{

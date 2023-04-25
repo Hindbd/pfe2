@@ -17,7 +17,7 @@ class Enseignant
     public function handle(Request $request, Closure $next): Response
     {
         {
-            if (Auth::user()->role === 'Enseignant') {
+            if (Auth::user()->role === 'prof') {
                 return $next($request);
             }
             

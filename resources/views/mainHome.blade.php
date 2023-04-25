@@ -92,7 +92,7 @@
                           <div class="top-right links">
                               <a href="{{ url('/doctorantDashboard') }}">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == 'partenaire')
+                          @elseif($user->role == 'Partenaire')
                           <div class="top-right links">
                               <a href="{{ url('/partenaireDashboard') }}">{{Auth::user()->name}}</a>
                           </div>

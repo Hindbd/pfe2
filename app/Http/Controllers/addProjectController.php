@@ -38,7 +38,7 @@ public function store(Request $request): RedirectResponse
 
 
 
-    return redirect('index2');
+    return redirect('#');
 }
 public function index2(){
     $user=Auth::user();

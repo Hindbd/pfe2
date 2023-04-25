@@ -210,6 +210,7 @@
                   <p>Ajouter Projet</p>
                 </a>
               </li>
+              
               <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -245,6 +246,7 @@
                   <p>Ajouter Equipe</p>
                 </a>
               </li>
+              
               <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -286,6 +288,28 @@
               <i class="far fa-address-book nav-icon"></i>
               <p>Contacts</p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Les Axes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="axes" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add-axe" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Axe</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('logout') }}"onclick="event.preventDefault();
