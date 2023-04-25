@@ -57,4 +57,8 @@ public function index4(){
     return view('axes',['user'=>$user,'axes'=>$axes]);
 }
 
+//event 
+public function indexEvent(){
+    return view('event-add');
+}
 }
