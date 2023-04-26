@@ -388,7 +388,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('axe-add') }}">
+              <form method="POST" action="{{ route('event-add') }}">
               @csrf
               <div class="form-group">
                 <label for="nom">Titre d'evenement</label>

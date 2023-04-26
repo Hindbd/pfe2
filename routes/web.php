@@ -77,12 +77,18 @@ Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
 Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
 
 //axes
-Route::get('/add-axe',[App\Http\Controllers\TeamsController::class, 'index3']);
+Route::get('/add-axe',[App\Http\Controllers\TeamsController::class, 'indexAxeAdd']);
 Route::post('/add-axe',[App\Http\Controllers\TeamsController::class, 'storeAxe'])->name('axe-add');
-Route::get('/axes',[App\Http\Controllers\TeamsController::class, 'index4']);
+Route::get('/axes',[App\Http\Controllers\TeamsController::class, 'indexAxeShow']);
 
 //events
-Route::get('/event-add',[App\Http\Controllers\TeamsController::class, 'indexEvent']);
+Route::get('/event-add',[App\Http\Controllers\TeamsController::class, 'indexEventAdd']);
+Route::post('/event-add',[App\Http\Controllers\TeamsController::class, 'storeEvent'])->name('event-add');
+
+
+//pubs
+Route::get('/pubs-add',[App\Http\Controllers\TeamsController::class, 'indexPubs']);
+
 
 
 

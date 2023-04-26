@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Axes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Events\Registered;
@@ -16,8 +18,10 @@ class Controller extends BaseController
     // use AuthorizesRequests, ValidatesRequests;
     public function index(){
         // $msgs=Contact::all();
+         $axes = Axes::take(5)->get();
+        // $axes=Axes::all();
         $user = Auth::user();
-         return view('mainHome',['user'=>$user]);
+         return view('mainHome',['user'=>$user,'axes'=>$axes]);
     }
     public function storeContact(Request $request): RedirectResponse{
         $request->validate([

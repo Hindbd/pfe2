@@ -172,15 +172,19 @@
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
       <span class="brand-text font-weight-semibold">LabSIV</span>
     </a>
-    <!-- Sidebar -->
-    <div class="sidebar">
+     <!-- Sidebar -->
+     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          @if($user->img='NULL')
+          <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
+          @else
+          <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
+          @endif
         </div>
         <div class="info">
-          <a href="profile.blade.php" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{$user->name}}</a>
         </div>
       </div>
 
@@ -189,13 +193,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="./index2" class="nav-link active">
+           <li class="nav-item">
+            <a href="adminDashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
+          </li> 
           </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
@@ -206,12 +211,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="timeline" class="nav-link">
+          <a href="#" class="nav-link">
               <i class="nav-icon fas fa-timeline"></i>
               <p>
-                Timeline
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter publication</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="calendar" class="nav-link">
@@ -220,35 +240,6 @@
                 Calendar
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="mailbox" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="compose" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="read-mail" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -261,19 +252,20 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
+                  <p>Voir tout</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="project-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Project</p>
+                  <p>Ajouter Projet</p>
                 </a>
               </li>
-              <li class="nav-item">
+              
+              <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Edit Project</p>
+                  <p>Modifier Projet</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -281,13 +273,14 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Details</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
-              <p>Teams
+              <p>Equipes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -295,21 +288,50 @@
               <li class="nav-item">
                 <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
+                  <p>Voir tout</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-add" class="nav-link">
+                <a href="team-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Team</p>
+                  <p>Ajouter Equipe</p>
                 </a>
               </li>
-              <li class="nav-item">
+              
+              <!-- <li class="nav-item">
                 <a href="project-edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit Team</p>
                 </a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Evénments
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="events" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
               </li>
+              <li class="nav-item">
+                <a href="event-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter événement</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="project-edit" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Team</p>
+                </a>
+              </li> -->
             </ul>
           </li>
           <li class="nav-item">
@@ -317,6 +339,28 @@
               <i class="far fa-address-book nav-icon"></i>
               <p>Contacts</p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Les Axes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="axes" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add-axe" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Axe</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('logout') }}"onclick="event.preventDefault();
@@ -332,7 +376,6 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -400,8 +443,9 @@
                   </tr>
               </thead>
               <tbody>
+              @foreach($axes as $axe)
+
                   <tr>
-                  @foreach($axes as $axe)
 
                       <td>
                           
@@ -430,8 +474,9 @@
                               Delete
                           </a>
                       </td> -->
-                      @endforeach
                   </tr>
+                  @endforeach
+
                   
                         
                       </td>

@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Axes;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Equipe;
+use App\Models\Events;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\ViewErrorBag;
 
 class TeamsController extends Controller
 {
@@ -32,7 +33,7 @@ class TeamsController extends Controller
         ->get();
         return view('add-team',['users'=>$users,'axes'=>$axes]);
     }
-    public function index3(){
+    public function indexAxeAdd(){
         
         return view('axe-add');
     }
@@ -50,7 +51,7 @@ class TeamsController extends Controller
     ]);
     return redirect('add-axe');
 }
-public function index4(){
+public function indexAxeShow(){
     // $axes = DB::table('axes');
     $axes=Axes::all();
     $user=Auth::user();
@@ -58,7 +59,36 @@ public function index4(){
 }
 
 //event 
-public function indexEvent(){
+public function indexEventAdd(){
     return view('event-add');
 }
+public function storeEvent(Request $request): RedirectResponse
+{
+    $request->validate([
+        'titre' => ['required', 'string', 'max:255'],
+        'contenu' => ['required', 'string', 'max:255'],
+        'lieu' => ['required', 'string', 'max:255'],
+    ]);
+
+    $Event = Events::create([
+        'titre' => $request->titre,
+        'description' => $request->contenu,
+        'Lieu'=> $request->lieu,
+        'date_debut'=>$request->date_debut,
+        'date_fin'=>$request->date_fin
+
+    ]);
+    return redirect('events');
 }
+public function indexEventShow(){
+    return view('events');
+}
+
+//pubs
+
+public function indexPubs(){
+    return View('pubs-add');
+}
+}
+
+

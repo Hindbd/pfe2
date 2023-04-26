@@ -82,19 +82,19 @@
           @if (Route::has('login') && Auth::check())
                           @if($user->role == 'admin')
                           <div class="top-right links">
-                              <a href="{{ url('/adminDashboard') }}">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == 'prof')
                           <div class="top-right links">
-                              <a href="{{ url('/profDashboard') }}">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == 'doctorant')
                           <div class="top-right links">
-                              <a href="{{ url('/doctorantDashboard') }}">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == 'Partenaire')
                           <div class="top-right links">
-                              <a href="{{ url('/partenaireDashboard') }}">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
                           @endif
             @elseif (Route::has('login') && !Auth::check())
@@ -194,51 +194,16 @@
 
             <div class="accordion-list">
               <ul>
-                <li>
-                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Intelligence Artificielle <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                    <p>
-                    Comprendre les algorithmes d'apprentissage automatique, l'apprentissage en profondeur, le traitement du langage naturel et la vision par ordinateur.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Sécurité Informatique <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                    Comprendre la sécurité des données, la détection des attaques informatiques et la confidentialité.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Traitement d'images <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                    Comprendre la segmentation, la classification, la detection de tumeurs et la reconstruction d'images. 
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed"><span>04</span> Systemes Embarqués <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                    Comprendre les réseaux de capteurs sans fil, les applications IoT et la conception de circuits integrés. 
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5" class="collapsed"><span>05</span> Analyse De Données <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                    Comprendre la fouille des données, l'analyse de séries chronologiques et la visualisation de données. 
-                    </p>
-                  </div>
-                </li>
-
+              @foreach($axes as $axe)
+                  <li>
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-{{$loop->iteration}}"><span>0{{$axe->id}}</span> {{$axe->nom}} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-{{$loop->iteration}}" class="collapse " data-bs-parent=".accordion-list">
+                      <p>
+                        {{$axe->contenu}}
+                      </p>
+                    </div>
+                  </li>
+              @endforeach
               </ul>
             </div>
 
