@@ -80,19 +80,19 @@
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           @if (Route::has('login') && Auth::check())
-                          @if($user->role == 'admin')
+                          @if($user->role == '4')
                           <div class="top-right links">
                               <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == 'prof')
+                          @elseif($user->role == '1')
                           <div class="top-right links">
                               <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == 'doctorant')
+                          @elseif($user->role == '2')
                           <div class="top-right links">
                               <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == 'Partenaire')
+                          @elseif($user->role == '3')
                           <div class="top-right links">
                               <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
                           </div>

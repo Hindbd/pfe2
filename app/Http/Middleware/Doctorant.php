@@ -17,7 +17,7 @@ class Doctorant
     public function handle(Request $request, Closure $next): Response
     {
         {
-            if (Auth::user()->role === 'doctorant') {
+            if (Auth::user()->role == 2) {
                 return $next($request);
             }
             

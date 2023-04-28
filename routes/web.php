@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/login', function () {
 //     return view('mainHome');
 // });
 
-// Route::get('/mainHome', function () {
-//     return view('mainHome');
-// });
+
 Auth::routes();
 
 Route::get('/',[App\Http\Controllers\Controller::class, 'index']);

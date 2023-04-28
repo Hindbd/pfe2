@@ -16,54 +16,133 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('role'); 
-            $table->unsignedBigInteger('encadrant')->nullable()->default(NULL);
+            $table->integer('role'); 
+            // $table->unsignedBigInteger('encadrant')->nullable()->default(NULL);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('img')->nullable()->default(NULL);
+            // $table->string('img')->nullable()->default(NULL);
             $table->timestamps();
         
         });
 
-        Schema::create('affect_equipe_user', function (Blueprint $table) {
+        Schema::create('affect_equipe_member', function (Blueprint $table) {
             $table->id();
             $table->integer("FK_user");
             $table->integer("FK_equipe");
 
-            $table->foreign('FK_user')
+            $table->foreign('FK_member')
             ->references('id')
-            ->on('users');
+            ->on('member');
             $table->foreign('FK_equipe')
             ->references('id')
             ->on('equipes');  
         
         });
-        Schema::create('affect_equipe_axe', function (Blueprint $table) {
+        Schema::create('affect_pub_member', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("FK_axe");
-            $table->integer("FK_equipe");
+            $table->integer("FK_pub");
+            $table->integer("FK_member");
+
+            $table->foreign('FK_member')
+            ->references('id')
+            ->on('member');
+            $table->foreign('FK_pub')
+            ->references('id')
+            ->on('pubs');  
+        
+        });
+
+        Schema::create('affect_event_member', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger("FK_event");
+            $table->integer("FK_member");
+
+            $table->foreign('FK_event')
+            ->references('id')
+            ->on('events');
+            $table->foreign('FK_member')
+            ->references('id')
+            ->on('members');  
+        
+        });
+        Schema::create('affect_prj_member', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger("FK_prj");
+            $table->integer("FK_member");
+
+            $table->foreign('FK_prj')
+            ->references('id')
+            ->on('projects');
+            $table->foreign('FK_member')
+            ->references('id')
+            ->on('members');  
+        
+        });
+        Schema::create('affect_event_axe', function (Blueprint $table) {
+            $table->id();
+            $table->integer("FK_axe");
+            $table->bigInteger("FK_event");
 
             $table->foreign('FK_axe')
             ->references('id')
             ->on('axes');
-            $table->foreign('FK_equipe')
-            ->references('id')
-            ->on('equipes');  
-        
-        });
-        Schema::create('affect_event_user', function (Blueprint $table) {
-            $table->id();
-            $table->integer("FK_user");
-            $table->bigInteger("FK_event");
-
-            $table->foreign('FK_user')
-            ->references('id')
-            ->on('users');
             $table->foreign('FK_event')
             ->references('id')
             ->on('events');  
         
+        });
+        Schema::create('affect_event_pub', function (Blueprint $table) {
+            $table->id();
+            $table->integer("FK_pub");
+            $table->bigInteger("FK_event");
+
+            $table->foreign('FK_pub')
+            ->references('id')
+            ->on('pubs');
+            $table->foreign('FK_event')
+            ->references('id')
+            ->on('events');  
+        
+        });
+        Schema::create('affect_axe_pub', function (Blueprint $table) {
+            $table->id();
+            $table->integer("FK_pub");
+            $table->bigInteger("FK_axe");
+
+            $table->foreign('FK_pub')
+            ->references('id')
+            ->on('pubs');
+            $table->foreign('FK_axe')
+            ->references('id')
+            ->on('axes');  
+ 
+        });
+        Schema::create('affect_axe_prj', function (Blueprint $table) {
+            $table->id();
+            $table->integer("FK_prj");
+            $table->bigInteger("FK_axe");
+
+            $table->foreign('FK_prj')
+            ->references('id')
+            ->on('projects');
+            $table->foreign('FK_axe')
+            ->references('id')
+            ->on('axes');  
+ 
+        });
+        Schema::create('affect_event_prj', function (Blueprint $table) {
+            $table->id();
+            $table->integer("FK_prj");
+            $table->bigInteger("FK_event");
+
+            $table->foreign('FK_prj')
+            ->references('id')
+            ->on('projects');
+            $table->foreign('FK_event')
+            ->references('id')
+            ->on('events');  
+ 
         });
 
     }

@@ -16,7 +16,7 @@ class Partenaire
      */
     public function handle(Request $request, Closure $next): Response
 {
-            if (Auth::user()->role === 'Partenaire') {
+            if (Auth::user()->role == 3) {
                 return $next($request);
             }
             

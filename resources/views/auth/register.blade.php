@@ -56,10 +56,9 @@
 
                             <div class="col-md-6">
                             <select id="role" name="role">
-                                <option value="prof">Professeur</option>
-                                <option value="doctorant">Doctorant</option>
-                                <option value="Partenaire">Partenaire</option>
-                                <!-- <option value="Autre">Autre</option> -->
+                                <option value="1">Enseignant</option>
+                                <option value="2">Doctorant</option>
+                                <option value="3">Partenaire</option>
                             </select>
                                 @error('statut')
                                     <span class="invalid-feedback" role="alert">
@@ -121,7 +120,7 @@
                         </div>
                         <script>
                                   $(document).on('change','#role',function() {
-                                    if($(role).val()=='doctorant'){
+                                    if($(role).val()=='2'){
                                         $("#doctorant_only").show();
                                     }
                                     else{
