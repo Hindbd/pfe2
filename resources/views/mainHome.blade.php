@@ -6,13 +6,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>LabSIV | Home</title>
+  <title>LabSIV | Acceuil</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -55,12 +55,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">Á propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Publications</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Events</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Projects</a></li>
-          <li><a class="nav-link scrollto" href="#team">Teams</a></li>
-          <li class="dropdown"><a href="#why-us"><span>Domains</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="#portfolio">Evénements</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Projets</a></li>
+          <li><a class="nav-link scrollto" href="#team">Equipes</a></li>
+          <li class="dropdown"><a href="#why-us"><span>Axes de recherche</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Intelligence Artificielle</a></li>
               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -78,23 +78,23 @@
               <li><a href="#">Analyse De Données</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contacter</a></li>
           @if (Route::has('login') && Auth::check())
                           @if($user->role == '4')
                           <div class="top-right links">
-                              <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == '1')
                           <div class="top-right links">
-                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto ">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == '2')
                           <div class="top-right links">
-                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == '3')
                           <div class="top-right links">
-                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto ">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
                           </div>
                           @endif
             @elseif (Route::has('login') && !Auth::check())
@@ -121,10 +121,10 @@
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Laboratoire des Systemes Informatiques et Vision</h1>
           <h2>Le laboratoire de recherche en informatique de la <span title="Faculté des Sciences d'Agadir" style="color:bisque">FSA</span></h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
+          <!-- <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#portfolio" class="btn-get-started scrollto">Explore</a>
-            <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
-          </div>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div> -->
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
@@ -141,7 +141,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About Us</h2>
+          <h2>Á Propos De Nous</h2>
         </div>
 
         <div class="row content">
@@ -159,7 +159,7 @@
             et collaborations en cours. Nous aborderons egalement les publications et realisations du laboratoire, 
             ainsi que les perspectives et projets futurs. -->
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
+            <a href="#" class="btn-learn-more">En savoir plus</a>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
@@ -186,7 +186,7 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
-              <h3>Nos axes de <strong>Recherche</strong></h3>
+              <h3>Nos <strong>Axes de Recherche</strong></h3>
               <p>
               Le LabSIV se concentre sur des axes de recherche dans les domaines de l'informatique et de la vision qui ont un impact significatif sur la societé et l'industrie
               </p>
@@ -220,7 +220,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Our Latest Publications</h2>
+          <h2>Nos Dernières Publications</h2>
           <p>Ces publications et realisations témoignent de l'excellence de la recherche menée au sein du LabSIV et de l'impact de ses travaux dans les domaines de l'informatique.</p>
         </div>
 
@@ -230,7 +230,7 @@
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="">Lorem Ipsum</a></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-              <a href="#" class="btn-learn-more">Read More</a>
+              <a href="#" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
 
@@ -239,7 +239,7 @@
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4><a href="">Sed ut perspici</a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            <a href="#" class="btn-learn-more">Read More</a>
+            <a href="#" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
 
@@ -248,7 +248,7 @@
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4><a href="">Magni Dolores</a></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            <a href="#" class="btn-learn-more">Read More</a>
+            <a href="#" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
 
@@ -257,7 +257,7 @@
               <div class="icon"><i class="bx bx-layer"></i></div>
               <h4><a href="">Nemo Enim</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            <a href="#" class="btn-learn-more">Read More</a>
+            <a href="#" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
 
@@ -279,7 +279,7 @@
             favoriser la mise en œuvre de projets de recherche ambitieux</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Enroll Now</a>
+            <a class="cta-btn align-middle" href="#contact">Postulez Maintenant</a>
           </div>
         </div>
 
@@ -404,7 +404,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Our Latest Created Teams</h2>
+          <h2>Nos Dernières équipes créées</h2>
           <p>Chaque equipe de recherche est dirigée par un chercheur principal expérimenté et est composée
           de doctorants, de post-doctorants et de stagiaires de recherche. Les equipes de recherche collaborent 
           souvent entre elles sur des projets interdisciplinaires pour developper des solutions innovantes dans 
@@ -417,11 +417,11 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info ">
-                <span>Led by</span>
+                <span>Dirigé par</span>
                 <h4>Walter White</h4>
                 <p>a brief description about the project</p>
                 <div class="social">
-                  <a href="#" class="btn-learn-more">Read More</a>
+                  <a href="#" class="btn-learn-more">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -431,11 +431,11 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <span>Led by</span>
+                <span>Dirigé par</span>
                 <h4>Sarah Jhonson</h4>
                 <p>a brief description about the project</p>
                 <div class="social">
-                  <a href="#" class="btn-learn-more">Read More</a>
+                  <a href="#" class="btn-learn-more">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -445,11 +445,11 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <span>Led by</span>
+                <span>Dirigé par</span>
                 <h4>Wilian Anderson</h4>
                 <p>a brief description about the project</p>
                 <div class="social">
-                  <a href="#" class="btn-learn-more">Read More</a>
+                  <a href="#" class="btn-learn-more">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -459,11 +459,11 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <span>Led by</span>
+                <span>Dirigé par</span>
                 <h4>Amanda Jepson </h4>
                 <p>a brief description about the project</p>
                 <div class="social">
-                  <a href="#" class="btn-learn-more">Read More</a>
+                  <a href="#" class="btn-learn-more">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -488,7 +488,7 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3 class="fw-bold">Apprentissage en profondeur</h3>
-              <span>Domains: ...</span><hr>
+              <span>Axes de recherche inclus: ...</span><hr>
               <p>le LabSIV continuera a explorer les methodes d'apprentissage en 
               profondeur pour ameliorer les performances de reconnaissance de formes, de vision par ordinateur 
               et de robotique. Les projets futurs incluent l'application de ces methodes á des problemes 
@@ -500,7 +500,7 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
               <h3 class="fw-bold">Analyse d'images medicales</h3>
-              <span>Domains: ...</span><hr>
+              <span>Axes de recherche inclus: ...</span><hr>
               <p>le LabSIV se concentrera sur l'analyse d'images medicales pour 
               ameliorer le diagnostic et le traitement des maladies. Les projets futurs incluent l'application 
               de l'apprentissage en profondeur a la segmentation d'images medicales et á la classification des 
@@ -512,7 +512,7 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
               <h3 class="fw-bold">Collaboration avec l'industrie</h3>
-              <span>Domains: ...</span><hr>
+              <span>Axes de recherche inclus: ...</span><hr>
               <p>le LabSIV collaborera avec des entreprises de l'industrie et des universites de renom dans le monde entier, 
               notamment en France. Ces collaborations ont permis de mettre en place des
               programmes de recherche conjoints, des echanges de chercheurs et d'étudiants, 
@@ -532,7 +532,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Contactez-nous si vous souhaitezdevenir partenaire ou stagiaire</p>
         </div>
 
         <div class="row">
@@ -541,7 +541,7 @@
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
+                <h4>Emplacement:</h4>
                 <p>Faculty of Science, Ibn Zohr, Agadir, Morocco</p>
               </div>
 
@@ -553,7 +553,7 @@
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
+                <h4>Tele:</h4>
                 <p>+212 612345678</p>
               </div>
 
@@ -569,16 +569,16 @@
 
               <div class="row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
+                  <label for="name">Nom</label>
                   <input type="text" name="nom" class="form-control" id="nom" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
+                  <label for="name">Email</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
+                <label for="name">Sujet</label>
                 <input type="text" class="form-control" name="sujet" id="sujet" required>
               </div>
               <div class="form-group">
@@ -590,7 +590,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div> -->
               <!-- </div> -->
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Envoyer</button></div>
             </form>
           </div>
 
@@ -604,7 +604,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-newsletter">
+    <!-- <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -615,7 +615,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="footer-top">
       <div class="container">
@@ -624,30 +624,30 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>LabSIV</h3>
             <p>
-              Faculty of Science, Ibn Zohr <br>
+              Faculté des Sciences, Ibn Zohr <br>
               Agadir<br>
-              Morocco<br><br>
-              <strong>Phone:</strong> +212 612345678<br>
+              Maroc<br><br>
+              <strong>Tele:</strong> +212 612345678<br>
               <strong>Email:</strong> labsiv@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Liens Utils</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="mainHome">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="mainHome">Acceuil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">Á Propos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Publications</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Projects</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Events</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Projets</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Evénements</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Nos Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Apply for internship</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Become a partner</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Postuler pour un stage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Devenir partenaire</a></li>
               <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
@@ -655,12 +655,13 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
+            <h4>Nos Réseaux Sociaux</h4>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="#" class="github"><i class="bx bxl-github"></i></a>
             </div>
           </div>
 
@@ -670,14 +671,14 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>LabSIV</span></strong>. All Rights Reserved
+        &copy; 2023 <strong><span>LabSIV</span></strong>.
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">FM&HB</a>
+        Developed by <a href="https://bootstrapmade.com/">F.Moustabchir & H.Bouhedda</a>
       </div>
     </div>
   </footer><!-- End Footer -->

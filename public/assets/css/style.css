@@ -648,10 +648,11 @@ section {
 .team .btn-learn-more {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 20px 40px;
+  padding: 12px 20px;
+  min-width: 150px;
   /* border-radius: 4px; */
   transition: 0.3s;
   line-height: 1;

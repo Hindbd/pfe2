@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$user->name}} | Dashboard</title>
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -144,7 +147,7 @@
                with font-awesome or any other icon font library -->
            <li class="nav-item">
             <a href="doctorantDashboard" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="bi bi-microsoft nav-icon far"></i>
               <p>
                 Dashboard
               </p>
@@ -210,7 +213,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
               <p>Mes Equipes
@@ -219,19 +222,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="current-team" class="nav-link">
+                <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Equipe actuelle</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="former-teams" class="nav-link">
+                <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Equipes anciennes</p>
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
               <i class="far fa-circle nav-icon"></i>

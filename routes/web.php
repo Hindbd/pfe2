@@ -53,10 +53,10 @@ Route::get('/partenaireDashboard' , [App\Http\Controllers\partDashController::cl
 
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
 Route::get('/timeline',[App\Http\Controllers\TimelineController::class, 'index']);
-Route::get('/calendar',[App\Http\Controllers\CalendarController::class, 'index']);
+// Route::get('/calendar',[App\Http\Controllers\CalendarController::class, 'index']);
 Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
-Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
-Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);
+// Route::get('/compose',[App\Http\Controllers\ComposeController::class, 'index']);
+// Route::get('/read-mail',[App\Http\Controllers\readController::class, 'index']);
 Route::get('/contacts',[App\Http\Controllers\ContactsController::class, 'index']);
 
 Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');

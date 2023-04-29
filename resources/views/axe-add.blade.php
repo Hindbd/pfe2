@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Add Project</title>
+  <title>{{$user->name}} | Add Project</title>
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,10 +41,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="../../index3.html" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -69,99 +69,10 @@
         </div>
       </li>
 
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
         </a>
       </li>
     </ul>
@@ -180,25 +91,211 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if(Auth::user()->img='NULL')
+          @if($user->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
+          <a href="profile" class="d-block">{{$user->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
+      @if (Route::has('login') && Auth::check())
+      <!-- ADMIN SIDEBAR -->
+      @if($user->role == '4')
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="adminDashboard" class="nav-link">
+              <i class="bi bi-microsoft nav-icon far"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li> 
+            </li>
+            <li class="nav-item">
+              <a href="profile" class="nav-link">
+                <i class="far fa-user nav-icon"></i>
+                <p>
+                  Profile
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="mailbox" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                  <p>Postulations</p>
+                </a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-timeline"></i>
+                <p>
+                  Mes publications
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="timeline" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voir tout</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pubs-add" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter publication</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi far bi-kanban nav-icon"></i>
+                <p>Projects
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="projects" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voir tout</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="project-add" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter Projet</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="project-edit" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Modifier Projet</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="project-detail" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Project Details</p>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>Equipes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="teams" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voir tout</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="team-add" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter Equipe</p>
+                  </a>
+                </li>
+                
+                <!-- <li class="nav-item">
+                  <a href="project-edit" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Edit Team</p>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+              <i class="bi bi-calendar2-event nav-icon far"></i>
+                <p>Evénments
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="events" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voir tout</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="event-add" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter événement</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="project-edit" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Edit Team</p>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-view-list nav-icon far"></i>
+                <p>Les Axes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="axes" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Voir tout</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="add-axe" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ajouter Axe</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="contacts" class="nav-link">
+                <i class="far fa-address-book nav-icon"></i>
+                <p>Contacts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('logout') }}"onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" class="nav-link">
+                <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+                <p>Logout</p>
+              </a>
+            </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+          </ul>
+        </nav>
+    <!-- DOCTORANT SIDEBAR -->
+    @elseif($user->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
            <li class="nav-item">
-            <a href="adminDashboard" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="doctorantDashboard" class="nav-link">
+            <i class="bi bi-microsoft nav-icon far"></i>
               <p>
                 Dashboard
               </p>
@@ -214,7 +311,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="#" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-timeline"></i>
               <p>
                 Mes publications
@@ -231,23 +328,15 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter publication</p>
+                  <p>Publier</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="calendar" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Calendar
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="bi far bi-kanban nav-icon"></i>
-              <p>Projects
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -255,35 +344,27 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
+                  <p>Projet actuelle</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-add" class="nav-link">
+                <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Projet</p>
-                </a>
-              </li>
-              
-              <!-- <li class="nav-item">
-                <a href="project-edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modifier Projet</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project-detail" class="nav-link">
+                <a href="propose" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Project Details</p>
+                  <p>Proposer un projet</p>
                 </a>
-              </li> -->
+              </li>
             </ul>
           </li>
-          
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
-              <p>Equipes
+              <p>Mes Equipes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -291,79 +372,28 @@
               <li class="nav-item">
                 <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
+                  <p>Equipe actuelle</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="team-add" class="nav-link">
+                <a href="teams" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Equipe</p>
+                  <p>Equipes anciennes</p>
                 </a>
               </li>
-              
-              <!-- <li class="nav-item">
-                <a href="project-edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Edit Team</p>
-                </a>
-              </li> -->
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Evénments
-                <i class="fas fa-angle-left right"></i>
-              </p>
+            <a href="event-signup" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sign up for event</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="events" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="event-add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter événement</p>
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a href="project-edit" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Edit Team</p>
-                </a>
-              </li> -->
-            </ul>
           </li>
           <li class="nav-item">
             <a href="contacts" class="nav-link">
               <i class="far fa-address-book nav-icon"></i>
               <p>Contacts</p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Les Axes
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="axes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="add-axe" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter Axe</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('logout') }}"onclick="event.preventDefault();
@@ -377,7 +407,193 @@
               </form>
         </ul>
       </nav>
+    <!-- ENSEIGNANT SIDEBAR -->
+    @elseif($user->role == '1')
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+           <li class="nav-item">
+            <a href="doctorantDashboard" class="nav-link">
+            <i class="bi bi-microsoft nav-icon far"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li> 
+          </li>
+          <li class="nav-item">
+            <a href="profile" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-timeline"></i>
+              <p>
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Publier</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Projets
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projet actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projets anciennes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="propose" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Proposer un projet</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Equipes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipe actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipes anciennes</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a href="event-signup" class="nav-link">
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Sign up for event</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts" class="nav-link">
+              <i class="far fa-address-book nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+        </ul>
+      </nav>
+    <!-- PARTENAIRE SIDEBAR -->
+    @elseif($user->role == '3')
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="partenaireDashboard" class="nav-link">
+              <i class="bi bi-microsoft nav-icon far"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="profile" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="propose" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Proposer un projet
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="apply" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Participer á un projet
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="event-signup" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Participer á un event
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts" class="nav-link">
+              <i class="far fa-address-book nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+        </ul>
+      </nav>
+    @endif
       <!-- /.sidebar-menu -->
+  @endif
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -389,12 +605,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Creer un Axe</h1>
+            <h1>Ajouter un Axe de Recherche</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Team Add</li>
+              <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+              <li class="breadcrumb-item active">Ajouter axe de recherche</li>
             </ol>
           </div>
         </div>
@@ -407,7 +623,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">General</h3>
+              <h3 class="card-title">Général</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$user->name}} | Dashboard</title>
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -144,7 +147,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="partenaireDashboard" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="bi bi-microsoft nav-icon far"></i>
               <p>
                 Dashboard
               </p>
@@ -159,7 +162,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="propose" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>
                 Proposer un projet
@@ -167,7 +170,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="apply" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>
                 Participer á un projet
