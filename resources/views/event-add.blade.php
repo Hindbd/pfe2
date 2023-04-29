@@ -41,7 +41,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Acceuil</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -68,8 +68,6 @@
           </form>
         </div>
       </li>
-
-
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -79,8 +77,8 @@
   </nav>
   <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -91,21 +89,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if(Auth::user()->img='NULL')
+          @if($user->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
+          <a href="profile" class="d-block">{{$user->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if(Auth::user()->role == '4')
+      @if($user->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -130,7 +128,7 @@
             <li class="nav-item">
               <a href="mailbox" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
-                  <p>Postulations</p>
+                  <p>Inbox</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -288,7 +286,7 @@
           </ul>
         </nav>
     <!-- DOCTORANT SIDEBAR -->
-    @elseif(Auth::user()->role == '2')
+    @elseif($user->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -328,134 +326,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Projets
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="propose" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Proposer un projet</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Equipes
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipe actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipes anciennes</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sign up for event</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    <!-- ENSEIGNANT SIDEBAR -->
-    @elseif(Auth::user()->role == '1')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-timeline"></i>
-              <p>
-                Mes publications
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="timeline" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pubs-add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -506,7 +384,127 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Sign up for event</p>
+              <p>Participer á un evenement</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts" class="nav-link">
+              <i class="far fa-address-book nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+        </ul>
+      </nav>
+    <!-- ENSEIGNANT SIDEBAR -->
+    @elseif($user->role == '1')
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+           <li class="nav-item">
+            <a href="doctorantDashboard" class="nav-link">
+            <i class="bi bi-microsoft nav-icon far"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li> 
+          </li>
+          <li class="nav-item">
+            <a href="profile" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-timeline"></i>
+              <p>
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter publication</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="bi far bi-kanban nav-icon"></i>
+              <p>Mes Projets
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projet actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projets anciennes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="propose" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Proposer un projet</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Equipes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipe actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipes anciennes</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a href="event-signup" class="nav-link">
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -528,7 +526,7 @@
         </ul>
       </nav>
     <!-- PARTENAIRE SIDEBAR -->
-    @elseif(Auth::user()->role == '3')
+    @elseif($user->role == '3')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -551,7 +549,7 @@
           </li>
           <li class="nav-item">
             <a href="propose" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>
                 Proposer un projet
               </p>
@@ -559,7 +557,7 @@
           </li>
           <li class="nav-item">
             <a href="apply" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="fas fa-user-plus nav-icon"></i>
               <p>
                 Participer á un projet
               </p>
@@ -567,10 +565,8 @@
           </li>
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un event
-              </p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">

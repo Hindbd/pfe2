@@ -38,7 +38,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Acceuil</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -125,7 +125,7 @@
             <li class="nav-item">
               <a href="mailbox" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
-                  <p>Postulations</p>
+                  <p>Inbox</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -323,14 +323,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -380,8 +380,8 @@
           </li> -->
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sign up for event</p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -443,14 +443,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -501,7 +501,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Sign up for event</p>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -546,7 +546,7 @@
           </li>
           <li class="nav-item">
             <a href="propose" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>
                 Proposer un projet
               </p>
@@ -554,7 +554,7 @@
           </li>
           <li class="nav-item">
             <a href="apply" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="fas fa-user-plus nav-icon"></i>
               <p>
                 Participer á un projet
               </p>
@@ -562,10 +562,8 @@
           </li>
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un event
-              </p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -599,11 +597,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Axes</h1>
+            <h1>Axes de Recherche</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+              <li class="breadcrumb-item"><a href="adminDashboard">Acceuil</a></li>
               <li class="breadcrumb-item active">Axes de Recherche</li>
             </ol>
           </div>
@@ -617,7 +615,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Axes</h3>
+          <h3 class="card-title">Axes de Recherche</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

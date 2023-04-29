@@ -48,7 +48,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Acceuil</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -137,7 +137,7 @@
           <li class="nav-item">
             <a href="mailbox" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
-                <p>Postulations</p>
+                <p>Inbox</p>
               </a>
           </li>
           <li class="nav-item">
@@ -310,7 +310,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="adminDashboard">Acceuil</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
