@@ -650,7 +650,8 @@
                   @foreach($msgs as $msg)
                   <tr>
                     <td class="mailbox-name">{{ $msg->nom }}</td>
-                    <td class="mailbox-subject"><b>{{ $msg->sujet }}</b>{{ $msg->message}}</td>
+                    <td class="mailbox-subject"><b>{{ $msg->sujet }}</b></td>
+                    <td class="mailbox-message">{{ $msg->message}}</td>
                     <td class="mailbox-date">
                         <?php
                         $timestamp = strtotime($msg->created_at);
@@ -668,7 +669,7 @@
                         echo $interval;
                         ?>
                       </td>
-                    <td> <button onclick="onRepondreButtonClick(this)"  data-link="{{$msg->email}}" class="btn btn-sm btn-danger" >repondre </button></td>
+                    <td> <button onclick="onRepondreButtonClick(this)"  data-link="{{$msg->email}}" class="btn btn-sm btn-danger" >Répondre </button></td>
                   </tr>
                   @endforeach
 

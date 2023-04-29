@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Projet</title>
+  <title>{{Auth::user()->name}} | Projet</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -89,21 +89,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -659,8 +659,8 @@
                 <div class="row">
                   <div class="col-12">
                     <a href="#" class="btn btn-secondary">Annuler</a>
-                    <button type="submit" class="btn btn-success">
-                      {{ __('Create project') }}
+                    <button type="submit" class="btn btn-primary">
+                      {{ __('Ajouter projet') }}
                     </button>
                   </div>
                 </div>

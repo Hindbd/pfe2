@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Equipe</title>
+  <title>{{Auth::user()->name}} | Equipe</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -90,21 +90,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -287,7 +287,7 @@
           </ul>
         </nav>
     <!-- DOCTORANT SIDEBAR -->
-    @elseif($user->role == '2')
+    @elseif(Auth::user()->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -407,7 +407,7 @@
         </ul>
       </nav>
     <!-- ENSEIGNANT SIDEBAR -->
-    @elseif($user->role == '1')
+    @elseif(Auth::user()->role == '1')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -527,7 +527,7 @@
         </ul>
       </nav>
     <!-- PARTENAIRE SIDEBAR -->
-    @elseif($user->role == '3')
+    @elseif($Auth::user()->role == '3')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -634,7 +634,7 @@
               <form method="POST" action="{{ route('project-add') }}">
               @csrf
               <div class="form-group">
-                <label for="nom">Nom d'equipes</label>
+                <label for="nom">Nom d'equipe</label>
                 <input type="text" id="nom" class="form-control" name="nom">
               </div>
               <div class="form-group">
@@ -645,7 +645,7 @@
                 @endforeach
                 </select> -->
                 <!-- Button to open the modal window -->
-<button type="button" data-toggle="modal" data-target="#userModal">Ajouter membres</button>
+<button type="button" class="btn btn-light mx-2" data-toggle="modal" data-target="#userModal">Ajouter membres</button>
 
 <!-- Modal window with user selection form -->
 <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
@@ -661,10 +661,12 @@
                 <form>
                     <div class="form-group">
                         @foreach($users as $user)
+                        @if($user->role == '2')
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{$user->id}}" name="members[]" id="user{{$user->id}}">
-                                <label class="form-check-label" for="user{{$user->id}}">{{$user->name}}</label>
+                                <label class="form-check-label" for="user{{$user->id}}">{{Auth::user()->name}}</label>
                             </div>
+                        @endif
                         @endforeach
                     </div>
                 </form>
@@ -692,7 +694,6 @@
                 var option = '<option value="' + value + '">' + $('#user' + value).next('.form-check-label').text() + '</option>';
                 $('select[name="members"]').append(option);
             });
-
             // Close the modal window
             $('#userModal').modal('hide');
         });
@@ -703,8 +704,9 @@
               <div class="form-group">
                 <label for="nom">Chef d'equipe </label>
                 <select name="chef">
+                <option selected>Selectioner</option>
                 @foreach($users as $user)
-                <option value="{{$user->id}}">{{$user->name}}</option>
+                <option value="{{$user->id}}">{{Auth::user()->name}}</option>
                 @endforeach
                 </select>              
                 </div>
