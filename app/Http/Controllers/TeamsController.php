@@ -34,8 +34,8 @@ class TeamsController extends Controller
         return view('add-team',['users'=>$users,'axes'=>$axes]);
     }
     public function indexAxeAdd(){
-        
-        return view('axe-add');
+        $user=Auth::user();
+        return view('axe-add',['user'=>$user]);
     }
     public function storeAxe(Request $request): RedirectResponse
 {

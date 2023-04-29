@@ -331,7 +331,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Publications</span>
-                <span class="info-box-number">410</span>
+                <span class="info-box-number">{{$nbrPub}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -348,7 +348,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Projets</span>
-                <span class="info-box-number">17</span>
+                <span class="info-box-number">{{$nbrPrj}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -361,7 +361,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Membres</span>
-                <span class="info-box-number">20</span>
+                <span class="info-box-number">{{$nbrUser}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -383,10 +383,9 @@
                 <!-- USERS LIST -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Latest Members</h3>
+                    <h3 class="card-title">Les derniers membres</h3>
 
                     <div class="card-tools">
-                      <span class="badge badge-danger">8 New Members</span>
                       <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                       </button>
@@ -398,52 +397,19 @@
                   <!-- /.card-header -->
                   <div class="card-body p-0">
                     <ul class="users-list clearfix">
+                      @foreach($members as $members)
                       <li>
                         <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Alexander Pierce</a>
-                        <span class="users-list-date">Today</span>
+                        <a class="users-list-name" href="#">{{$members->name ." ".$members->prenom}}</a>
                       </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Norman</a>
-                        <span class="users-list-date">Yesterday</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Jane</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">John</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Alexander</a>
-                        <span class="users-list-date">13 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Sarah</a>
-                        <span class="users-list-date">14 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Nora</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Nadia</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
-                    </ul>
+                      @endforeach
+                      
+
                     <!-- /.users-list -->
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="javascript:">Voir tout</a>
+                    <a href="teams">Voir tout</a>
                   </div>
                   <!-- /.card-footer -->
                 </div>
@@ -472,9 +438,9 @@
                   <table class="table m-0">
                     <thead>
                     <tr>
-                      <th>ID Projet</th>
+                      <!-- <th>ID Projet</th> -->
                       <th>Titre</th>
-                      <th>Responsable</th>
+                      <!-- <th>Responsable</th> -->
                       <th>Description</th>
                     </tr>
                     </thead>

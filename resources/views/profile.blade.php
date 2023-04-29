@@ -642,7 +642,13 @@
                   <p class="text-muted text-center">Administrateur</p>
                 @elseif($user->role == '2')
                   <p class="text-muted text-center">Doctorant</p>
-                  <b>Encadrant</b> <a class="float-right">{{$user->encadrant}}</a>
+                  <b>Encadrant : </b> 
+                      @foreach($users as $user)
+                      @if($encadrant == $user->id)
+                      {{$user->name ." ".$user->prenom}}
+                      @endif
+                      @endforeach
+                      
                 @elseif($user->role == '1')
                   <p class="text-muted text-center">Enseignant</p>
                 @elseif($user->role == '3')
