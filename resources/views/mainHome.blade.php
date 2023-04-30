@@ -86,15 +86,15 @@
                           </div>
                           @elseif($user->role == '1')
                           <div class="top-right links">
-                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == '2')
                           <div class="top-right links">
-                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
                           @elseif($user->role == '3')
                           <div class="top-right links">
-                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto mx-2">{{Auth::user()->name}}</a>
+                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
                           @endif
             @elseif (Route::has('login') && !Auth::check())

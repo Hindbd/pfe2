@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Equipe</title>
+  <title>{{Auth::user()->name}} | Equipe</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -41,7 +41,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Acceuil</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -90,21 +90,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -129,7 +129,7 @@
             <li class="nav-item">
               <a href="mailbox" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
-                  <p>Postulations</p>
+                  <p>Inbox</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -287,7 +287,7 @@
           </ul>
         </nav>
     <!-- DOCTORANT SIDEBAR -->
-    @elseif($user->role == '2')
+    @elseif(Auth::user()->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -327,127 +327,7 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Projets
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="propose" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Proposer un projet</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Equipes
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipe actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipes anciennes</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sign up for event</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    <!-- ENSEIGNANT SIDEBAR -->
-    @elseif($user->role == '1')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-timeline"></i>
-              <p>
-                Mes publications
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="timeline" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pubs-add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
@@ -505,7 +385,127 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Sign up for event</p>
+              <p>Participer á un evenement</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts" class="nav-link">
+              <i class="far fa-address-book nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+        </ul>
+      </nav>
+    <!-- ENSEIGNANT SIDEBAR -->
+    @elseif(Auth::user()->role == '1')
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+           <li class="nav-item">
+            <a href="doctorantDashboard" class="nav-link">
+            <i class="bi bi-microsoft nav-icon far"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li> 
+          </li>
+          <li class="nav-item">
+            <a href="profile" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-timeline"></i>
+              <p>
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter publication</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Projets
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projet actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projets anciennes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="propose" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Proposer un projet</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Mes Equipes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipe actuelle</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Equipes anciennes</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a href="event-signup" class="nav-link">
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -527,7 +527,7 @@
         </ul>
       </nav>
     <!-- PARTENAIRE SIDEBAR -->
-    @elseif($user->role == '3')
+    @elseif(Auth::user()->role == '3')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -566,9 +566,9 @@
           </li>
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
               <p>
-                Participer á un event
+                Participer á un evenement
               </p>
             </a>
           </li>
@@ -608,7 +608,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+              <li class="breadcrumb-item"><a href="adminDashboard">Acceuil</a></li>
               <li class="breadcrumb-item active">Ajouter equipe</li>
             </ol>
           </div>
@@ -634,7 +634,7 @@
               <form method="POST" action="{{ route('project-add') }}">
               @csrf
               <div class="form-group">
-                <label for="nom">Nom d'equipes</label>
+                <label for="nom">Nom d'equipe</label>
                 <input type="text" id="nom" class="form-control" name="nom">
               </div>
               <div class="form-group">
@@ -645,7 +645,7 @@
                 @endforeach
                 </select> -->
                 <!-- Button to open the modal window -->
-<button type="button" data-toggle="modal" data-target="#userModal">Ajouter membres</button>
+<button type="button" class="btn btn-light mx-2" data-toggle="modal" data-target="#userModal">Ajouter membres</button>
 
 <!-- Modal window with user selection form -->
 <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
@@ -661,10 +661,12 @@
                 <form>
                     <div class="form-group">
                         @foreach($users as $user)
+                        @if($user->role == '2')
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{$user->id}}" name="members[]" id="user{{$user->id}}">
-                                <label class="form-check-label" for="user{{$user->id}}">{{$user->name}}</label>
+                                <label class="form-check-label" for="user{{$user->id}}">{{Auth::user()->name}}</label>
                             </div>
+                        @endif
                         @endforeach
                     </div>
                 </form>
@@ -692,7 +694,6 @@
                 var option = '<option value="' + value + '">' + $('#user' + value).next('.form-check-label').text() + '</option>';
                 $('select[name="members"]').append(option);
             });
-
             // Close the modal window
             $('#userModal').modal('hide');
         });
@@ -703,8 +704,9 @@
               <div class="form-group">
                 <label for="nom">Chef d'equipe </label>
                 <select name="chef">
+                <option selected>Selectioner</option>
                 @foreach($users as $user)
-                <option value="{{$user->id}}">{{$user->name}}</option>
+                <option value="{{$user->id}}">{{Auth::user()->name}}</option>
                 @endforeach
                 </select>              
                 </div>

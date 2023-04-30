@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Evenement</title>
+  <title>{{Auth::user()->name}} | Evenement</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -41,7 +41,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Acceuil</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -68,8 +68,6 @@
           </form>
         </div>
       </li>
-
-
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -79,8 +77,8 @@
   </nav>
   <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -130,7 +128,7 @@
             <li class="nav-item">
               <a href="mailbox" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
-                  <p>Postulations</p>
+                  <p>Inbox</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -328,14 +326,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -385,8 +383,8 @@
           </li> -->
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sign up for event</p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -448,14 +446,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -506,7 +504,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Sign up for event</p>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -551,7 +549,7 @@
           </li>
           <li class="nav-item">
             <a href="propose" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>
                 Proposer un projet
               </p>
@@ -559,7 +557,7 @@
           </li>
           <li class="nav-item">
             <a href="apply" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="fas fa-user-plus nav-icon"></i>
               <p>
                 Participer á un projet
               </p>
@@ -567,10 +565,8 @@
           </li>
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un event
-              </p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -640,7 +636,7 @@
               </div>
               <div class="form-group">
                 <label for="nom">Description</label>
-                <input type="text" id="contenu" class="form-control" name="contenu">
+                <textarea type="text" id="contenu" class="form-control" rows="4" name="contenu"></textarea>
                 <div class="form-group">
                 <label for="nom">Lieu</label>
                 <input type="text" id="lieu" class="form-control" name="lieu">
@@ -657,7 +653,7 @@
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Annuler</a>
           <button type="submit" class="btn btn-primary">
-                                    {{ __('Cree evenement') }}
+            {{ __('Ajouter evenement') }}
           </button>
         </div>
               </form>
