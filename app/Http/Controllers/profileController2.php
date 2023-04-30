@@ -15,8 +15,13 @@ class ProfileController2 extends Controller
         $user = Auth::user();
         $users=User::all();
         $member = Member::where('id', $user->id)->first();
+        if($member){
         $encadrant=$member->encadrant;
-        return view('profile',['user'=>$user, 'member' => $member,'encadrant'=>$encadrant,'users'=>$users]);
+        return view('profile',['user'=>$user, 'member' => $member,'encadrant'=>$encadrant]);
+        }
+        else{
+            return view('profile',['user'=>$user,'users'=>$users]);
 
+        }
 }
 }

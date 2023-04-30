@@ -648,7 +648,6 @@
                       {{$user->name ." ".$user->prenom}}
                       @endif
                       @endforeach
-                      
                 @elseif($user->role == '1')
                   <p class="text-muted text-center">Enseignant</p>
                 @elseif($user->role == '3')
