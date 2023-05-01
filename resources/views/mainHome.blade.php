@@ -564,7 +564,7 @@
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <!-- <form action="{{ route('contact') }}" method="post" role="form" class="php-email-form"> -->
-              <form action="{{ route('contact') }}" method="post" >
+              <form action="{{ route('contact') }}" method="post" class="php-email-form">
               @csrf
 
               <div class="row">
@@ -585,11 +585,11 @@
                 <label for="name">Message</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
-              <!-- <div class="my-3"> -->
-                <!-- <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div> -->
-              <!-- </div> -->
+              <div class="my-3">
+                <!-- <div class="loading">Chargement</div>
+                <div class="error-message"></div> -->
+                <div class="sent-message">Votre message a été envoyé. Merci!</div>
+              </div>
               <div class="text-center"><button type="submit">Envoyer</button></div>
             </form>
           </div>

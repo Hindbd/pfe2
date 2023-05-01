@@ -17,7 +17,7 @@ class TeamsController extends Controller
     //
     public function index(){
         $users = DB::table('users')
-        ->where('role', '=', 'Enseignat')
+        ->where('role', '=', 'Enseignant')
         ->orWhere('role', '=', 'Doctorant')
         ->get();
         $teams = DB::table('equipes')->get();
@@ -81,7 +81,9 @@ public function storeEvent(Request $request): RedirectResponse
     return redirect('events');
 }
 public function indexEventShow(){
-    return view('events');
+    $user=Auth::user();
+    $events = DB::table('events')->get();
+    return view('events',['user'=>$user,'events'=>$events]);
 }
 
 //pubs
@@ -90,5 +92,3 @@ public function indexPubs(){
     return View('pubs-add');
 }
 }
-
-

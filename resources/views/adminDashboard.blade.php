@@ -27,9 +27,6 @@
       left: 0; /* align it to the left */
       width: 250px; /* set the width */
     }
-    /* .brand-link {
-      position: fixed;
-    } */
   </style>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -90,7 +87,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/mainHome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -440,66 +437,15 @@
                     <tr>
                       <!-- <th>ID Projet</th> -->
                       <th>Titre</th>
-                      <!-- <th>Responsable</th> -->
+                      <th>Responsable</th>
                       <th>Description</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                      <td>Call of Duty IV</td>
-                      <td><span class="badge badge-success">Shipped</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                      <td>Samsung Smart TV</td>
-                      <td><span class="badge badge-warning">Pending</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                      <td>iPhone 6 Plus</td>
-                      <td><span class="badge badge-danger">Delivered</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                      <td>Samsung Smart TV</td>
-                      <td><span class="badge badge-info">Processing</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                      <td>Samsung Smart TV</td>
-                      <td><span class="badge badge-warning">Pending</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                      <td>iPhone 6 Plus</td>
-                      <td><span class="badge badge-danger">Delivered</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                      <td>Call of Duty IV</td>
-                      <td><span class="badge badge-success">Shipped</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                      </td>
+                      <td><p>Hind ljamila</p></td>
+                      <td>Hind</td>
+                      <td><p>Content</p></td>
                     </tr>
                     </tbody>
                   </table>

@@ -75,7 +75,7 @@
   <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -637,9 +637,14 @@
                 <th style="width: 20%">
                   Titre
                 </th>
-
                 <th>
                   Description
+                </th>
+                <th>
+                  Axes de recherche
+                </th>
+                <th>
+                  Membres
                 </th>
                 <th style="width: 10%">
                   Date debut
@@ -661,6 +666,16 @@
                 </td>
                 <td class="project_progress">
                   {{$project->description}}
+                </td>
+                <td class="project_progress">
+                  @foreach($project->axe_prj as $axe)
+                    {{$axe->nom}}
+                  @endforeach
+                </td>
+                <td class="project_progress">
+                  @foreach($project->membre_prj as $membre)
+                    {{$membre->nom}} {{$membre->prenom}} <br>
+                  @endforeach
                 </td>
                 <td class="project-state">
                   {{$project->date_debut}}

@@ -78,7 +78,7 @@
   <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -96,14 +96,14 @@
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -286,7 +286,7 @@
           </ul>
         </nav>
     <!-- DOCTORANT SIDEBAR -->
-    @elseif($user->role == '2')
+    @elseif(Auth::user()->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -406,7 +406,7 @@
         </ul>
       </nav>
     <!-- ENSEIGNANT SIDEBAR -->
-    @elseif($user->role == '1')
+    @elseif(Auth::user()->role == '1')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -525,68 +525,6 @@
               </form>
         </ul>
       </nav>
-    <!-- PARTENAIRE SIDEBAR -->
-    @elseif($user->role == '3')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="propose" class="nav-link">
-            <i class="bi far bi-kanban nav-icon"></i>
-              <p>
-                Proposer un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="apply" class="nav-link">
-            <i class="fas fa-user-plus nav-icon"></i>
-              <p>
-                Participer á un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-            <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
     @endif
       <!-- /.sidebar-menu -->
   @endif
@@ -631,24 +569,26 @@
               <form method="POST" action="{{ route('project-add') }}">
                 @csrf
                 <div class="form-group">
-                  <label for="nom">Titre</label>
+                  <legend for="nom">Titre</legend>
                   <input type="text" id="titre" class="form-control" name="titre">
                 </div>
                 <div class="form-group">
-                  <label for="description">Description</label>
+                  <legend for="description">Description</legend>
                   <textarea id="description" class="form-control" rows="4" name="description"></textarea>
                 </div>
                 <!-- <div class="form-group">
                 <label>Responsable du projet</label>
                 <select  name="respoPrj">
+                  @if(isset($users))
                   @foreach($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>
                   @endforeach
+                  @endif
                 </select>
                 </div> -->
 
                 <div class="form-group">
-                <label for="axes_recherche">Les axes de recherche</label><br>
+                <legend for="axes_recherche">Les axes de recherche</legend><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($axes as $axe)
                   <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
@@ -658,7 +598,7 @@
                 </div>
 
                 <div class="form-group">
-                <label for="axes_recherche">Les membres participants</label><br>
+                <legend for="axes_recherche">Les membres participants</legend><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($members as $member)
                   <input type="checkbox" id="axe1" name="members_prj[]" value="{{$member->id}}">
@@ -668,11 +608,11 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="date_debut">Date de debut</label>
+                  <legend for="date_debut">Date de debut</legend>
                   <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_debut"></input>
                 </div>
                 <div class="form-group">
-                  <label for="date_fin">Date de fin</label>
+                  <legend for="date_fin">Date de fin</legend>
                   <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_fin"></input>
                 </div>
                 <div class="row">

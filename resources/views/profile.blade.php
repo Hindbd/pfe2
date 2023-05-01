@@ -43,7 +43,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="mainHome" class="nav-link">Home</a>
+        <a href="mainHome" class="nav-link">Acceuil</a>
       </li>
     </ul>
 
@@ -135,7 +135,7 @@
             <li class="nav-item">
               <a href="mailbox" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
-                  <p>Postulations</p>
+                  <p>Inbox</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -255,7 +255,7 @@
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-view-list nav-icon far"></i>
-                <p>Les Axes
+                <p>Les Axes de recherche
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -333,14 +333,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -390,8 +390,8 @@
           </li> -->
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sign up for event</p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -453,14 +453,14 @@
               <li class="nav-item">
                 <a href="pubs-add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Publier</p>
+                  <p>Ajouter publication</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>Mes Projets
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -511,7 +511,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Sign up for event</p>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -556,7 +556,7 @@
           </li>
           <li class="nav-item">
             <a href="propose" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="bi far bi-kanban nav-icon"></i>
               <p>
                 Proposer un projet
               </p>
@@ -564,7 +564,7 @@
           </li>
           <li class="nav-item">
             <a href="apply" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
+            <i class="fas fa-user-plus nav-icon"></i>
               <p>
                 Participer á un projet
               </p>
@@ -572,10 +572,8 @@
           </li>
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Participer á un event
-              </p>
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Participer á un evenement</p>
             </a>
           </li>
           <li class="nav-item">
