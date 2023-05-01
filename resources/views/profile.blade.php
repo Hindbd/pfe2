@@ -633,7 +633,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="../../dist/img/profile.png"
                        alt="User profile picture">
                 </div>
 
@@ -658,33 +658,6 @@
             </div>
             <!-- /.card -->
 
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Bio</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-                <p class="text-muted">
-                  <span id="education-value"></span>
-                </p>
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Experience</strong>
-                <p class="text-muted">
-                  <span id="experience-value"></span>
-                </p>
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Competences</strong>
-                <p class="text-muted">
-                  <span id="skills-value"></span>
-                </p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
           </div>
           <!-- /.col -->
           <div class="col-md-9">
@@ -695,50 +668,24 @@
               <div class="card-body">
                 <div class="tab-content">
                   <!-- Settings tab -->
-                    <form class="form-horizontal" id="form1">
+                    <form class="form-horizontal" id="form1" method="POST" action="{{ route('editprofile') }}">
+                      @csrf
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nom</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName" placeholder="Nom">
+                          <input type="text" class="form-control" id="name" placeholder="Nom" name="name">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Prénom</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName" placeholder="Prénom">
+                          <input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEducation" class="col-sm-2 col-form-label">Education</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputEducation" placeholder="Education">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Competences</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Competences">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> J'accepte les <a href="#">termes et conditions</a>
-                            </label>
-                          </div>
+                          <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -779,21 +726,6 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<script>
-  const form = document.getElementById('form1');
-  const education = document.getElementById('inputEducation');
-  const educationValue = document.getElementById('education-value');
-  const experience = document.getElementById('inputExperience');
-  const experienceValue = document.getElementById('experience-value');
-  const skills = document.getElementById('inputSkills');
-  const skillsValue = document.getElementById('skills-value');
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // prevent form submission
-    educationValue.textContent = inputEducation.value;
-    experienceValue.textContent = inputExperience.value;
-    skillsValue.textContent = inputSkills.value;
-  });
-</script>
 </body>
 </html>

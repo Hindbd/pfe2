@@ -7,36 +7,45 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Axes;
+use App\Models\Member;
 
-class addProjectController extends Controller
+
+class ProjectController extends Controller
 {
     public function index(){
-        // $user = DB::table('user');
-        // $users=User::all();
-        $users = DB::table('users')
-        ->where('role', '=', 'Enseignant')
-        ->orWhere('role', '=', 'Doctorant')
-        ->get();
-        return view('project-add',['users'=>$users]);
+        $members = Member::all();
+        $userIds = $members->pluck('id')->toArray();
+        $members = User::whereIn('id', $userIds)->get();
+        $axes=Axes::all();
+        $user=Auth::user();
+        // $users = DB::table('users')
+        // ->where('role', '=', 'Enseignant')
+        // ->orWhere('role', '=', 'Doctorant')
+        // ->get();
+        return view('project-add',['user'=>$user,'axes'=>$axes,'members'=>$members]);
 }
 public function store(Request $request): RedirectResponse
 {
     $request->validate([
-        'nom' => ['required', 'string', 'max:255'],
+        'titre' => ['required', 'string', 'max:255'],
         'description' => ['required', 'string', 'max:255'],
         'date_debut'=>['required', 'date'],
         'date_fin'=>['required', 'date'],
     ]);
 
     $prj = Project::create([
-        'nom' => $request->nom,
+        'titre' => $request->titre,
         'description' => $request->description,
-        'responsable_prj'=> $request->responsable_prj,
         'date_debut'=>$request->date_debut,
         'date_fin'=>$request->date_fin
     ]);
-
-
+//axes
+    $selectedAxes = $request->input('axes_recherche');
+    $prj->axe_prj()->attach($selectedAxes);
+//members 
+$selectedMembers = $request->input('members_prj');
+$prj->member_prj()->attach($selectedMembers);
 
     return redirect('#');
 }

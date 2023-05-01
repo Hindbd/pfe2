@@ -89,7 +89,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
@@ -632,20 +632,41 @@
                 @csrf
                 <div class="form-group">
                   <label for="nom">Titre</label>
-                  <input type="text" id="nom" class="form-control" name="nom">
+                  <input type="text" id="titre" class="form-control" name="titre">
                 </div>
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea id="description" class="form-control" rows="4" name="description"></textarea>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                 <label>Responsable du projet</label>
                 <select  name="respoPrj">
                   @foreach($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>
                   @endforeach
                 </select>
+                </div> -->
+
+                <div class="form-group">
+                <label for="axes_recherche">Les axes de recherche</label><br>
+                <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                @foreach($axes as $axe)
+                  <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
+                  <label for="axe1">{{$axe->nom}}</label><br>
+                  @endforeach
                 </div>
+                </div>
+
+                <div class="form-group">
+                <label for="axes_recherche">Les membres participants</label><br>
+                <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                @foreach($members as $member)
+                  <input type="checkbox" id="axe1" name="members_prj[]" value="{{$member->id}}">
+                  <label for="members">{{$member->name ." ".$member->prenom}}</label><br>
+                  @endforeach
+                </div>
+                </div>
+
                 <div class="form-group">
                   <label for="date_debut">Date de debut</label>
                   <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_debut"></input>

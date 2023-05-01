@@ -82,7 +82,7 @@ class RegisterController extends Controller
         'role' => $request->role,
         'password' => Hash::make($request->password),
     ]);
-
+    // dd($user);
     if ($request->role == 1 ) {
         $member = member::create([
             'id' => $user->id,

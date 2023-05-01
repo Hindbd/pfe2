@@ -16,7 +16,7 @@ class dashController extends Controller
         $nbrUser = DB::table('users')->count();
         $nbrPrj = DB::table('projects')->count();
         $nbrPub = DB::table('pubs')->count();
-        $member = Member::latest()->take(9)->get();;
+        $member = Member::latest()->take(9)->get();
         $userIds = $member->pluck('id')->toArray();
         $members = User::whereIn('id', $userIds)->get();
         $user = Auth::user();

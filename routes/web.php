@@ -50,8 +50,10 @@ Route::get('/partenaireDashboard' , [App\Http\Controllers\partDashController::cl
     });
  });
  
-
+//profile 
 Route::get('/profile',[App\Http\Controllers\ProfileController2::class, 'index']);
+Route::post('/profile',[App\Http\Controllers\ProfileController2::class, 'edit'])->name('editprofile');
+
 Route::get('/timeline',[App\Http\Controllers\TimelineController::class, 'index']);
 // Route::get('/calendar',[App\Http\Controllers\CalendarController::class, 'index']);
 Route::get('/mailbox',[App\Http\Controllers\InboxController::class, 'index']);
@@ -63,11 +65,10 @@ Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, 'cr
 Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('register');
 
 //projects
-Route::get('/project-add',[App\Http\Controllers\addProjectController::class, 'index']);
-Route::post('/project-add', [App\Http\Controllers\addProjectController::class, 'store'])->name('project-add');
-
-Route::get('/project-detail',[App\Http\Controllers\addProjectController::class, 'index']);
-Route::get('/project-edit',[App\Http\Controllers\addProjectController::class, 'index3']);
+Route::get('/project-add',[App\Http\Controllers\ProjectController::class, 'index']);
+Route::post('/project-add', [App\Http\Controllers\ProjectController::class, 'store'])->name('project-add');
+Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
 Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
 
 //equipes
