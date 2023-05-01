@@ -569,16 +569,16 @@
               <form method="POST" action="{{ route('project-add') }}">
                 @csrf
                 <div class="form-group">
-                  <label for="nom">Titre</label>
+                  <legend for="nom">Titre</legend>
                   <input type="text" id="titre" class="form-control" name="titre">
                 </div>
                 <div class="form-group">
-                  <label for="description">Description</label>
+                  <legend for="description">Description</legend>
                   <textarea id="description" class="form-control" rows="4" name="description"></textarea>
                 </div>
 
                 <div class="form-group">
-                <label for="axes_recherche">Les axes de recherche</label><br>
+                <legend for="axes_recherche">Les axes de recherche</legend><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($axes as $axe)
                   <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
@@ -588,7 +588,7 @@
                 </div>
 
                 <div class="form-group">
-                <label for="axes_recherche">Les membres participants</label><br>
+                <legend for="axes_recherche">Les membres participants</legend><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($members as $member)
                   <input type="checkbox" id="axe1" name="members_prj[]" value="{{$member->id}}">
@@ -598,12 +598,12 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="date_debut">Date de debut</label>
-                  <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" type="date" name="date_debut"></input>
+                  <legend for="date_debut">Date de debut</legend>
+                  <input id="date_debut" class="form-control" rows="4" type="date" name="date_debut"></input>
                 </div>
                 <div class="form-group">
-                  <label for="date_fin">Date de fin</label>
-                  <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" type="date" name="date_fin"></input>
+                  <legend for="date_fin">Date de fin</legend>
+                  <input id="date_fin" class="form-control" rows="4" type="date" name="date_fin"></input>
                 </div>
                 <div class="row">
                   <div class="col-12">

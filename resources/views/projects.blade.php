@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$user->name}} | Projets</title>
-
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -696,10 +698,10 @@
                   {{$project->date_fin}}
                 </td>
                 <td class="project-actions text-right">
-                  <!-- <a class="btn btn-primary btn-sm" href="#">
+                  <a class="btn btn-primary btn-sm" href="project-detail">
                     <i class="fas fa-folder"></i>
                     View
-                  </a> -->
+                  </a>
                   <a class="btn btn-info btn-sm" href="project-edit">
                     <i class="fas fa-pencil-alt"></i>
                     Edit

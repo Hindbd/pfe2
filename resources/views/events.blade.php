@@ -590,6 +590,9 @@
                 <th>
                   Projets
                 </th>
+                <th>
+                  Membres
+                </th>
                 <th style="width: 10%">
                   Date debut
                 </th>
@@ -615,13 +618,34 @@
                   {{$event->description}}
                 </td>
                 <td class="project_progress">
-                  @foreach($event->event_axe as $axe)
-                    {{$axe->nom}}<br>
+                  @foreach($axes as $axe)
+                    @if($axe->FK_event == $event->id)
+                    @php
+                      $axes = App\Models\Axes::find($axe->FK_axe);
+                    @endphp
+                    {{$axes->nom}}<br>
+                    @endif
                   @endforeach
                 </td>
                 <td class="project_progress">
-                  @foreach($event->event_prj as $prj)
-                    {{$prj->titre}}<br>
+                  @foreach($projects as $projet)
+                    @if($project->FK_event == $event->id)
+                    @php
+                      $projects = App\Models\Project::find($project->FK_prj);
+                    @endphp
+                    {{$projects->titre}}<br>
+                    @endif
+                  @endforeach
+                </td>
+                <td class="project_progress">
+                  @foreach($members as $member)
+                    @if($member->FK_event == $event->id)
+                    @php
+                      $member = App\Models\Member::find($member->FK_member);
+                      $userr = App\Models\User::find($member->id);
+                    @endphp
+                    {{$userr->prenom." ".$userr->name}}<br>
+                    @endif
                   @endforeach
                 </td>
                 <td class="project-state">
@@ -631,10 +655,10 @@
                   {{$event->date_fin}}
                 </td>
                 <td class="project-actions text-right">
-                  <!-- <a class="btn btn-primary btn-sm" href="#">
+                  <a class="btn btn-primary btn-sm" href="project-detail">
                     <i class="fas fa-folder"></i>
                     View
-                  </a> -->
+                  </a>
                   <a class="btn btn-info btn-sm" href="project-edit">
                     <i class="fas fa-pencil-alt"></i>
                     Edit

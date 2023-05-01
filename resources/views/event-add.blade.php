@@ -89,18 +89,17 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
 
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
-      @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -282,311 +281,6 @@
                 </form>
           </ul>
         </nav>
-    <!-- DOCTORANT SIDEBAR -->
-    @elseif($user->role == '2')
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-timeline"></i>
-              <p>
-                Mes publications
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="timeline" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pubs-add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter publication</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="bi far bi-kanban nav-icon"></i>
-              <p>Mes Projets
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="propose" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Proposer un projet</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Equipes
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipe actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipes anciennes</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-            <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    <!-- ENSEIGNANT SIDEBAR -->
-    @elseif($user->role == '1')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-timeline"></i>
-              <p>
-                Mes publications
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="timeline" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir tout</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pubs-add" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ajouter publication</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="bi far bi-kanban nav-icon"></i>
-              <p>Mes Projets
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="propose" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Proposer un projet</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users nav-icon"></i>
-              <p>Mes Equipes
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipe actuelle</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="teams" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Equipes anciennes</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-            <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    <!-- PARTENAIRE SIDEBAR -->
-    @elseif($user->role == '3')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="propose" class="nav-link">
-            <i class="bi far bi-kanban nav-icon"></i>
-              <p>
-                Proposer un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="apply" class="nav-link">
-            <i class="fas fa-user-plus nav-icon"></i>
-              <p>
-                Participer á un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-            <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    @endif
-      <!-- /.sidebar-menu -->
-  @endif
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -598,7 +292,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Créer un evenement</h1>
+            <h1>Ajouter un evenement</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -628,32 +322,56 @@
               <form method="POST" action="{{ route('event-add') }}">
               @csrf
               <div class="form-group">
-                <label for="nom">Titre d'evenement</label>
+                <legend for="titre">Titre</legend>
                 <input type="text" id="titre" class="form-control" name="titre">
               </div>
               <div class="form-group">
-                <label for="nom">Description</label>
-                <textarea type="text" id="contenu" class="form-control" rows="4" name="contenu"></textarea>
-                <div class="form-group">
-                <label for="nom">Lieu</label>
+                <legend for="titre">Lieu</legend>
                 <input type="text" id="lieu" class="form-control" name="lieu">
+              </div>
+              <div class="form-group">
+                <legend for="nom">Description</legend>
+                <textarea type="text" id="contenu" class="form-control" rows="4" name="contenu"></textarea>
+              </div>
+              <legend for="axes_recherche">Les axes de recherche inclus</legend><br>
+              <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                @foreach($axes as $axe)
+                  <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
+                  <label for="axe1">{{$axe->nom}}</label><br>
+                @endforeach
+              </div>
+              <legend for="projects">Les projets inclus</legend><br>
+              <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                @foreach($projects as $project)
+                  <input type="checkbox" id="project" name="projects[]" value="{{$project->id}}">
+                  <label for="project">{{$project->titre}}</label><br>
+                @endforeach
+              </div>
+              <div class="form-group">
+                <legend for="axes_recherche">Les membres participants</legend><br>
+                <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                  @foreach($members as $member)
+                    <input type="checkbox" id="members" name="members[]" value="{{$member->id}}">
+                    <label for="members">{{$member->name ." ".$member->prenom}}</label><br>
+                  @endforeach
+                </div>
               </div>
               <div class="row">
               <div class="form-group">
                 <label for="date_debut">Date de debut</label>
-                <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_debut"></input>
+                <input id="date_debut" class="form-control mx-3" rows="4" type="date" name="date_debut"></input>
               </div>
               <div class="form-group">
                 <label for="date_fin">Date de fin</label>
-                <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_fin"></input>
+                <input id="date_fin" class="form-control" rows="4" type="date" name="date_fin"></input>
               </div>
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Annuler</a>
-          <button type="submit" class="btn btn-primary">
-            {{ __('Ajouter evenement') }}
-          </button>
-        </div>
-              </form>
+              <div class="col-12">
+                <a href="#" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-primary">
+                  {{ __('Ajouter evenement') }}
+                </button>
+              </div>
+            </form>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
