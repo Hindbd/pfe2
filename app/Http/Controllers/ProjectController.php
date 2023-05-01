@@ -25,6 +25,14 @@ class ProjectController extends Controller
         // ->get();
         return view('project-add',['user'=>$user,'axes'=>$axes,'members'=>$members]);
 }
+public function indexShow(){
+    $user=Auth::user();
+    $projects = DB::table('projects')->get();
+    $axes=DB::table('affect_axe_prj')->get();
+    $members=DB::table('affect_prj_member')->get();
+    return view('projects',['user'=>$user,'projects'=>$projects,'axes'=>$axes,'members'=>$members]);
+
+}
 public function store(Request $request): RedirectResponse
 {
     $request->validate([

@@ -668,13 +668,25 @@
                   {{$project->description}}
                 </td>
                 <td class="project_progress">
-                  @foreach($project->axe_prj as $axe)
-                    {{$axe->nom}}<br>
+                  @foreach($axes as $axe)
+                    @if($axe->FK_prj == $project->id)
+                    @php
+                      $axes = App\Models\Axes::find($axe->FK_axe);
+                    @endphp
+                    {{$axes->nom}}<br>
+                    @endif
                   @endforeach
                 </td>
                 <td class="project_progress">
-                  @foreach($project->membre_prj as $membre)
-                    {{$membre->nom}} {{$membre->prenom}} <br>
+                @foreach($members as $member)
+                    @if($member->FK_prj == $project->id)
+                    @php
+                      $member = App\Models\Member::find($member->FK_member);
+                      $userr = App\Models\User::find($member->id);
+
+                    @endphp
+                    {{$userr->prenom . " ".$userr->name}}<br>
+                    @endif
                   @endforeach
                 </td>
                 <td class="project-state">

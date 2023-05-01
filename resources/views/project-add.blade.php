@@ -569,26 +569,16 @@
               <form method="POST" action="{{ route('project-add') }}">
                 @csrf
                 <div class="form-group">
-                  <legend for="nom">Titre</legend>
+                  <label for="nom">Titre</label>
                   <input type="text" id="titre" class="form-control" name="titre">
                 </div>
                 <div class="form-group">
-                  <legend for="description">Description</legend>
+                  <label for="description">Description</label>
                   <textarea id="description" class="form-control" rows="4" name="description"></textarea>
                 </div>
-                <!-- <div class="form-group">
-                <label>Responsable du projet</label>
-                <select  name="respoPrj">
-                  @if(isset($users))
-                  @foreach($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
-                  @endforeach
-                  @endif
-                </select>
-                </div> -->
 
                 <div class="form-group">
-                <legend for="axes_recherche">Les axes de recherche</legend><br>
+                <label for="axes_recherche">Les axes de recherche</label><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($axes as $axe)
                   <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
@@ -598,7 +588,7 @@
                 </div>
 
                 <div class="form-group">
-                <legend for="axes_recherche">Les membres participants</legend><br>
+                <label for="axes_recherche">Les membres participants</label><br>
                 <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($members as $member)
                   <input type="checkbox" id="axe1" name="members_prj[]" value="{{$member->id}}">
@@ -608,12 +598,12 @@
                 </div>
 
                 <div class="form-group">
-                  <legend for="date_debut">Date de debut</legend>
-                  <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_debut"></input>
+                  <label for="date_debut">Date de debut</label>
+                  <input id="date_debut" class="form-control" rows="4" placeholder="YY/MM/DD" type="date" name="date_debut"></input>
                 </div>
                 <div class="form-group">
-                  <legend for="date_fin">Date de fin</legend>
-                  <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" name="date_fin"></input>
+                  <label for="date_fin">Date de fin</label>
+                  <input id="date_fin" class="form-control" rows="4" placeholder="YY/MM/DD" type="date" name="date_fin"></input>
                 </div>
                 <div class="row">
                   <div class="col-12">

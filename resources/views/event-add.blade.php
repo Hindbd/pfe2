@@ -89,11 +89,8 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
-          @else
-          <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
-          @endif
+
         </div>
         <div class="info">
           <a href="profile" class="d-block">{{$user->name}}</a>

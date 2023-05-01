@@ -60,7 +60,8 @@ public function indexAxeShow(){
 
 //event 
 public function indexEventAdd(){
-    return view('event-add');
+    $user=Auth::user();
+    return view('event-add',['user'=>$user]);
 }
 public function storeEvent(Request $request): RedirectResponse
 {

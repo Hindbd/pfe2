@@ -69,7 +69,7 @@ Route::get('/project-add',[App\Http\Controllers\ProjectController::class, 'index
 Route::post('/project-add', [App\Http\Controllers\ProjectController::class, 'store'])->name('project-add');
 Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'index']);
 Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
-Route::get('/projects',[App\Http\Controllers\projectsController::class, 'index']);
+Route::get('/projects',[App\Http\Controllers\projectController::class, 'indexShow']);
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
