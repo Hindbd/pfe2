@@ -662,14 +662,14 @@
                   {{$project->id}}
                 </td>
                 <td>
-                  <a>{{$project->titre}}</a><br/>
+                  {{$project->titre}}<br/>
                 </td>
                 <td class="project_progress">
                   {{$project->description}}
                 </td>
                 <td class="project_progress">
                   @foreach($project->axe_prj as $axe)
-                    {{$axe->nom}}
+                    {{$axe->nom}}<br>
                   @endforeach
                 </td>
                 <td class="project_progress">

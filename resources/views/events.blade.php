@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Evenements</title>
+  <title>{{Auth::user()->name}} | Evenements</title>
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -603,29 +606,29 @@
                   {{$event->id}}
                 </td>
                 <td>
-                  <a>{{$event->titre}}</a><br/>
+                  {{$event->titre}}<br/>
                 </td>
                 <td>
-                  <a>{{$event->Lieu}}</a><br/>
+                  {{$event->Lieu}}<br/>
                 </td>
                 <td class="project_progress">
                   {{$event->description}}
                 </td>
                 <td class="project_progress">
                   @foreach($event->event_axe as $axe)
-                    {{$axe->nom}}
+                    {{$axe->nom}}<br>
                   @endforeach
                 </td>
                 <td class="project_progress">
                   @foreach($event->event_prj as $prj)
-                    {{$prj->titre}}
+                    {{$prj->titre}}<br>
                   @endforeach
                 </td>
                 <td class="project-state">
-                  {{$project->date_debut}}
+                  {{$event->date_debut}}
                 </td>
                 <td class="project-state">
-                  {{$project->date_fin}}
+                  {{$event->date_fin}}
                 </td>
                 <td class="project-actions text-right">
                   <!-- <a class="btn btn-primary btn-sm" href="#">
