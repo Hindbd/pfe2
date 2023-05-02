@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ViewErrorBag;
+use App\Models\Member;
+use App\Models\Project;
 
 class TeamsController extends Controller
 {
@@ -60,8 +62,13 @@ public function indexAxeShow(){
 
 //event 
 public function indexEventAdd(){
+    $members = Member::all();
+    $userIds = $members->pluck('id')->toArray();
+    $members = User::whereIn('id', $userIds)->get();
+    $axes=Axes::all();
+    $projects=Project::all();
     $user=Auth::user();
-    return view('event-add',['user'=>$user]);
+    return view('event-add',['user'=>$user,'axes'=>$axes,'members'=>$members, 'projects'=>$projects ]);
 }
 public function storeEvent(Request $request): RedirectResponse
 {
