@@ -102,7 +102,7 @@ class RegisterController extends Controller
             'id' => $user->id,
             'adresse' => $request->adresse,
             'description' => $request->description,
-            'domain_activite' => $request->domain_activite,
+            'domain_activite' => $request->domain,
         ]);
     }
 

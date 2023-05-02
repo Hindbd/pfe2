@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('adresse');
             $table->string('domain_activite');
-            $table->foreign('FK_id')
+            $table->foreign('id')
             ->references('id')
             ->on('users');
             $table->timestamps();

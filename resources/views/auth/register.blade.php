@@ -88,6 +88,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="partenaire_only" style="display:none;">
+                        <div class="row mb-3">
+                                <label for="adresse" class="col-md-4 col-form-label text-md-end">{{ __('Adresse') }}</label>
+                                <div class="col-md-6">
+                                <input type="text" name="adresse">
+                                </div>
+                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('description') }}</label>
+                                <div class="col-md-6">
+                                <input type="text" name="description">
+                                </div>
+                                <label for="domain" class="col-md-4 col-form-label text-md-end">{{ __('domain_activite') }}</label>
+                                <div class="col-md-6">
+                                <input type="text" name="domain">
+                                </div>
+                        </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
@@ -127,6 +143,15 @@
                                         $("#doctorant_only").hide();
                                     }
                                     });
+                                    $(document).on('change','#role',function() {
+                                    if($(role).val()=='3'){
+                                        $("#partenaire_only").show();
+                                    }
+                                    else{
+                                        $("#patenaire_only").hide();
+                                    }
+                                    });
+
 
                         </script>
 
