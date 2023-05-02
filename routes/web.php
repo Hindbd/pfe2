@@ -67,9 +67,12 @@ Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 's
 //projects
 Route::get('/project-add',[App\Http\Controllers\ProjectController::class, 'index']);
 Route::post('/project-add', [App\Http\Controllers\ProjectController::class, 'store'])->name('project-add');
-Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'index2']);
+Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'show'])->name('details');
 Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
-Route::get('/projects',[App\Http\Controllers\projectController::class, 'indexShow']);
+Route::get('/projects',[App\Http\Controllers\ProjectController::class, 'indexShow']);
+Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose']);
+Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply']);
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
@@ -83,13 +86,14 @@ Route::get('/axes',[App\Http\Controllers\TeamsController::class, 'indexAxeShow']
 Route::get('/event-add',[App\Http\Controllers\TeamsController::class, 'indexEventAdd']);
 Route::post('/event-add',[App\Http\Controllers\TeamsController::class, 'storeEvent'])->name('event-add');
 Route::get('/events',[App\Http\Controllers\TeamsController::class, 'indexEventShow']);
+Route::get('/event-signup',[App\Http\Controllers\ProjectController::class, 'signup']);
 
 
 
 //pubs
 Route::get('/pubs-add',[App\Http\Controllers\TeamsController::class, 'indexPubs']);
+Route::get('/pubs-add',[App\Http\Controllers\pubsController::class, 'publish'])->name('publier');
 
 
-
-
-
+//portfolio
+Route::get('/portfolio',[App\Http\Controllers\portfolioController::class, 'index']);

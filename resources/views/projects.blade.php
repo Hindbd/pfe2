@@ -290,15 +290,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
@@ -383,7 +374,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -410,15 +401,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
@@ -503,7 +485,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -531,14 +513,6 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>
@@ -565,7 +539,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evenement</p>
             </a>
           </li>
           <li class="nav-item">

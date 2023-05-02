@@ -13,13 +13,14 @@ class pubscontroller extends Controller
     //
     public function index()
 {
-
-$user = Auth::user();
-$posts = DB::table('pubs')->get();
-return view('welcome', ['user' => $user,
-                        'posts' => $posts
-                    ]
-);
- 
+    $user = Auth::user();
+    $posts = DB::table('pubs')->get();
+    return view('welcome', ['user' => $user,'posts' => $posts]);
+}
+    public function publish()
+{
+    $user = Auth::user();
+    $axes = DB::table('axes')->get();
+    return view('pubs-add', ['user' => $user,'axes' => $axes]);
 }
 }

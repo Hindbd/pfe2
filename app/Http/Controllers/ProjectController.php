@@ -52,8 +52,8 @@ public function store(Request $request): RedirectResponse
     $selectedAxes = $request->input('axes_recherche');
     $prj->axe_prj()->attach($selectedAxes);
 //members 
-$selectedMembers = $request->input('members_prj');
-$prj->member_prj()->attach($selectedMembers);
+    $selectedMembers = $request->input('members_prj');
+    $prj->member_prj()->attach($selectedMembers);
 
     return redirect('#');
 }
@@ -64,7 +64,25 @@ public function index2(){
 }
 public function index3(){
     $user=Auth::user();
+    
     return view('project-edit',['user'=>$user]);
     
+}
+public function propose()
+{
+    $user=Auth::user();
+    return view('propose', ['user'=>$user]);
+}
+public function apply()
+{
+    $user=Auth::user();
+    $projects = DB::table('projects')->get();
+    return view('apply', ['user'=>$user,'projects'=>$projects]);
+}
+public function signup()
+{
+    $user=Auth::user();
+    $events = DB::table('events')->get();
+    return view('event-signup', ['user'=>$user,'events'=>$events]);
 }
 }

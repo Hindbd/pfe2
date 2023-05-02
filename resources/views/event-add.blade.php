@@ -78,7 +78,7 @@
   <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -337,7 +337,7 @@
                   <input type="checkbox" id="axe1" name="axes_recherche[]" value="{{$axe->id}}">
                   <label for="axe1">{{$axe->nom}}</label><br>
                 @endforeach
-              </div>
+              </div><br>
               <legend for="projects">Les projets inclus</legend><br>
               <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                 @foreach($projects as $project)
@@ -357,11 +357,12 @@
               <div class="row">
               <div class="form-group">
                 <label for="date_debut">Date de debut</label>
-                <input id="date_debut" class="form-control mx-3" rows="4" type="date" name="date_debut"></input>
+                <input id="date_debut" class="form-control" type="date" name="date_debut"></input>
               </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <div class="form-group">
                 <label for="date_fin">Date de fin</label>
-                <input id="date_fin" class="form-control" rows="4" type="date" name="date_fin"></input>
+                <input id="date_fin" class="form-control" type="date" name="date_fin"></input>
               </div>
               <div class="col-12">
                 <a href="#" class="btn btn-secondary">Annuler</a>

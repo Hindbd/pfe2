@@ -106,14 +106,6 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>
@@ -139,9 +131,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="event_signup" class="nav-link">
+            <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;un evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -204,15 +196,15 @@
                 @csrf
                 <div class="form-group">
                   <label for="nom">Nom</label>
-                  <input type="text" id="nom" class="form-control" name="nom">
+                  <input type="text" id="nom" class="form-control" name="nom" required>
                 </div>
                 <div class="form-group">
                   <label for="prenom">Prénom</label>
-                  <input type="text" id="prenom" class="form-control" name="prenom">
+                  <input type="text" id="prenom" class="form-control" name="prenom" required>
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail</label>
-                  <input type="email" id="email" class="form-control" name="email">
+                  <input type="email" id="email" class="form-control" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="axes_recherche">Projets</label><br>
@@ -225,7 +217,7 @@
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
-                  <textarea id="email" class="form-control" rows="3" name="message"></textarea>
+                  <textarea id="message" class="form-control" rows="3" name="message"></textarea>
                 </div>
                 <div class="row">
                   <div class="col-12">

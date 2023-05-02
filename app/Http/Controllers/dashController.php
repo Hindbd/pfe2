@@ -30,7 +30,16 @@ class dashController extends Controller
     public function index3()
     {
         $user = Auth::user();
-        return view('doctorantDashboard',['user'=>$user]);
+        $users=User::all();
+        $member = Member::where('id', $user->id)->first();
+        if($member){
+        $encadrant=$member->encadrant;
+        return view('doctorantDashboard',['user'=>$user, 'member' => $member,'encadrant'=>$encadrant,'users'=>$users]);
+        }
+        else{
+            return view('doctorantDashboard',['user'=>$user,'users'=>$users]);
+
+        }
     }
     public function index4()
     {

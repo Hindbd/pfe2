@@ -115,14 +115,6 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>
@@ -150,7 +142,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;événement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -179,162 +171,105 @@
    <!-- Content Wrapper. Contains page content -->
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
+            <h1>Profile</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="partenaireDashboard">Acceuil</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+              <li class="breadcrumb-item active">Profile</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Info boxes -->
         <div class="row">
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-timeline"></i></span>
+          <div class="col-md-3">
 
-              <div class="info-box-content">
-                <span class="info-box-text">Publications</span>
-                <span class="info-box-number">410</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="bi far bi-kanban"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Projets</span>
-                <span class="info-box-number">17</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-4">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Membres</span>
-                <span class="info-box-number">20</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-
-        
-
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <div class="col-md-12">
-            <!-- /.card -->
-            <div class="row">
-              <div class="col-md-12">
-                <!-- USERS LIST -->
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Latest Members</h3>
-
-                    <div class="card-tools">
-                      <span class="badge badge-danger">8 New Members</span>
-                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                      <button type="button" class="btn btn-tool" data-card-widget="remove">
-                        <i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body p-0">
-                    <ul class="users-list clearfix">
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Alexander Pierce</a>
-                        <span class="users-list-date">Today</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Norman</a>
-                        <span class="users-list-date">Yesterday</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Jane</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">John</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Alexander</a>
-                        <span class="users-list-date">13 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Sarah</a>
-                        <span class="users-list-date">14 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Nora</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/profile.png" alt="User Image" style="height:100px; width:100px;">
-                        <a class="users-list-name" href="#">Nadia</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
-                    </ul>
-                    <!-- /.users-list -->
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer text-center">
-                    <a href="javascript:">Voir tout</a>
-                  </div>
-                  <!-- /.card-footer -->
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="../../dist/img/profile.png"
+                       alt="User profile picture">
                 </div>
-                <!--/.card -->
+
+                <h3 class="profile-username text-center">{{$user->prenom}} {{$user->name}}</h3>
+                @if($user->role == '4')
+                  <p class="text-muted text-center">Administrateur</p>
+                @elseif($user->role == '2')
+                  <p class="text-muted text-center">Doctorant</p>
+                  <b>Encadrant : </b> 
+                      @foreach($users as $user)
+                      @if($encadrant == $user->id)
+                      {{$user->name ." ".$user->prenom}}
+                      @endif
+                      @endforeach
+                @elseif($user->role == '1')
+                  <p class="text-muted text-center">Enseignant</p>
+                @elseif($user->role == '3')
+                  <p class="text-muted text-center">Partenaire</p>
+                @endif
               </div>
-              <!-- /.col -->
+              <!-- /.card-body -->
             </div>
-            <!-- /.row -->
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <button class="btn btn-primary" href="#settings">Paramètres</button>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <!-- Settings tab -->
+                    <form class="form-horizontal" id="form1" method="POST" action="{{ route('editprofile') }}">
+                      @csrf
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="name" placeholder="Nom" name="name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Prénom</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">Valider</button>
+                        </div>
+                      </div>
+                    </form>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
             <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div><!--/. container-fluid -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>

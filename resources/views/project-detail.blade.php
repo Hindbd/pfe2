@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Projet</title>
+  <title>{{Auth::user()->name}} | Projet</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -89,21 +89,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -724,34 +724,34 @@
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
-              <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
+              @if(isset($project))
+              <h3 class="text-primary"><i class="fas fa-paint-brush"></i>{{ $project->titre }}</h3>
+              <p class="text-muted">{{ $project->description }}</p>
               <br>
               <div class="text-muted">
-                <p class="text-sm">Client Company
-                  <b class="d-block">Deveint Inc</b>
+                <p class="text-sm">Responsable
+                  <b class="d-block">???</b>
                 </p>
-                <p class="text-sm">Project Leader
-                  <b class="d-block">Tony Chicken</b>
+                <p class="text-sm">Membres
+                  <b class="d-block">
+                    @foreach($members as $member)
+                    @if($member->FK_prj == $project->id)
+                    @php
+                      $member = App\Models\Member::find($member->FK_member);
+                      $userr = App\Models\User::find($member->id);
+
+                    @endphp
+                    {{$userr->prenom . " ".$userr->name}}<br>
+                    @endif
+                    @endforeach
+                  </b>
                 </p>
               </div>
 
-              <h5 class="mt-5 text-muted">Project files</h5>
+              <h5 class="mt-5 text-muted">Les axes</h5>
               <ul class="list-unstyled">
                 <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i> Email-from-flatbal.mln</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
+                  <a href="" class="btn-link text-secondary"><i class="bx bx-chevron-right"></i> Functional-requirements.docx</a>
                 </li>
               </ul>
               <div class="text-center mt-5 mb-3">

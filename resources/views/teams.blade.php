@@ -292,15 +292,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
@@ -385,7 +376,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -412,15 +403,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-           <li class="nav-item">
-            <a href="doctorantDashboard" class="nav-link">
-            <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li> 
-          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
@@ -505,69 +487,7 @@
           <li class="nav-item">
             <a href="event-signup" class="nav-link">
             <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="contacts" class="nav-link">
-              <i class="far fa-address-book nav-icon"></i>
-              <p>Contacts</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-        </ul>
-      </nav>
-    <!-- PARTENAIRE SIDEBAR -->
-    @elseif(Auth::user()->role == '3')
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="partenaireDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="profile" class="nav-link">
-              <i class="far fa-user nav-icon"></i>
-              <p>
-                Profile
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="propose" class="nav-link">
-            <i class="bi far bi-kanban nav-icon"></i>
-              <p>
-                Proposer un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="apply" class="nav-link">
-            <i class="fas fa-user-plus nav-icon"></i>
-              <p>
-                Participer á un projet
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="event-signup" class="nav-link">
-            <i class="bi bi-calendar2-event nav-icon far"></i>
-              <p>Participer á un evenement</p>
+              <p>Participer á un <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;evenement</p>
             </a>
           </li>
           <li class="nav-item">
@@ -679,11 +599,11 @@
                           </span>
                       </td>
                        <td class="project-state">
-                            @foreach($users as $user)
-                          @if($user->id == $team->chef_equipe)
-                                                            {{ $user->name }}
-                                                            @endif
-                                                            @endforeach
+                          @foreach($users as $user)
+                            @if($user->id == $team->chef_equipe)
+                              {{ $user->name }}
+                            @endif
+                          @endforeach
                       </td> 
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
