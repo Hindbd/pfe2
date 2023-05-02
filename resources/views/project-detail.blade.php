@@ -78,7 +78,7 @@
   <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
@@ -634,30 +634,30 @@
           <div class="row">
             <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
               <div class="row">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-6">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
-                      <span class="info-box-text text-center text-muted">Estimated budget</span>
-                      <span class="info-box-number text-center text-muted mb-0">2300</span>
+                      <span class="info-box-text text-center text-muted">Axes de Recherche</span>
+                      <span class="info-box-number text-center text-muted mb-0">1</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-6">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
-                      <span class="info-box-text text-center text-muted">Total amount spent</span>
-                      <span class="info-box-number text-center text-muted mb-0">2000</span>
+                      <span class="info-box-text text-center text-muted">Membres</span>
+                      <span class="info-box-number text-center text-muted mb-0">20</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-4">
+                <!-- <div class="col-12 col-sm-4">
                   <div class="info-box bg-light">
                     <div class="info-box-content">
                       <span class="info-box-text text-center text-muted">Estimated project duration</span>
                       <span class="info-box-number text-center text-muted mb-0">20</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="row">
                 <div class="col-12">
