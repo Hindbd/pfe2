@@ -628,7 +628,7 @@
                   @endforeach
                 </td>
                 <td class="project_progress">
-                  @foreach($projects as $projet)
+                  @foreach($projects as $project)
                     @if($project->FK_event == $event->id)
                     @php
                       $projects = App\Models\Project::find($project->FK_prj);

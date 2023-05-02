@@ -102,7 +102,10 @@ public function storeEvent(Request $request): RedirectResponse
 public function indexEventShow(){
     $user=Auth::user();
     $events = DB::table('events')->get();
-    return view('events',['user'=>$user,'events'=>$events]);
+    $projects = DB::table('affect_event_prj')->get();
+    $axes=DB::table('affect_event_axe')->get();
+    $members=DB::table('affect_event_member')->get();
+    return view('events',['user'=>$user,'projects'=>$projects,'axes'=>$axes,'members'=>$members,'events'=>$events]);
 }
 
 //pubs
