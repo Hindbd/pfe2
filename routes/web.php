@@ -68,7 +68,7 @@ Route::post('/register',[App\Http\Controllers\Auth\RegisterController::class, 's
 Route::get('/project-add',[App\Http\Controllers\ProjectController::class, 'index']);
 Route::post('/project-add', [App\Http\Controllers\ProjectController::class, 'store'])->name('project-add');
 Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'index2']);
-Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'show'])->name('details');
+// Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'show'])->name('details');
 Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
 Route::get('/projects',[App\Http\Controllers\ProjectController::class, 'indexShow']);
 Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose']);
