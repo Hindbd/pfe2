@@ -18,10 +18,14 @@ class Events extends Model
     ];
     public function event_prj()
     {
-        return $this->belongsToMany(Projets::class, 'affect_event_prj', 'FK_prj', 'FK_event');
+        return $this->belongsToMany(Project::class, 'affect_event_prj',  'FK_event','FK_prj');
     }
     public function event_axe()
     {
-        return $this->belongsToMany(Axes::class, 'affect_event_axe', 'FK_axe', 'FK_event');
+        return $this->belongsToMany(Axes::class, 'affect_event_axe',  'FK_event','FK_axe');
+    }
+    public function event_member()
+    {
+        return $this->belongsToMany(Membre::class, 'affect_event_member', 'FK_event', 'FK_member');
     }
 }

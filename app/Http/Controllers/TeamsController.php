@@ -86,7 +86,18 @@ public function storeEvent(Request $request): RedirectResponse
         'date_fin'=>$request->date_fin
 
     ]);
-    return redirect('events');
+    //axes
+    $selectedAxes = $request->input('axes_recherche');
+    $Event->event_axe()->attach($selectedAxes);
+    //members 
+    $selectedMembers = $request->input('members');
+    $Event->event_member()->attach($selectedMembers);
+    //projects
+    $selectedProjects = $request->input('projects'); 
+    $Event->event_prj()->attach($selectedProjects);
+        return redirect('events');
+
+
 }
 public function indexEventShow(){
     $user=Auth::user();
