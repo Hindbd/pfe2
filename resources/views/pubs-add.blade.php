@@ -102,184 +102,189 @@
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
-      or any other icon font library -->
-            <li class="nav-item">
-              <a href="adminDashboard" class="nav-link">
-              <i class="bi bi-microsoft nav-icon far"></i>
-                <p>
-                  Dashboard
-                </p>
+      <!-- ADMIN SIDEBAR -->
+      @if(Auth::user()->role == '4')
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+           <li class="nav-item">
+            <a href="adminDashboard" class="nav-link">
+            <i class="bi bi-microsoft nav-icon far"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li> 
+          </li>
+          <li class="nav-item">
+            <a href="profile" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="mailbox" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+                <p>Inbox</p>
               </a>
-            </li> 
-            </li>
-            <li class="nav-item">
-              <a href="profile" class="nav-link">
-                <i class="far fa-user nav-icon"></i>
-                <p>
-                  Profile
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="mailbox" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
-                  <p>Inbox</p>
+          </li>
+          <li class="nav-item">
+          <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-timeline"></i>
+              <p>
+                Mes publications
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="timeline" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
                 </a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
+                <a href="pubs-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter publication</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-timeline"></i>
-                <p>
-                  Mes publications
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="timeline" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Voir tout</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pubs-add" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ajouter publication</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi far bi-kanban nav-icon"></i>
-                <p>Projects
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="projects" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Voir tout</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="project-add" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ajouter Projet</p>
-                  </a>
-                </li>
-                <!-- <li class="nav-item">
-                  <a href="project-edit" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Modifier Projet</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="project-detail" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Details</p>
-                  </a>
-                </li> -->
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-users nav-icon"></i>
-                <p>Equipes
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="teams" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Voir tout</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="team-add" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ajouter Equipe</p>
-                  </a>
-                </li>
-                
-                <!-- <li class="nav-item">
-                  <a href="project-edit" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Edit Team</p>
-                  </a>
-                </li> -->
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-              <i class="bi bi-calendar2-event nav-icon far"></i>
-                <p>Evénments
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="events" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Voir tout</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="event-add" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ajouter événement</p>
-                  </a>
-                </li>
-                <!-- <li class="nav-item">
-                  <a href="project-edit" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Edit Team</p>
-                  </a>
-                </li> -->
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-view-list nav-icon far"></i>
-                <p>Les Axes
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="axes" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Voir tout</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="add-axe" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ajouter Axe</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="contacts" class="nav-link">
-                <i class="far fa-address-book nav-icon"></i>
-                <p>Contacts</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('logout') }}"onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();" class="nav-link">
-                <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-                <p>Logout</p>
-              </a>
-            </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-                </form>
-          </ul>
-        </nav>
+              <i class="bi far bi-kanban nav-icon"></i>
+              <p>Projects
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="projects" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="project-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Projet</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="project-edit" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Modifier Projet</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="project-detail" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Details</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>Equipes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="teams" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="team-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Equipe</p>
+                </a>
+              </li>
+              
+              <!-- <li class="nav-item">
+                <a href="project-edit" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Team</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="bi bi-calendar2-event nav-icon far"></i>
+              <p>Evénments
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="events" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="event-add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter événement</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="project-edit" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Team</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="bi bi-view-list nav-icon far"></i>
+              <p>Les Axes
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="axes" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir tout</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add-axe" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter Axe</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="contacts" class="nav-link">
+              <i class="far fa-address-book nav-icon"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+        </ul>
+      </nav>
       <!-- DOCTORANT SIDEBAR -->
       @elseif(Auth::user()->role == '2')
       <nav class="mt-2">
