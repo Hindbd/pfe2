@@ -71,8 +71,8 @@ Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'in
 // Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'show'])->name('details');
 Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
 Route::get('/projects',[App\Http\Controllers\ProjectController::class, 'indexShow']);
-Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose']);
-Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply']);
+Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose'])->name('project-propose');
+Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply'])->name('project-apply');
 
 //equipes
 Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);

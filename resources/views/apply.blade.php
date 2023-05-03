@@ -150,13 +150,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -261,13 +263,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -419,20 +423,8 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('project-add') }}">
+              <form method="POST" action="{{ route('project-apply') }}">
                 @csrf
-                <div class="form-group">
-                  <label for="nom">Nom</label>
-                  <input type="text" id="nom" class="form-control" name="nom" required>
-                </div>
-                <div class="form-group">
-                  <label for="prenom">Prénom</label>
-                  <input type="text" id="prenom" class="form-control" name="prenom" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input type="email" id="email" class="form-control" name="email" required>
-                </div>
                 <div class="form-group">
                     <label for="axes_recherche">Projets</label><br>
                     <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
@@ -441,10 +433,6 @@
                         <label for="project1">{{$project->titre}}</label><br>
                         @endforeach
                     </div>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" class="form-control" rows="3" name="message"></textarea>
                 </div>
                 <div class="row">
                   <div class="col-12">

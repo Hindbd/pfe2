@@ -345,7 +345,7 @@
               </li>
               <li class="nav-item">
                 <a href="apply" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                   <p>
                     Participer á un projet
                   </p>
@@ -458,7 +458,7 @@
               </li>
               <li class="nav-item">
                 <a href="apply" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                   <p>
                     Participer á un projet
                   </p>

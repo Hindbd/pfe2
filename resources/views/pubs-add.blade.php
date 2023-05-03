@@ -332,13 +332,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -443,13 +445,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">

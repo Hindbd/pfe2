@@ -150,13 +150,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -261,13 +263,15 @@
               <li class="nav-item">
                 <a href="projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projet actuelle</p>
+                  <p>Projets anciennes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="projects" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projets anciennes</p>
+                <a href="apply" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Participer á un projet
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -419,15 +423,11 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('project-add') }}">
+              <form method="POST" action="{{ route('project-propose') }}">
                 @csrf
                 <div class="form-group">
                   <label for="nom">Nom</label>
                   <input type="text" id="nom" class="form-control" name="nom" required>
-                </div>
-                <div class="form-group">
-                  <label for="prenom">Prénom</label>
-                  <input type="text" id="prenom" class="form-control" name="prenom" required>
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail</label>
