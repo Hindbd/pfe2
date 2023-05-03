@@ -21,6 +21,7 @@ class pubscontroller extends Controller
 {
     $user = Auth::user();
     $axes = DB::table('axes')->get();
-    return view('pubs-add', ['user' => $user,'axes' => $axes]);
+    $events = DB::table('events')->get();
+    return view('pubs-add', ['user' => $user, 'axes' => $axes, 'events'=>$events]);
 }
 }

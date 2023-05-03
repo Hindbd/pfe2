@@ -116,7 +116,6 @@
               </p>
             </a>
           </li> 
-          </li>
           <li class="nav-item">
             <a href="profile" class="nav-link">
               <i class="far fa-user nav-icon"></i>
@@ -551,31 +550,47 @@
               <form method="POST" action="{{ route('project-add') }}">
                 @csrf
                 <div class="form-group">
-                  <label for="nom">Nom</label>
+                  <h5 for="nom"><b>Nom</b></h5>
                   <input type="text" id="nom" class="form-control" name="nom">
                 </div>
                 <div class="form-group">
-                  <label for="prenom">Titre</label>
+                  <h5 for="prenom"><b>Titre</b></h5>
                   <input type="text" id="prenom" class="form-control" name="prenom">
                 </div>
                 <div class="form-group">
-                  <label for="email">Contenu</label>
-                  <input type="email" id="email" class="form-control" name="email">
+                  <h5 for="email"><b>Contenu</b></h5>
+                  <textarea type="email" id="email" class="form-control" rows="4" name="email"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="axes_recherche">Axes de recherche liés :</label><br>
+                    <h5 for="axes_recherche"><b>Axes de recherche liés :</b></h5><br>
                     <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
                         @foreach($axes as $axe)
                         <input type="radio" id="axe1" name="axes[]" value="{{$axe->id}}">
                         <label for="axe1">{{$axe->nom}}</label><br>
                         @endforeach
                     </div>
-                </div>
+                </div><br>
+                <!-- Checkbox to toggle display of events -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" id="addEventCheckbox">
+                    <h5 class="form-check-label" for="addEventCheckbox">
+                        <b>Ajouter événement</b>
+                    </h5>
+                </div><br>
+                <!-- List of events (hidden by default) -->
+                <div id="eventList" style="display:none;">
+                    @foreach($events as $event)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{$event->id}}" name="events[]" id="event{{$event->id}}">
+                            <label class="form-check-label" for="event{{$event->id}}"><b>{{$event->titre}}</b></label>
+                        </div>
+                    @endforeach
+                </div><br>
                 <div class="row">
                   <div class="col-12">
                     <a href="#" class="btn btn-secondary">Annuler</a>
                     <button type="submit" class="btn btn-primary">
-                      {{ __('Participer') }}
+                      {{ __('Publier') }}
                     </button>
                   </div>
                 </div>
@@ -600,8 +615,20 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+<!-- JavaScript to toggle display of events -->
+<script>
+    var addEventCheckbox = document.getElementById('addEventCheckbox');
+    var eventList = document.getElementById('eventList');
+    addEventCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            eventList.style.display = 'block';
+        } else {
+            eventList.style.display = 'none';
+        }
+    });
+</script>
 <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

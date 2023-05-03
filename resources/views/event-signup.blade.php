@@ -419,20 +419,8 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('project-add') }}">
+              <form method="POST" action="{{ route('event-signup') }}">
                 @csrf
-                <div class="form-group">
-                  <label for="nom">Nom</label>
-                  <input type="text" id="nom" class="form-control" name="nom" required>
-                </div>
-                <div class="form-group">
-                  <label for="prenom">Prénom</label>
-                  <input type="text" id="prenom" class="form-control" name="prenom" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input type="email" id="email" class="form-control" name="email" required>
-                </div>
                 <div class="form-group">
                     <label for="axes_recherche">Evénements</label><br>
                     <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
@@ -441,10 +429,6 @@
                         <label for="event1">{{$event->titre}}</label><br>
                         @endforeach
                     </div>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="email" class="form-control" rows="3" name="message"></textarea>
                 </div>
                 <div class="row">
                   <div class="col-12">
