@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{$user->name}} | Publications</title>
+  <title>{{Auth::user()->name}} | Publications</title>
   <!-- Favicons -->
   <link href="assets/img/icon.png" rel="icon">
   <link href="assets/img/icon.png" rel="apple-touch-icon">
@@ -89,21 +89,21 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-3 d-flex">
         <div class="image">
-          @if($user->img='NULL')
+          @if(Auth::user()->img='NULL')
           <img src="dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
           @else
           <img src="{{$user->img}}" class="img-circle elevation-2" alt="User Image">
           @endif
         </div>
         <div class="info">
-          <a href="profile" class="d-block">{{$user->name}}</a>
+          <a href="profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Route::has('login') && Auth::check())
       <!-- ADMIN SIDEBAR -->
-      @if($user->role == '4')
+      @if(Auth::user()->role == '4')
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -286,7 +286,7 @@
           </ul>
         </nav>
     <!-- DOCTORANT SIDEBAR -->
-    @elseif($user->role == '2')
+    @elseif(Auth::user()->role == '2')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -338,7 +338,7 @@
               </li>
               <li class="nav-item">
                 <a href="apply" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                   <p>
                     Participer á un projet
                   </p>
@@ -399,7 +399,7 @@
         </ul>
       </nav>
     <!-- ENSEIGNANT SIDEBAR -->
-    @elseif($user->role == '1')
+    @elseif(Auth::user()->role == '1')
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -546,101 +546,49 @@
           <div class="col-md-12">
             <!-- The time line -->
             <div class="timeline">
+              @foreach($pubs as $pub)
               <!-- timeline time label -->
               <div class="time-label">
-                <span class="bg-red">10 Feb. 2014</span>
+                <span class="bg-blue">{{$pub->created_at}}</span>
               </div>
               <!-- /.timeline-label -->
               <!-- timeline item -->
               <div>
-                <i class="fas fa-envelope bg-blue"></i>
+                <!-- <i class="fas fa-envelope bg-blue"></i> -->
                 <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 12:05</span>
-                  <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+                  <span class="time"><i class="fas fa-clock"></i>
+                    <?php
+                        $timestamp = strtotime($pub->created_at);
+                        $difference = time() - $timestamp;
+                        $interval = '';
+                        if ($difference < 60) {
+                          $interval = 'just now';
+                        } elseif ($difference < 3600) {
+                          $interval = floor($difference / 60) . ' min ago';
+                        } elseif ($difference < 86400) {
+                          $interval = floor($difference / 3600) . ' hours ago';
+                        } else {
+                          $interval = floor($difference / 86400) . ' days ago';
+                        }
+                        echo $interval;
+                    ?>
+                  </span>
+                  <h3 class="timeline-header"><a href="#">{{$pub->nom}}</a> a publié</h3>
 
                   <div class="timeline-body">
-                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                    weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                    jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                    quora plaxo ideeli hulu weebly balihoo...
+                    {{$pub->contenu}}
                   </div>
-                  <div class="timeline-footer">
+                  <!-- <div class="timeline-footer">
                     <a class="btn btn-primary btn-sm">Read more</a>
                     <a class="btn btn-danger btn-sm">Delete</a>
-                  </div>
-                </div>
-              </div>
-              <!-- END timeline item -->
-              <!-- timeline item -->
-              <div>
-                <i class="fas fa-user bg-green"></i>
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                  <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
-                </div>
-              </div>
-              <!-- END timeline item -->
-              <!-- timeline item -->
-              <div>
-                <i class="fas fa-comments bg-yellow"></i>
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                  <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-                  <div class="timeline-body">
-                    Take me to your leader!
-                    Switzerland is small and neutral!
-                    We are more like Germany, ambitious and misunderstood!
-                  </div>
-                  <div class="timeline-footer">
-                    <a class="btn btn-warning btn-sm">View comment</a>
-                  </div>
-                </div>
-              </div>
-              <!-- END timeline item -->
-              <!-- timeline time label -->
-              <div class="time-label">
-                <span class="bg-green">3 Jan. 2014</span>
-              </div>
-              <!-- /.timeline-label -->
-              <!-- timeline item -->
-              <div>
-                <i class="fa fa-camera bg-purple"></i>
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 2 days ago</span>
-                  <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-                  <div class="timeline-body">
-                    <img src="https://placehold.it/150x100" alt="...">
-                    <img src="https://placehold.it/150x100" alt="...">
-                    <img src="https://placehold.it/150x100" alt="...">
-                    <img src="https://placehold.it/150x100" alt="...">
-                    <img src="https://placehold.it/150x100" alt="...">
-                  </div>
-                </div>
-              </div>
-              <!-- END timeline item -->
-              <!-- timeline item -->
-              <div>
-                <i class="fas fa-video bg-maroon"></i>
-
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 5 days ago</span>
-
-                  <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
-
-                  <div class="timeline-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen></iframe>
-                    </div>
-                  </div>
-                  <div class="timeline-footer">
-                    <a href="#" class="btn btn-sm bg-maroon">See comments</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- END timeline item -->
               <div>
                 <i class="fas fa-clock bg-gray"></i>
               </div>
+              @endforeach
             </div>
           </div>
           <!-- /.col -->
