@@ -13,28 +13,31 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\ViewErrorBag;
 use App\Models\Member;
 use App\Models\Project;
+use App\Models\pubs;
 
 class TeamsController extends Controller
 {
     //
-    public function index(){
-        $users = DB::table('users')
-        ->where('role', '=', 'Enseignant')
-        ->orWhere('role', '=', 'Doctorant')
-        ->get();
-        $teams = DB::table('equipes')->get();
-        return view('teams',['users'=>$users,'teams'=>$teams]);
-    }
+    // public function index(){
+    //     $users = DB::table('users')
+    //     ->where('role', '=', 'Enseignant')
+    //     ->orWhere('role', '=', 'Doctorant')
+    //     ->get();
+    //     $teams = DB::table('equipes')->get();
+    //     return view('teams',['users'=>$users,'teams'=>$teams]);
+    // }
     
-    public function index2(){
+    //equipes
+    public function indexEquipe(){
         $axes = DB::table('axes');
         $axes=Axes::all();
-        $users = DB::table('users')
-        ->where('role', '=', 'Enseignant')
-        ->orWhere('role', '=', 'Doctorant')
-        ->get();
-        return view('add-team',['users'=>$users,'axes'=>$axes]);
+        $members = Member::all();
+        $userIds = $members->pluck('id')->toArray();
+        $user=Auth::user();
+        $members = User::whereIn('id', $userIds)->get();
+        return view('add-team',['axes'=>$axes,'members'=>$members]);
     }
+    //axes
     public function indexAxeAdd(){
         $user=Auth::user();
         return view('axe-add',['user'=>$user]);
@@ -60,7 +63,7 @@ public function indexAxeShow(){
     return view('axes',['user'=>$user,'axes'=>$axes]);
 }
 
-//event 
+//events
 public function indexEventAdd(){
     $members = Member::all();
     $userIds = $members->pluck('id')->toArray();
@@ -109,8 +112,55 @@ public function indexEventShow(){
 }
 
 //pubs
-
 public function indexPubs(){
-    return View('pubs-add');
+    $user = Auth::user();
+    $axes = DB::table('axes')->get();
+    $events = DB::table('events')->get();
+    return view('pubs-add', ['user' => $user, 'axes' => $axes, 'events'=>$events]);}
+
+
+
+public function publish(Request $request): RedirectResponse
+{
+    $request->validate([
+        'titre' => ['required', 'string', 'max:255'],
+        'contenu' => ['required', 'string', 'max:255']
+        ]);
+
+// Get the uploaded image file from the request
+$imageFile = $request->file('img');
+
+if ($imageFile) {
+    // Generate a unique filename for the image
+    $filename = uniqid().'.'.$imageFile->getClientOriginalExtension();
+
+    // Move the uploaded image to the desired location (e.g., 'public/images' directory)
+    $imageFile->move(public_path('images'), $filename);
+} else {
+    // No image file was uploaded, so set the filename to null or a default value
+    $filename = null; // or provide a default image filename
+}
+
+// Create the pub with the uploaded image filename
+$pub = pubs::create([
+    'titre' => $request->titre,
+    'contenu' => $request->contenu,
+    'img' => $filename,
+    'editeur'=>Auth::user()->id
+]);
+
+    //axes
+    $selectedAxes = $request->input('axes');
+    $pub->pub_axe()->attach($selectedAxes);
+    // //members 
+    // $selectedMembers = $request->input('members');
+    // $pub->pub_member()->attach($selectedMembers);
+    //events
+    $selectedEvents = $request->input('events');
+    $pub->pub_event()->attach($selectedEvents);
+
+        return redirect('timeline');
+
+
 }
 }

@@ -75,8 +75,8 @@ Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose']
 Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply'])->name('project-apply');
 
 //equipes
-Route::get('/teams',[App\Http\Controllers\TeamsController::class, 'index']);
-Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'index2']);
+Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'indexEquipe']);
+Route::post('/team-add',[App\Http\Controllers\TeamsController::class, 'storeequipe'])->name('add-equipe');
 
 //axes
 Route::get('/add-axe',[App\Http\Controllers\TeamsController::class, 'indexAxeAdd']);
@@ -92,7 +92,7 @@ Route::get('/event-signup',[App\Http\Controllers\ProjectController::class, 'sign
 
 //pubs
 Route::get('/pubs-add',[App\Http\Controllers\TeamsController::class, 'indexPubs']);
-Route::get('/pubs-add',[App\Http\Controllers\pubsController::class, 'publish'])->name('publier');
+Route::post('/pubs-add',[App\Http\Controllers\TeamsController::class, 'publish'])->name('pubs-add');
 
 
 //portfolio

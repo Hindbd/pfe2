@@ -295,7 +295,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Créer un Equipe</h1>
+            <h1>Créer une Equipe</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -322,46 +322,33 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('project-add') }}">
+              <form method="POST" action="{{ route('add-equipe') }}">
               @csrf
               <div class="form-group">
                 <label for="nom">Nom d'equipe</label>
                 <input type="text" id="nom" class="form-control" name="nom">
               </div>
-              <div class="form-group">
-                <label for="nom">Les membres</label>
-                <!-- <select name="members">
-                @foreach($users as $user)
-                <option value="{{$user->id}}">{{$user->name}}</option>
-                @endforeach
-                </select> -->
-                <!-- Button to open the modal window -->
-<button type="button" class="btn btn-light mx-2" data-toggle="modal" data-target="#userModal">Ajouter membres</button>
+              <div class="row mb-3">
+                            <label for="statut" class="col-md-4 col-form-label text-md-end">chef d'equipe</label><br>
 
-<!-- Modal window with user selection form -->
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="userModalLabel">Selectioner les membres a ajouter</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        @foreach($users as $user)
-                        @if($user->role == '2')
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{$user->id}}" name="members[]" id="user{{$user->id}}">
-                                <label class="form-check-label" for="user{{$user->id}}">{{Auth::user()->name}}</label>
+                            <div class="col-md-6">
+                            <select id="chef" name="chef">
+                                @foreach($members as $member)
+                                <option value="{{$member->id}}">{{$member->name ." ".$member->prenom}}</option>
+                                @endforeach
+                            </select>
                             </div>
-                        @endif
-                        @endforeach
-                    </div>
-                </form>
-            </div>
+              </div>
+              <div class="form-group">
+                <legend for="axes_recherche">Les membres</legend><br>
+                <div class="checkbox-container" style="height: 150px; overflow-y: auto;">
+                  @foreach($members as $member)
+                    <input type="checkbox" id="members" name="members[]" value="{{$member->id}}">
+                    <label for="members">{{$member->name ." ".$member->prenom}}</label><br>
+                  @endforeach
+                </div>
+              </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 <button type="button" class="btn btn-primary" id="addUsersBtn">Ajouter</button>
@@ -370,51 +357,6 @@
     </div>
 </div>
 
-<!-- JavaScript to add selected users to the list -->
-<script>
-    $(document).ready(function() {
-        // When the "Add Selected Users" button is clicked, add the selected users to the list
-        $('#addUsersBtn').click(function() {
-            // Get the selected users
-            var selectedUsers = $('input[name="members[]"]:checked').map(function() {
-                return $(this).val();
-            }).get();
-
-            // Add the selected users to the list
-            $.each(selectedUsers, function(index, value) {
-                var option = '<option value="' + value + '">' + $('#user' + value).next('.form-check-label').text() + '</option>';
-                $('select[name="members"]').append(option);
-            });
-            // Close the modal window
-            $('#userModal').modal('hide');
-        });
-    });
-</script>
-
-              </div>              
-              <div class="form-group">
-                <label for="nom">Chef d'equipe </label>
-                <select name="chef">
-                <option selected>Selectioner</option>
-                @foreach($users as $user)
-                <option value="{{$user->id}}">{{Auth::user()->name}}</option>
-                @endforeach
-                </select>              
-                </div>
-              <div class="form-group">
-                <label for="nom">Les axes de recherche</label>
-                @foreach($axes as $axe)
-                <option value="{{$axe->id}}">{{$axe->name}}</option>
-                @endforeach
-              </div>
-              <div class="row">
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Annuler</a>
-          <!-- <input type="submit" value="Create new Project" class="btn btn-success float-right"> -->
-          <button type="submit" class="btn btn-primary">
-                                    {{ __('Create project') }}
-          </button>
-        </div>
               </form>
             <!-- /.card-body -->
           </div>

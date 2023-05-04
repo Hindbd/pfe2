@@ -551,19 +551,15 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{ route('project-add') }}">
+              <form method="POST" action="{{ route('pubs-add') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                  <h5 for="nom"><b>Nom</b></h5>
-                  <input type="text" id="nom" class="form-control" name="nom">
-                </div>
-                <div class="form-group">
                   <h5 for="prenom"><b>Titre</b></h5>
-                  <input type="text" id="prenom" class="form-control" name="prenom">
+                  <input type="text" id="titre" class="form-control" name="titre">
                 </div>
                 <div class="form-group">
                   <h5 for="email"><b>Contenu</b></h5>
-                  <textarea type="email" id="email" class="form-control" rows="4" name="email"></textarea>
+                  <textarea type="email" id="contenu" class="form-control" rows="4" name="contenu"></textarea>
                 </div>
                 <div class="form-group">
                     <h5 for="axes_recherche"><b>Axes de recherche liés :</b></h5><br>
@@ -578,11 +574,12 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="1" id="addEventCheckbox">
                     <h5 class="form-check-label" for="addEventCheckbox">
-                        <b>Ajouter événement</b>
+                        <b>Publier sur un événement</b>
                     </h5>
                 </div><br>
                 <!-- List of events (hidden by default) -->
                 <div id="eventList" style="display:none;">
+                    les evenements :
                     @foreach($events as $event)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="{{$event->id}}" name="events[]" id="event{{$event->id}}">
@@ -590,6 +587,13 @@
                         </div>
                     @endforeach
                 </div><br>
+                <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Add a picture') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="file" id="img" name="img">
+                            </div>
+                </div>
                 <div class="row">
                   <div class="col-12">
                     <a href="#" class="btn btn-secondary">Annuler</a>

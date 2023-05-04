@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('pubs', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
             $table->string("titre");
             $table->string("contenu");
             $table->timestamps();
-        });
-    }
+            $table->string("img");
+            $table->bigInteger("editeur");
+            $table->foreign("editeur")
+                ->references('id')
+                ->on('users');
 
+            });
+        }
     /**
      * Reverse the migrations.
      */
