@@ -602,13 +602,24 @@
                           {{$team->nom}}
                           </span>
                       </td>
-                       <td class="project-state">
+                      <td class="project-state">
+                          @foreach($members as $member)
+                                  @if($member->FK_event == $event->id)
+                                  @php
+                                    $member = App\Models\Member::find($member->FK_member);
+                                    $userr = App\Models\User::find($member->id);
+                                  @endphp
+                                    {{$userr->prenom." ".$userr->name}}<br>
+                                  @endif
+                          @endforeach
+                      </td> 
+                       <!-- <td class="project-state">
                           @foreach($users as $user)
                             @if($user->id == $team->chef_equipe)
                               {{ $user->name }}
                             @endif
                           @endforeach
-                      </td> 
+                      </td>  -->
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
                               <i class="fas fa-folder">

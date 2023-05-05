@@ -17,5 +17,9 @@ class Equipe extends Model
         'chef_equipe',
 
     ];
+    public function equipe_member()
+    {
+        return $this->belongsToMany(Membre::class, 'affect_equipe_member', 'FK_equipe', 'FK_member');
+    }
 
 }

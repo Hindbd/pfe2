@@ -37,6 +37,31 @@ class TeamsController extends Controller
         $members = User::whereIn('id', $userIds)->get();
         return view('add-team',['axes'=>$axes,'members'=>$members]);
     }
+    public function storeequipe(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'nom' => ['required', 'string', 'max:255'],
+            'chef' => ['required', 'string', 'max:255'],
+            
+        ]);
+    
+        $team = Equipe::create([
+            'nom' => $request->nom,
+            'chef_equipe' => $request->chef,
+       
+        ]);
+        $selectedMembers = $request->input('members');
+        $team->equipe_member()->attach($selectedMembers);
+        
+        return redirect('teams');
+    }
+    public function indexTeams(){
+        $teams=Equipe::all();
+        $user=Auth::user();
+        $users=Equipe::all();
+        return view('teams',['user'=>$user,'teams'=>$teams,'users'=>$users]);
+    }
+
     //axes
     public function indexAxeAdd(){
         $user=Auth::user();

@@ -351,13 +351,15 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" id="addUsersBtn">Ajouter</button>
+                <button type="submit" class="btn btn-primary" id="addUsersBtn">Ajouter</button>
             </div>
+            </form>
+
         </div>
+
     </div>
 </div>
 
-              </form>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
