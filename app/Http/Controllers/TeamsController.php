@@ -59,7 +59,12 @@ class TeamsController extends Controller
         $teams=Equipe::all();
         $user=Auth::user();
         $users=Equipe::all();
-        return view('teams',['user'=>$user,'teams'=>$teams,'users'=>$users]);
+        $teamMembers = DB::table('affect_equipe_member')->get();
+        $members = Member::all();
+        $userIds = $members->pluck('id')->toArray();
+        $members = User::whereIn('id', $userIds)->get();
+        return view('teams',['user'=>$user,'teams'=>$teams,'users'=>$users,'teamMembers'=>$teamMembers
+    ,'members'=>$members]);
     }
 
     //axes

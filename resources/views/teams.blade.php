@@ -561,8 +561,8 @@
                   <tr>
                       <th style="width: 1%">#</th>
                       <th style="width: 10%">ID Equipe</th>
-                      <th style="width: 30%">Membres</th>
                       <th style="width: 30%">Nom</th>
+                      <th style="width: 30%">Membres</th>
                       <th style="width: 20%">Chef d'equipe</th>
                       <!-- <th style="width: 10%" class="text-center">axes</th> -->
                       <th style="width: 60%"></th>
@@ -581,7 +581,7 @@
                         </small>
                       </td>
                       <!-- <td> -->
-                        <td></td>
+
                           <!-- <ul class="list-inline">
                               <li class="list-inline-item">
                                   <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
@@ -603,23 +603,24 @@
                           </span>
                       </td>
                       <td class="project-state">
-                          @foreach($members as $member)
-                                  @if($member->FK_event == $event->id)
-                                  @php
-                                    $member = App\Models\Member::find($member->FK_member);
-                                    $userr = App\Models\User::find($member->id);
-                                  @endphp
-                                    {{$userr->prenom." ".$userr->name}}<br>
+                          @foreach($teamMembers as $teamMember)
+                                  @if($teamMember->FK_equipe == $team->id)
+                                    @foreach($members as $member)
+                                      @if($member->id == $teamMember->FK_member)
+                                        {{$member->name . " ".$member->prenom}}<br>
+                                      @endif
+                                    @endforeach
                                   @endif
                           @endforeach
                       </td> 
-                       <!-- <td class="project-state">
-                          @foreach($users as $user)
-                            @if($user->id == $team->chef_equipe)
-                              {{ $user->name }}
+                        <td class="project-state">
+                          @foreach($members as $member)
+                            @if($member->id == $team->chef_equipe)
+                              {{$member->name . " ".$member->prenom}}
                             @endif
                           @endforeach
-                      </td>  -->
+                      </td>  
+
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
                               <i class="fas fa-folder">
