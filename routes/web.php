@@ -103,3 +103,6 @@ Route::post('/pubs-add',[App\Http\Controllers\TeamsController::class, 'publish']
 
 //portfolio
 Route::get('/portfolio',[App\Http\Controllers\portfolioController::class, 'index']);
+
+Route::get('/pubsPortfolio/{id}', [App\Http\Controllers\portfolioController::class, 'show2'])->name('pubsPortfolio');
+Route::get('/events/{id}', [App\Http\Controllers\portfolioController::class, 'show'])->name('events');

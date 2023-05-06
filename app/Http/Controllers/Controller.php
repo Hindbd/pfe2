@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Axes;
+use App\Models\Events;
+use App\Models\Pubs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Events\Registered;
@@ -19,9 +21,11 @@ class Controller extends BaseController
     public function index(){
         // $msgs=Contact::all();
          $axes = Axes::take(5)->get();
+         $events = Events::take(5)->get();
+         $pubs = Pubs::take(5)->get();
         // $axes=Axes::all();
         $user = Auth::user();
-         return view('mainHome',['user'=>$user,'axes'=>$axes]);
+         return view('mainHome',['user'=>$user,'axes'=>$axes, 'events'=>$events, 'pubs'=>$pubs]);
     }
     public function storeContact(Request $request): RedirectResponse{
         $request->validate([

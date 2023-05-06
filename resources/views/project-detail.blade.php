@@ -666,9 +666,8 @@
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
                         <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#">Axes de Recherche Inclus</a>
                         </span>
-                        <span class="description">Shared publicly - 7:45 PM today</span>
                       </div>
                       <!-- /.user-block -->
                       <p>
@@ -727,33 +726,8 @@
               @if(isset($project))
               <h3 class="text-primary"><i class="fas fa-paint-brush"></i>{{ $project->titre }}</h3>
               <p class="text-muted">{{ $project->description }}</p>
-              <br>
-              <div class="text-muted">
-                <p class="text-sm">Responsable
-                  <b class="d-block">???</b>
-                </p>
-                <p class="text-sm">Membres
-                  <b class="d-block">
-                    @foreach($members as $member)
-                    @if($member->FK_prj == $project->id)
-                    @php
-                      $member = App\Models\Member::find($member->FK_member);
-                      $userr = App\Models\User::find($member->id);
-
-                    @endphp
-                    {{$userr->prenom . " ".$userr->name}}<br>
-                    @endif
-                    @endforeach
-                  </b>
-                </p>
-              </div>
-
-              <h5 class="mt-5 text-muted">Les axes</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="bx bx-chevron-right"></i> Functional-requirements.docx</a>
-                </li>
-              </ul>
+              <br>      
+              @endif        
               <div class="text-center mt-5 mb-3">
                 <a href="#" class="btn btn-sm btn-primary">Add files</a>
                 <a href="#" class="btn btn-sm btn-warning">Report contact</a>

@@ -145,7 +145,7 @@
         </div>
 
         <div class="row content">
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="post1">
             <p>
             <strong>LabSIV</strong>, le <strong>Lab</strong>oratoire des <strong>S</strong>ystemes <strong>I</strong>nformatiques & <strong>V</strong>ision est une unitè de recherche de la Faculte 
             des Sciences d'Agadir de l'Université Ibn Zohr. Il est spécialisé dans les domaines de la recherche
@@ -215,9 +215,9 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= Services Section ======= -->
+    <!-- ======= publications Section ======= -->
     <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up" id="post2">
 
         <div class="section-title">
           <h2>Nos Dernières Publications</h2>
@@ -225,52 +225,26 @@
         </div>
 
         <div class="row">
+          @foreach($pubs as $pub)
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-              <a href="#" class="btn-learn-more">Lire la suite</a>
+              <h4><a href="">{{$pub->titre}}</a></h4>
+              <p>{{$pub->contenu}}</p>
+              <a href="{{ route('portfolio.show', $pub->id) }}" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            <a href="#" class="btn-learn-more">Lire la suite</a>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            <a href="#" class="btn-learn-more">Lire la suite</a>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            <a href="#" class="btn-learn-more">Lire la suite</a>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End publications Section -->
 
-    <!-- ======= Cta Section ======= -->
+    <!-- ======= Partners Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
-        <div class="row">
+        <div class="row" id="post3">
           <div class="col-lg-9 text-center text-lg-start">
             <h3>Become a Partner</h3>
             <p>Le LabSIV collabore avec plusieurs universites, centres de recherche et entreprises dans le domaine 
@@ -278,128 +252,49 @@
             synergies entre les differentes institutions, de partager des connaissances et des competences, et de 
             favoriser la mise en œuvre de projets de recherche ambitieux</p>
           </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#contact">Postulez Maintenant</a>
+          <div class="row col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#contact">Postulez maintenant</a>
+            <a class="cta-btn align-middle" href="#">Voir nos partenaires</a>
           </div>
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section><!-- End partners Section -->
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Events Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Our Latest Events</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Notre Derniers Evénements</h2>
+          <p>Ces événements témoignent de l'excellence de la recherche menée au sein du LabSIV et de l'impact de ses travaux dans les domaines de l'informatique.</p>
         </div>
 
-        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <!-- <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
           <li data-filter="*" class="filter-active">All</li>
           <li data-filter=".filter-app">1</li>
           <li data-filter=".filter-card">2</li>
           <li data-filter=".filter-web">3</li>
-        </ul>
+        </ul> -->
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          @foreach($events as $event)
+          <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
+              <h4>{{$event->titre}}</h4>
+              <p>{{$event->Lieu}}</p>
               <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
+              <a href="{{ route('events', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Title</h4>
-              <p>Description</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bi bi-zoom-in"></i></a>
-              <a href="portfolio" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Team Section ======= -->
+    <!-- ======= Teams Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -465,16 +360,19 @@
                 <div class="social">
                   <a href="#" class="btn-learn-more">En savoir plus</a>
                 </div>
+                
               </div>
             </div>
           </div>
-
+          <div class="text-center">
+            <a href="#" class="btn-learn-more">Voir tous les membres</a>
+          </div>
         </div>
 
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Pricing Section ======= -->
+    <!-- ======= Projects Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
@@ -663,6 +561,10 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
               <a href="#" class="github"><i class="bx bxl-github"></i></a>
             </div>
+            <div style="display:flex; justify-content:center;">
+              <a href="#" class="logo me-auto"><img src="img/lab4.png" alt="" class="img-fluid" style ="   width: 100px; height: 100px;"></a>
+              <a href="#" class="logo me-auto"><img src="img/logo2.png" alt="" class="img-fluid" style ="background: transparent; width: 140px; height: 100px;"></a>
+            </div>
           </div>
 
         </div>
@@ -678,7 +580,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Developed by <a href="https://bootstrapmade.com/">F.Moustabchir & H.Bouhedda</a>
+        Developed by <a href="https://bootstrapmade.com/">H. Bouhedda & F. Moustabchir</a>
       </div>
     </div>
   </footer><!-- End Footer -->

@@ -102,7 +102,7 @@
 
         <ol>
           <li><a href="index.html">Acceuil</a></li>
-          <li>Evénements</li>
+          <li>Publications</li>
         </ol>
         <h2>Details</h2>
 
@@ -138,19 +138,18 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Info d'événement</h3>
+              <h3>Publication info</h3>
               <ul>
-                <!-- <li><strong>Category</strong>: Web design</li> -->
-                <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
-                <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
-                <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
-                <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>{{$event->titre}}</h2>
+              <h2>{{$pub->titre}}</h2>
               <p>
-                {{$event->description}}
+                {{$pub->description}}
               </p>
             </div>
           </div>
@@ -239,7 +238,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="/">FM&HB</a>
+        Designed by <a href="/">H. Bouhedda & F. Moustabchir</a>
       </div>
     </div>
   </footer><!-- End Footer -->

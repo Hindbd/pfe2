@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>LabSIV | Publications</title>
+  <title>LabSIV | Event Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,12 +51,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#about">Á Propos</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Publications</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Evénements</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Projets</a></li>
-          <li><a class="nav-link scrollto" href="#team">Equipes</a></li>
-          <li class="dropdown"><a href="#why-us"><span>Axes de recherche</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="#portfolio">Events</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Projects</a></li>
+          <li><a class="nav-link scrollto" href="#team">Teams</a></li>
+          <li class="dropdown"><a href="#why-us"><span>Domains</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Intelligence Artificielle</a></li>
               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -74,7 +74,7 @@
               <li><a href="#">Analyse De Données</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contacter</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           @if (Route::has('login') && Auth::check())
                 <div class="top-right links">
                     <a href="{{ url('/home') }}">{{Auth::user()->name}}</a>
@@ -101,10 +101,10 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Acceuil</a></li>
-          <li>Evénements</li>
+          <li><a href="index.html">Home</a></li>
+          <li>Event Details</li>
         </ol>
-        <h2>Details</h2>
+        <h2>Event Details</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -138,19 +138,18 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Info d'événement</h3>
+              <h3>Project information</h3>
               <ul>
-                <!-- <li><strong>Category</strong>: Web design</li> -->
-                <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
-                <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
-                <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
-                <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>{{$event->titre}}</h2>
+              <h2>This is an example of portfolio detail</h2>
               <p>
-                {{$event->description}}
+                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
               </p>
             </div>
           </div>
