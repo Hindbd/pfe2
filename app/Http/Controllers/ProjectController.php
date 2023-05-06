@@ -11,6 +11,7 @@ use App\Models\Axes;
 use App\Models\Events;
 use App\Models\Member;
 use Illuminate\Console\Scheduling\Event;
+use App\Models\Contact;
 
 class ProjectController extends Controller
 {
@@ -74,6 +75,23 @@ public function propose()
     $user=Auth::user();
     return view('propose', ['user'=>$user]);
 }
+public function proposeprj(Request $request): RedirectResponse{
+    $request->validate([
+        'titre' => ['required', 'string', 'max:255'],
+        'description' => ['required', 'string', 'max:2555'],
+
+    ]);
+    $user=Auth::user();
+    $msg = Contact::create([
+        'nom' => $user->name,
+        'email' =>$user->email,
+        'sujet'=>$request->titre,
+        'message'=>$request->description,
+    ]);
+    return redirect('#');
+
+}
+
 //prj apply prj
 public function apply()
 {

@@ -425,14 +425,14 @@
             <div class="card-body">
               <form method="POST" action="{{ route('project-propose') }}">
                 @csrf
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="nom">Nom</label>
                   <input type="text" id="nom" class="form-control" name="nom" required>
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail</label>
                   <input type="email" id="email" class="form-control" name="email" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="titre">Titre du Projet</label>
                   <input type="text" id="titre" class="form-control" name="titre" required>
