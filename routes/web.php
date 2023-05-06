@@ -88,7 +88,9 @@ Route::get('/axes',[App\Http\Controllers\TeamsController::class, 'indexAxeShow']
 Route::get('/event-add',[App\Http\Controllers\TeamsController::class, 'indexEventAdd']);
 Route::post('/event-add',[App\Http\Controllers\TeamsController::class, 'storeEvent'])->name('event-add');
 Route::get('/events',[App\Http\Controllers\TeamsController::class, 'indexEventShow']);
-Route::get('/event-signup',[App\Http\Controllers\ProjectController::class, 'signup'])->name('event-signup');
+Route::get('/event-signup',[App\Http\Controllers\ProjectController::class, 'signup']);
+Route::post('/event-signup',[App\Http\Controllers\ProjectController::class, 'signupevent'])->name('event-signup');
+
 
 
 

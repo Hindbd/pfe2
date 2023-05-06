@@ -8,8 +8,9 @@ use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Axes;
+use App\Models\Events;
 use App\Models\Member;
-
+use Illuminate\Console\Scheduling\Event;
 
 class ProjectController extends Controller
 {
@@ -82,12 +83,13 @@ public function apply()
 }
 public function applyprj(Request $request): RedirectResponse
 {
-    // $selectedProject = $request->input('projects');
-    // $prj->member_prj()->attach($selectedProject);
+
     $user=Auth::user();
     $selectedProject = $request->input('projects');
-    $prj = Project::find($selectedProject);
-    $prj->member_prj()->attach($user->id, ['FK_prj' => $selectedProject]);
+    foreach($selectedProject as $id){
+    $prj = Project::find($id);
+    $prj->member_prj()->attach($user->id, ['FK_prj' => $id]);
+    }
     
     return redirect('#');
 }
@@ -96,5 +98,16 @@ public function signup()
     $user=Auth::user();
     $events = DB::table('events')->get();
     return view('event-signup', ['user'=>$user,'events'=>$events]);
+}
+public function signupevent(Request $request): RedirectResponse
+{
+    $user=Auth::user();
+    $selectedEvent = $request->input('events');
+    foreach($selectedEvent as $id){
+    $event = Events::find($id);
+    $event->event_member()->attach($user->id, ['FK_event' => $id]);
+    }
+    
+    return redirect('#');
 }
 }
