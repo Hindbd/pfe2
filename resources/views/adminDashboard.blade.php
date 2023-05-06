@@ -443,8 +443,9 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td><p>Hind ljamila</p></td>
-                      <td>Hind</td>
+                      @foreach($projects as $project)
+                      <td><p>$project->titre</p></td>
+                      <td>$project</td>
                       <td><p>Content</p></td>
                     </tr>
                     </tbody>

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/login', function () {
-//     return view('mainHome');
-// });
+Route::get('/welcome', function () {
+    return view('mainHome');
+});
 
 
 Auth::routes();
@@ -72,7 +72,8 @@ Route::get('/project-detail',[App\Http\Controllers\ProjectController::class, 'in
 Route::get('/project-edit',[App\Http\Controllers\ProjectController::class, 'index3']);
 Route::get('/projects',[App\Http\Controllers\ProjectController::class, 'indexShow']);
 Route::get('/propose',[App\Http\Controllers\ProjectController::class, 'propose'])->name('project-propose');
-Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply'])->name('project-apply');
+Route::get('/apply',[App\Http\Controllers\ProjectController::class, 'apply']);
+Route::post('/apply',[App\Http\Controllers\ProjectController::class, 'applyprj'])->name('project-apply');
 
 //equipes
 Route::get('/team-add',[App\Http\Controllers\TeamsController::class, 'indexEquipe']);

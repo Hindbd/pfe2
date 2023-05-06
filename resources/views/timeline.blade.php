@@ -573,7 +573,13 @@
                         echo $interval;
                     ?>
                   </span>
-                  <h3 class="timeline-header"><a href="#">{{$pub->nom}}</a> a publié</h3>
+                  <h3 class="timeline-header"><a href="#">
+                        @foreach($users as $user)
+                          @if($pub->editeur == $user->id)
+                            {{$user->name ." " .$user->prenom}}
+                          @endif
+                        @endforeach
+                      </a> a publié</h3>
 
                   <div class="timeline-body">
                     {{$pub->contenu}}

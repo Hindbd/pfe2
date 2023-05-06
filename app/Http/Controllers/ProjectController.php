@@ -73,11 +73,23 @@ public function propose()
     $user=Auth::user();
     return view('propose', ['user'=>$user]);
 }
+//prj apply prj
 public function apply()
 {
     $user=Auth::user();
     $projects = DB::table('projects')->get();
     return view('apply', ['user'=>$user,'projects'=>$projects]);
+}
+public function applyprj(Request $request): RedirectResponse
+{
+    // $selectedProject = $request->input('projects');
+    // $prj->member_prj()->attach($selectedProject);
+    $user=Auth::user();
+    $selectedProject = $request->input('projects');
+    $prj = Project::find($selectedProject);
+    $prj->member_prj()->attach($user->id, ['FK_prj' => $selectedProject]);
+    
+    return redirect('#');
 }
 public function signup()
 {
