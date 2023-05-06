@@ -228,7 +228,7 @@
           @foreach($pubs as $pub)
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
               <h4><a href="">{{$pub->titre}}</a></h4>
               <p>{{$pub->contenu}}</p>
               <a href="{{ route('portfolio', $pub->id) }}" class="btn-learn-more">Lire la suite</a>
@@ -285,14 +285,14 @@
               <h4>{{$event->titre}}</h4>
               <p>{{$event->Lieu}}</p>
               <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-zoom-in"></i></a>
-              <a href="{{ route('events', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
+              <a href="{{ route('portfolio', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
             </div>
           </div>
           @endforeach
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Events Section -->
 
     <!-- ======= Teams Section ======= -->
     <section id="team" class="team section-bg">
@@ -531,7 +531,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Liens Utils</h4>
+            <h4>Liens utils</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="mainHome">Acceuil</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">Á Propos</a></li>
