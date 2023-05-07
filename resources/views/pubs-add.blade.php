@@ -588,7 +588,7 @@
                     @endforeach
                 </div><br>
                 <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Add a picture') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Ajouter une image') }}</label>
 
                             <div class="col-md-6">
                                 <input type="file" id="img" name="img">

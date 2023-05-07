@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Pubs;
+use App\Models\partenaire;
 
 class portfolioController extends Controller
 {
@@ -27,12 +29,18 @@ class portfolioController extends Controller
         return view('pubsPortfolio', ['user'=>$user,'pub' => $pub]);
     }
     public function show($id)
-     {   
+    {   
         //$pub=Pubs::all();
-        $pub = pubs::find($id);
         $user=Auth::user();
         $event = Events::find($id);
-        return view('portfolio', ['user'=>$user, 'event' => $event,'pub' => $pub]);
+        $images = DB::select('select img from pubs inner join affect_event_pub on pubs.id=affect_event_pub.FK_pub where affect_event_pub.FK_event='.$id);
+        return view('portfolio', ['user'=>$user, 'event' => $event,'images' => $images]);
     }
 
+    //Partners portfolio
+    public function index3(){
+        $user=Auth::user();
+        $parts = partenaire::all();
+        return view('partnersPortfolio',['user'=>$user, 'parts'=>$parts]);
+    }
 }

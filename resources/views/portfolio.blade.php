@@ -118,19 +118,9 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-3.jpg" alt="">
-                </div>
-
+                @foreach ($event->pubs as $pub)
+                <img src="storage/{{$images[0]}}" alt=" ">
+                @endforeach
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -150,8 +140,6 @@
                             <div>This pub is not related to an event</div>
            
                         @endif
-
-
                 <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
               </ul>
             </div>
