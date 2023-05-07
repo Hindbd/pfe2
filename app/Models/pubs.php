@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,10 @@ class pubs extends Model
     }
     public function pub_event()
     {
-        return $this->belongsToMany(Membre::class, 'affect_event_pub', 'FK_pub', 'FK_event');
+        return $this->belongsToMany(Event::class, 'affect_event_pub', 'FK_pub', 'FK_event');
+    }
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'affect_event_pub');
     }
 }

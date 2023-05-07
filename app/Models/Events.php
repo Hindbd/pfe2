@@ -28,4 +28,8 @@ class Events extends Model
     {
         return $this->belongsToMany(Membre::class, 'affect_event_member', 'FK_event', 'FK_member');
     }
+    public function pubs()
+    {
+        return $this->belongsToMany(pubs::class, 'affect_event_pub');
+    }
 }

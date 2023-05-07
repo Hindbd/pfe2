@@ -141,9 +141,17 @@
               <h3>Info d'événement</h3>
               <ul>
                 <!-- <li><strong>Category</strong>: Web design</li> -->
-                <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
-                <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
-                <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
+                      @if($pub->pub_event->count() > 0)
+                          <div>This pub is related to an event</div>
+                            <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
+                            <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
+                            <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
+                        @else
+                            <div>This pub is not related to an event</div>
+           
+                        @endif
+
+
                 <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
               </ul>
             </div>

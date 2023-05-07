@@ -27,10 +27,12 @@ class portfolioController extends Controller
         return view('pubsPortfolio', ['user'=>$user,'pub' => $pub]);
     }
     public function show($id)
-    {
+     {   
+        //$pub=Pubs::all();
+        $pub = pubs::find($id);
         $user=Auth::user();
         $event = Events::find($id);
-        return view('portfolio', ['user'=>$user, 'event' => $event]);
+        return view('portfolio', ['user'=>$user, 'event' => $event,'pub' => $pub]);
     }
 
 }
