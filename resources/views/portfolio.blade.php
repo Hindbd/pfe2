@@ -131,22 +131,26 @@
               <h3>Info d'événement</h3>
               <ul>
                 <!-- <li><strong>Category</strong>: Web design</li> -->
-                      @if($pub->pub_event->count() > 0)
-                          <div>This pub is related to an event</div>
-                            <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
-                            <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
-                            <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
-                        @else
-                            <div>This pub is not related to an event</div>
-           
-                        @endif
+              @if($pub)
+                @foreach($events as $event)
+
+                {{$event->description}}
+                {{$event->titre}}                 
+                 <li><strong>Emplacement</strong>: {{$pub->Lieu}}</li>
+                  <li><strong>Date debut</strong>: {{$pub->date_debut}}</li>
+                  <li><strong>Date fin</strong>: {{$pub->ate_fin}}</li>
+                  <div>This pub is related to an event</div>
+                  @endforeach
+
+              @else
+                  <div>This pub is not related to an event</div>
+              @endif
                 <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>{{$event->titre}}</h2>
+              <h2></h2>
               <p>
-                {{$event->description}}
               </p>
             </div>
           </div>
