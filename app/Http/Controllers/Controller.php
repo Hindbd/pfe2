@@ -20,7 +20,7 @@ class Controller extends BaseController
     // use AuthorizesRequests, ValidatesRequests;
     public function index(){
         // $msgs=Contact::all();
-         $axes = Axes::take(5)->get();
+         $axes = Axes::all();
          $events = Events::take(5)->get();
          $pubs = Pubs::take(5)->get();
         // $axes=Axes::all();
