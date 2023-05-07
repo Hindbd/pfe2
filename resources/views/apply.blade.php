@@ -378,7 +378,7 @@
               <p>Logout</p>
             </a>
           </li>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              <form id="logout-form" action="{{ route('apply_prj') }}" method="POST" class="d-none">
                 @csrf
               </form>
         </ul>

@@ -266,7 +266,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Notre Derniers Evénements</h2>
+          <h2>Nos Derniers Evénements</h2>
           <p>Ces événements témoignent de l'excellence de la recherche menée au sein du LabSIV et de l'impact de ses travaux dans les domaines de l'informatique.</p>
         </div>
 

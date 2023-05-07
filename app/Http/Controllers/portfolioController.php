@@ -28,28 +28,33 @@ class portfolioController extends Controller
         $pub = Pubs::find($id);
         return view('pubsPortfolio', ['user'=>$user,'pub' => $pub]);
     }
-    public function show($id)
+    public function showEvent($id)
     {   
         //$pub=Pubs::all();
         // $pub = pubs::find($id);
-        $pubs = DB::table('pubs')
-                        ->where('id',$id)
-                        ->get();
-        $pub = DB::table('affect_event_pub')->where('FK_pub', $id)->first();
-        $user=Auth::user();
-        // $event = Events::find($id);
-        $images = DB::select('select img from pubs inner join affect_event_pub on pubs.id=affect_event_pub.FK_pub where affect_event_pub.FK_event='.$id); // HNA $id DYAL evnt MASHI pub
-        $event = DB::table('affect_event_pub')->where('FK_event', $pub->id)->first();
-        // $event=$event->id;
-        if ($event) {
-            $event_id = $event->id;
-            $events=Events::find($event_id);
+        // $pubs = DB::table('pubs')
+        //                 ->where('id',$id)
+        //                 ->get();
+        // $pub = DB::table('affect_event_pub')->where('FK_pub', $id)->first();
+        // $user=Auth::user();
+        // // $event = Events::find($id);
+        // $images = DB::select('select img from pubs inner join affect_event_pub on pubs.id=affect_event_pub.FK_pub where affect_event_pub.FK_event='.$id); // HNA $id DYAL evnt MASHI pub
+        // $event = DB::table('affect_event_pub')->where('FK_event', $pub->id)->first();
+        // // $event=$event->id;
+        // if ($event) {
+        //     $event_id = $event->id;
+        //     $events=Events::find($event_id);
 
-            // rest of your code
-        } else {
-            // handle the case when the event with the given id is not found
-        }
-        return view('portfolio', ['user'=>$user, 'events' => $events,'images' => $images, 'pub' => $pub]);
+        //     // rest of your code
+        // } else {
+        //     // handle the case when the event with the given id is not found
+        // }
+        // return view('portfolio', ['user'=>$user, 'events' => $events,'images' => $images, 'pub' => $pub]);
+        $event=Events::find($id);
+        $pubs=DB::table('affect_event_pub')
+                       ->where('FK_event',$id)
+                      ->get();
+        return view('portfolio',['event'=>$event,'pubs'=>$pubs]);
     }
 
     //Partners portfolio
