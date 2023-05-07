@@ -117,18 +117,10 @@
 
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+              <div class="align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-3.jpg" alt="">
+                  <img src="{{ asset($image_path) }}" alt=" ">
                 </div>
 
               </div>
@@ -137,15 +129,9 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
+            <!-- <div class="portfolio-info">
               <h3>Publication info</h3>
-              <!-- <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul> -->
-            </div>
+            </div> -->
             <div class="portfolio-description">
               <h2>{{$pub->titre}}</h2>
               <p>
