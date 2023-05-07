@@ -231,7 +231,7 @@
               <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
               <h4><a href="">{{$pub->titre}}</a></h4>
               <p>{{$pub->contenu}}</p>
-              <a href="{{ route('portfolio', $pub->id) }}" class="btn-learn-more">Lire la suite</a>
+              <a href="{{ route('pubsPortfolio', $pub->id) }}" class="btn-learn-more">Lire la suite</a>
             </div>
           </div>
           @endforeach
