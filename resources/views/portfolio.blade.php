@@ -139,7 +139,7 @@
                     @php
                       $pubb = App\Models\Pubs::find($pub->FK_pub);
                     @endphp
-                    {{$pubb->img}}
+                    <img src="{{$pubb->img}}">
                     @endif
                   @endforeach
                 <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
