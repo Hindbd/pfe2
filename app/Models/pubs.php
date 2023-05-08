@@ -27,10 +27,7 @@ class pubs extends Model
     }
     public function pub_event()
     {
-        return $this->belongsToMany(Event::class, 'affect_event_pub', 'FK_pub', 'FK_event');
+        return $this->belongsToMany(Events::class, 'affect_event_pub', 'FK_pub', 'FK_event');
     }
-    public function events()
-    {
-        return $this->belongsToMany(Event::class, 'affect_event_pub');
-    }
+
 }

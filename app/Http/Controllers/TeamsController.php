@@ -154,7 +154,8 @@ public function publish(Request $request): RedirectResponse
 {
     $request->validate([
         'titre' => ['required', 'string', 'max:255'],
-        'contenu' => ['required', 'string', 'max:255']
+        'contenu' => ['required', 'string', 'max:255'],
+
         ]);
 
 // Get the uploaded image file from the request
