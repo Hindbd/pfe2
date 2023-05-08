@@ -118,6 +118,15 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
+                  @foreach($pubs as $pub)
+                    @if($pub->FK_event == $event->id)
+                    @php
+                      $pubb = App\Models\Pubs::find($pub->FK_pub);
+                      $image_path = '/images/' . $pubb->img;
+                    @endphp
+                    <img src="{{$image_path}}">
+                    @endif
+                  @endforeach
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -128,26 +137,16 @@
               <h3>Info d'événement</h3>
               <ul>
                 <!-- <li><strong>Category</strong>: Web design</li> -->
-
-                {{$event->description}}
-                {{$event->titre}}                 
                  <li><strong>Emplacement</strong>: {{$event->Lieu}}</li>
                   <li><strong>Date debut</strong>: {{$event->date_debut}}</li>
                   <li><strong>Date fin</strong>: {{$event->date_fin}}</li>
-                  @foreach($pubs as $pub)
-                    @if($pub->FK_event == $event->id)
-                    @php
-                      $pubb = App\Models\Pubs::find($pub->FK_pub);
-                    @endphp
-                    <img src="{{$pubb->img}}">
-                    @endif
-                  @endforeach
                 <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2></h2>
+              <h2>{{$event->titre}}</h2>
               <p>
+                {{$event->description}}
               </p>
             </div>
           </div>

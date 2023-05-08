@@ -25,6 +25,7 @@ Route::get('/',[App\Http\Controllers\Controller::class, 'index']);
 Route::post('/',[App\Http\Controllers\Controller::class, 'storeContact'])->name('contact');
 // Route::get('/',[App\Http\Controllers\Controller::class, 'create'])->name('contact');
 Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index']);
+Route::get('/mainHome',[App\Http\Controllers\Controller::class, 'index'])->name('mainHome');
 Route::get('/home',[App\Http\Controllers\Controller::class, 'index']);
 // Route::get('/adminDashboard' , [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/profDashboard' , [App\Http\Controllers\profDashController::class, 'index']);
@@ -106,3 +107,5 @@ Route::post('/pubs-add',[App\Http\Controllers\TeamsController::class, 'publish']
 
 Route::get('/pubsPortfolio/{id}', [App\Http\Controllers\portfolioController::class, 'show2'])->name('pubsPortfolio');
 Route::get('/portfolio/{id}', [App\Http\Controllers\portfolioController::class, 'showEvent'])->name('portfolio');
+Route::get('/partnersPortfolio', [App\Http\Controllers\portfolioController::class, 'showPart'])->name('partnersPortfolio');
+Route::get('/membersPortfolio', [App\Http\Controllers\portfolioController::class, 'showMbr'])->name('membersPortfolio');

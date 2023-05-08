@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use App\Models\member;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -17,11 +19,11 @@ class portfolioController extends Controller
     //     $event = Events::take(5)->get();
     //     return view('portfolio',['user'=>$user, 'event'=>$event]);
     // }
-    public function index2(){
-        $user=Auth::user();
-        $pub = Pubs::take(5)->get();
-        return view('pubsPortfolio',['user'=>$user, 'pub'=>$pub]);
-    }
+    // public function index2(){
+    //     $user=Auth::user();
+    //     $pub = Pubs::take(5)->get();
+    //     return view('pubsPortfolio',['user'=>$user, 'pub'=>$pub]);
+    // }
     public function show2($id)
     {
         $user=Auth::user();
@@ -59,9 +61,21 @@ class portfolioController extends Controller
     }
 
     //Partners portfolio
-    public function index3(){
+    public function showPart(){
         $user=Auth::user();
-        $parts = partenaire::all();
+        $part = partenaire::all();
+        $userIds = $part->pluck('id')->toArray();
+        $parts = User::whereIn('id', $userIds)->get();
         return view('partnersPortfolio',['user'=>$user, 'parts'=>$parts]);
+    }
+    
+
+    //Members portfolio
+    public function showMbr(){
+        $user=Auth::user();
+        $member = Member::all();
+        $userIds = $member->pluck('id')->toArray();
+        $members = User::whereIn('id', $userIds)->get();
+        return view('membersPortfolio', ['user'=>$user, 'members'=>$members]);
     }
 }

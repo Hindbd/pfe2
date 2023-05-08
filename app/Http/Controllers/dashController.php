@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Member;
@@ -16,11 +17,12 @@ class dashController extends Controller
         $nbrUser = DB::table('users')->count();
         $nbrPrj = DB::table('projects')->count();
         $nbrPub = DB::table('pubs')->count();
+        $projects = Project::all();
         $member = Member::latest()->take(9)->get();
         $userIds = $member->pluck('id')->toArray();
         $members = User::whereIn('id', $userIds)->get();
         $user = Auth::user();
-        return view('adminDashboard',['user'=>$user,'nbrUser'=>$nbrUser,'nbrPub'=>$nbrPub,'nbrPrj'=>$nbrPrj,'members'=>$members]);
+        return view('adminDashboard',['user'=>$user,'nbrUser'=>$nbrUser,'nbrPub'=>$nbrPub,'nbrPrj'=>$nbrPrj,'members'=>$members, 'projects'=>$projects]);
     }
     public function index2()
     {
