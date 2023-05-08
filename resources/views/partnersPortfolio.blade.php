@@ -128,8 +128,8 @@
       <div class="container">
 
         <div class="row gy-4">
-          <div class="col-lg-4">
                 @foreach($parts as $part)
+          <div class="col-lg-3 col-md-6 d-flex">
                   <div class="portfolio-info" >
                     <ul>
                       <li><strong>Nom</strong>: {{$part->name." ".$part->prenom}}</li>
@@ -139,8 +139,8 @@
                       <li><strong>Email</strong>: <a href="#">{{$part->email}}</a></li>
                     </ul>
                   </div>
-                @endforeach
           </div>
+                @endforeach
         </div>
       </div>
     </section><!-- End Portfolio Details Section -->

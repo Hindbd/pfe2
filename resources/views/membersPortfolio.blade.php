@@ -127,9 +127,9 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
-      <div class="row gx-4">
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="100">
-                @foreach($members as $member)
+      <div class="row gy-4">
+        @foreach($members as $member)
+          <div class="col-lg-3 col-md-6 d-flex">
                   <div class="portfolio-info" >
                     <ul>
                       <li><strong>Nom</strong>: {{$member->name." ".$member->prenom}}</li>
@@ -143,8 +143,8 @@
                       <li><strong>Email</strong>: <a href="#">{{$member->email}}</a></li>
                     </ul>
                   </div>
-                @endforeach
           </div>
+        @endforeach
         </div>
 
       </div>
