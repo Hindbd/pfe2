@@ -63,10 +63,10 @@ class portfolioController extends Controller
     //Partners portfolio
     public function showPart(){
         $user=Auth::user();
-        $part = partenaire::all();
-        $userIds = $part->pluck('id')->toArray();
-        $parts = User::whereIn('id', $userIds)->get();
-        return view('partnersPortfolio',['user'=>$user, 'parts'=>$parts]);
+        $parts = partenaire::all();
+        // $userIds = $part->pluck('id')->toArray();
+        // $parts = User::whereIn('id', $userIds)->get();
+        return view('partnersPortfolio',['user'=>$user, 'parts'=>$parts,]);
     }
     
 

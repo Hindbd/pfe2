@@ -132,11 +132,14 @@
           <div class="col-lg-3 col-md-6 d-flex">
                   <div class="portfolio-info" >
                     <ul>
-                      <li><strong>Nom</strong>: {{$part->name." ".$part->prenom}}</li>
+                    @php
+                      $user = App\Models\User::find($part->id);
+                    @endphp
+                      <li><strong>Nom</strong>: {{$user->name." ".$user->prenom}}</li>
                       <li><strong>Domain d'activité</strong>: {{$part->domain_activite}}</li>
                       <li><strong>Description</strong>: {{$part->description}}</li>
                       <li><strong>Adresse</strong>: {{$part->adresse}}</li>
-                      <li><strong>Email</strong>: <a href="#">{{$part->email}}</a></li>
+                      <li><strong>Email</strong>: <a href="#">{{$user->email}}</a></li>
                     </ul>
                   </div>
           </div>
