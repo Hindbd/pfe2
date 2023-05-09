@@ -10,23 +10,23 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/img/icon.png" rel="icon">
-  <link href="/assets/img/icon.png" rel="apple-touch-icon">
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{asset('/assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
@@ -51,11 +51,11 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#about">Á Propos</a></li>
-          <li><a class="nav-link scrollto" href="#services">Publications</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Evénements</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Projets</a></li>
-          <li><a class="nav-link scrollto" href="#team">Equipes</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#about">Á Propos</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#services">Publications</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#portfolio">Evénements</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#pricing">Projets</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#team">Equipes</a></li>
           <li class="dropdown"><a href="#why-us"><span>Axes de recherche</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Intelligence Artificielle</a></li>
@@ -74,11 +74,25 @@
               <li><a href="#">Analyse De Données</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contacter</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('mainHome') }}#contact">Contacter</a></li>
           @if (Route::has('login') && Auth::check())
-                <div class="top-right links">
-                    <a href="{{ url('/home') }}">{{Auth::user()->name}}</a>
-                </div>
+                          @if($user->role == '4')
+                          <div class="top-right links">
+                              <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
+                          </div>
+                          @elseif($user->role == '1')
+                          <div class="top-right links">
+                              <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
+                          </div>
+                          @elseif($user->role == '2')
+                          <div class="top-right links">
+                              <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
+                          </div>
+                          @elseif($user->role == '3')
+                          <div class="top-right links">
+                              <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
+                          </div>
+                          @endif
             @elseif (Route::has('login') && !Auth::check())
               <div class="container-fluid">
                 <div class="row top-right links">
@@ -114,27 +128,20 @@
       <div class="container">
 
         <div class="row gy-4">
-
-          <div class="col-lg-6">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
                 @foreach($parts as $part)
-                  <div class="portfolio-info">
-                    <h3>Partenaire info</h3>
+          <div class="col-lg-3 col-md-6 d-flex">
+                  <div class="portfolio-info" >
                     <ul>
-                      <li><strong>Nom</strong>: {{$part}}</li>
-                      <li><strong>Client</strong>: ASU Company</li>
-                      <li><strong>Project date</strong>: 01 March, 2020</li>
-                      <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                      <li><strong>Nom</strong>: {{$part->name." ".$part->prenom}}</li>
+                      <li><strong>Domain d'activité</strong>: {{$part->domain_activite}}</li>
+                      <li><strong>Description</strong>: {{$part->description}}</li>
+                      <li><strong>Adresse</strong>: {{$part->adresse}}</li>
+                      <li><strong>Email</strong>: <a href="#">{{$part->email}}</a></li>
                     </ul>
                   </div>
-                @endforeach
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
           </div>
+                @endforeach
         </div>
-
       </div>
     </section><!-- End Portfolio Details Section -->
 
@@ -162,18 +169,18 @@
             <h4>Liens utils</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="mainHome">Acceuil</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">Á Propos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services">Publications</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Projets</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Evénements</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#about">Á Propos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#services">Publications</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#pricing">Projets</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#portfolio">Evénements</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Nos Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Postuler pour un stage</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Devenir partenaire</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#contact">Postuler pour un stage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('mainHome') }}#contact">Devenir partenaire</a></li>
               <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
@@ -212,16 +219,16 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="//assets/vendor/aos/aos.js"></script>
-  <script src="//assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="//assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="//assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="//assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="//assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="//assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="//assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
 
 </body>
 

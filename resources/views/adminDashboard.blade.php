@@ -437,16 +437,17 @@
                     <tr>
                       <!-- <th>ID Projet</th> -->
                       <th>Titre</th>
-                      <th>Responsable</th>
                       <th>Description</th>
+                      <th>Date debut</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                       @foreach($projects as $project)
-                      <td><p>$project->titre</p></td>
-                      <td>$project</td>
-                      <td><p>Content</p></td>
+                      <td><p>{{$project->titre}}</p></td>
+                      <td><p>{{$project->description}}</p></td>
+                      <td>{{$project->date_debut}}</td>
+                      @endforeach
                     </tr>
                     </tbody>
                   </table>

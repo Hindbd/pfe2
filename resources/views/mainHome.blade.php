@@ -230,8 +230,8 @@
             <div class="icon-box">
               <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
               <h4><a href="">{{$pub->titre}}</a></h4>
-              <p>{{$pub->contenu}}</p>
-              <a href="{{ route('pubsPortfolio', $pub->id) }}" class="btn-learn-more">Lire la suite</a>
+              <p>{{ Str::limit($pub->contenu, 120)}}</p>
+              <a href="{{ route('pubsPortfolio', $pub->id) }}" class="btn-learn-more" style="position: absolute;bottom: 10px;transform: translateX(-10%); border: 1px solid #47b2e4;display: inline-block; padding-right:5px;padding-left:5px; border-radius:5px;">Lire la suite</a>
             </div>
           </div>
           @endforeach
@@ -245,16 +245,16 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="row" id="post3">
-          <div class="col-lg-9 text-center text-lg-start">
+          <div class="col-lg-8 text-center text-lg-start">
             <h3>Become a Partner</h3>
             <p>Le LabSIV collabore avec plusieurs universites, centres de recherche et entreprises dans le domaine 
             de la recherche en informatique et en vision par ordinateur. Ces collaborations ont permis d'etablir des 
             synergies entre les differentes institutions, de partager des connaissances et des competences, et de 
             favoriser la mise en œuvre de projets de recherche ambitieux</p>
           </div>
-          <div class="row col-lg-3 cta-btn-container text-center">
+          <div class="row col-lg-4 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#contact">Postulez maintenant</a>
-            <a class="cta-btn align-middle" href="#">Voir nos partenaires</a>
+            <a class="cta-btn align-middle" href="partnersPortfolio">Voir nos partenaires</a>
           </div>
         </div>
 
@@ -365,7 +365,7 @@
             </div>
           </div>
           <div class="text-center">
-            <a href="#" class="btn-learn-more">Voir tous les membres</a>
+            <a href="membersPortfolio" class="btn-learn-more">Voir tous les membres</a>
           </div>
         </div>
 
@@ -378,7 +378,8 @@
 
         <div class="section-title">
           <h2>Perspectives & Projets Futurs</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          Le LabSIV poursuit ses recherches dans les domaines de l'informatique et de la vision par ordinateur
+          et s'engage dans de nouveaux projets ambitieux. Voici quelques-unes de ses perspectives et projets futurs</p>
         </div>
 
         <div class="row">

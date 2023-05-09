@@ -410,10 +410,10 @@
                   {{$event->date_fin}}
                 </td>
                 <td class="project-actions text-right">
-                  <a class="btn btn-primary btn-sm" href="project-detail">
+                  <!-- <a class="btn btn-primary btn-sm" href="project-detail">
                     <i class="fas fa-folder"></i>
                     View
-                  </a>
+                  </a> -->
                   <a class="btn btn-info btn-sm" href="project-edit">
                     <i class="fas fa-pencil-alt"></i>
                     Edit
