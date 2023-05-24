@@ -29,7 +29,8 @@ class portfolioController extends Controller
         $user=Auth::user();
         $pub = Pubs::find($id);
         $image_path = 'images/' . $pub->img;
-        return view('pubsPortfolio', ['user'=>$user,'pub' => $pub, 'image_path'=>$image_path]);
+        $users=User::all();
+        return view('pubsPortfolio', ['user'=>$user,'pub' => $pub, 'image_path'=>$image_path,'users'=>$users]);
     }
     public function showEvent($id)
     {   

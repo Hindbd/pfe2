@@ -47,7 +47,7 @@
 
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="mainHome" class="logo me-auto"><img src="img/lab4.png" alt="" class="img-fluid" style ="background: transparent; width: 50px; height: 100px;"></a> -->
-      <h1 class="logo me-auto"><a href="mainHome">LabSIV</a></h1>
+      <h1 class="logo me-auto"><a href="/mainHome">LabSIV</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -135,8 +135,29 @@
             <div class="portfolio-description">
               <h2>{{$pub->titre}}</h2>
               <p>
-                {{$pub->contenu}}
-              </p>
+                {{$pub->contenu}}<br><br>
+                <?php
+                        $timestamp = strtotime($pub->created_at);
+                        $difference = time() - $timestamp;
+                        $interval = '';
+                        if ($difference < 60) {
+                          $interval = 'just now';
+                        } elseif ($difference < 3600) {
+                          $interval = floor($difference / 60) . ' min ago';
+                        } elseif ($difference < 86400) {
+                          $interval = floor($difference / 3600) . ' hours ago';
+                        } else {
+                          $interval = floor($difference / 86400) . ' days ago';
+                        }
+                        echo $interval;
+                    ?>            
+                </p>
+                <p>{{"--"}}@foreach($users as $user)
+                          @if($pub->editeur == $user->id)
+                            {{$user->name ." " .$user->prenom}}
+                          @endif
+                        @endforeach
+                      </a> </h3></p>
             </div>
           </div>
 

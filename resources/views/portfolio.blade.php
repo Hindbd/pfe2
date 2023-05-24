@@ -47,7 +47,7 @@
 
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="mainHome" class="logo me-auto"><img src="img/lab4.png" alt="" class="img-fluid" style ="background: transparent; width: 50px; height: 100px;"></a> -->
-      <h1 class="logo me-auto"><a href="mainHome">LabSIV</a></h1>
+      <h1 class="logo me-auto"><a href="/mainHome"">LabSIV</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
