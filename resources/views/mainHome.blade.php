@@ -563,8 +563,8 @@
               <a href="#" class="github"><i class="bx bxl-github"></i></a>
             </div>
             <div style="display:flex; justify-content:center;">
-              <a href="#" class="logo me-auto"><img src="img/lab4.png" alt="" class="img-fluid" style ="   width: 100px; height: 100px;"></a>
-              <a href="#" class="logo me-auto"><img src="img/logo2.png" alt="" class="img-fluid" style ="background: transparent; width: 140px; height: 100px;"></a>
+              <!-- <a href="mainHome" class="logo me-auto"><img src="img/lab4.png" alt="" class="img-fluid" style ="width: 100px; height: 100px;" title="LabSIV"></a> -->
+              <a href="http://www.fsa.ac.ma/" class="logo me-auto"><img src="img/logo2.png" alt="" class="img-fluid" style ="width: 140px; height: 100px;" title="FSA" target="_blank"></a>
             </div>
           </div>
 

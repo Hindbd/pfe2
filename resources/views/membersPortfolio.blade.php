@@ -115,10 +115,10 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Acceuil</a></li>
+          <li><a href="mainHome">Acceuil</a></li>
           <li>Membres</li>
         </ol>
-        <h2>Nos Memebres</h2>
+        <h2>Nos Membres</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -132,15 +132,16 @@
           <div class="col-lg-3 col-md-6 d-flex">
                   <div class="portfolio-info" >
                     <ul>
-                      <li><strong>Nom</strong>: {{$member->name." ".$member->prenom}}</li>
-                      <li><strong>Domain d'activité</strong>: 
-                        @if($member->role == 1)
-                          <p>Enseignant</p>
-                        @elseif($member->role == 2)
-                          <p>Doctorant</p>
-                        @endif
-                      </li>
-                      <li><strong>Email</strong>: <a href="#">{{$member->email}}</a></li>
+                    @php
+                      $user = App\Models\User::find($member->id);
+                    @endphp
+                      <li><strong>Nom</strong>: {{$user->name." ".$user->prenom}}</li>
+                        @if($user->role == 1)
+                      <li><strong>Statut</strong>: Enseignant
+                        @elseif($user->role == 2)
+                      <li><strong>Statut</strong>: Doctorant
+                        @endif</li>
+                      <li><strong>Email</strong>: <a href="#">{{$user->email}}</a></li>
                     </ul>
                   </div>
           </div>
