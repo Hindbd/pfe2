@@ -270,57 +270,29 @@
           <p>Ces événements témoignent de l'excellence de la recherche menée au sein du LabSIV et de l'impact de ses travaux dans les domaines de l'informatique.</p>
         </div>
 
-        <!-- <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">1</li>
-          <li data-filter=".filter-card">2</li>
-          <li data-filter=".filter-web">3</li>
-        </ul> -->
-<!-- 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-          @foreach($events as $event)
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div> 
-
-            <div class="portfolio-info">
-              <h4>{{$event->titre}}</h4>
-              <p>{{$event->Lieu}}</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-zoom-in"></i></a>
-              <a href="{{ route('portfolio', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
-          </div>
-          @endforeach
-        </div> -->
+        
  <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
     @foreach($events as $event)
         <div class="col-lg-4 col-md-6 portfolio-item">
-            @php
-                $showDefaultImage = true; // Flag to determine if default image should be shown
-            @endphp
+
 
             @foreach($publ as $pub)
                 @if($pub->FK_event == $event->id)
                     @php
                         $pubb = App\Models\Pubs::find($pub->FK_pub);
                         $image_path = '/images/' . $pubb->img;
-                        $showDefaultImage = false; // Set flag to false since a matching pub is found
                     @endphp
                     <div class="portfolio-img"><img src="{{$image_path}}" class="img-fluid" alt=""></div>
-                    @break // Exit the loop after the first matching pub is found
+                    <div class="portfolio-info">
+                        <h4>{{$event->titre}}</h4>
+                        <p>{{$event->Lieu}}</p>
+                        <a href="{{$image_path}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$event->titre}}"><i class="bi bi-zoom-in"></i></a>
+                        <a href="{{ route('portfolio', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
+                    </div>
                 @endif
             @endforeach
-
-            @if($showDefaultImage)
-                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
-            @endif
-
-            <div class="portfolio-info">
-                <h4>{{$event->titre}}</h4>
-                <p>{{$event->Lieu}}</p>
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-zoom-in"></i></a>
-                <a href="{{ route('portfolio', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
-            </div>
         </div>
+        
     @endforeach
 </div> 
 
@@ -425,7 +397,7 @@
               profondeur pour ameliorer les performances de reconnaissance de formes, de vision par ordinateur 
               et de robotique. Les projets futurs incluent l'application de ces methodes á des problemes 
               tels que la reconnaissance d'emotions et la génération de contenu. </p>
-              <a href="#" class="buy-btn">Reas more</a>
+              <a href="#" class="buy-btn">Read more</a>
             </div>
           </div>
 

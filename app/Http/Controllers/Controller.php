@@ -25,7 +25,9 @@ class Controller extends BaseController
          $events = Events::take(5)->get();
          $pubs = Pubs::take(5)->get();
         // $axes=Axes::all();
-        $publ=Pubs::all();
+        // $publ=Pubs::all();
+        $publ=DB::table('affect_event_pub')
+       ->get();
         $user = Auth::user();
          return view('mainHome',['user'=>$user,'axes'=>$axes, 'events'=>$events, 'pubs'=>$pubs, 'publ'=>$publ]);
     }
