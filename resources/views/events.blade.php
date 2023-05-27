@@ -80,7 +80,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
-    <a href="/welcome" class="brand-link">
+    <a href="/" class="brand-link">
       <img src="../img/lab4.png" alt="LabSIV Logo" class="brand-image img-circle elevation-3" style="opacity: .8; font-size:x-large;">
       <span class="brand-text font-weight-semibold">LabSIV</span>
     </a>
@@ -414,14 +414,22 @@
                     <i class="fas fa-folder"></i>
                     View
                   </a> -->
-                  <a class="btn btn-info btn-sm" href="project-edit">
+                  <!-- <a class="btn btn-info btn-sm" href="project-edit">
                     <i class="fas fa-pencil-alt"></i>
                     Edit
-                  </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  </a> -->
+                  <!-- <a class="btn btn-danger btn-sm" href="#">
                     <i class="fas fa-trash"></i>
                     Delete
-                  </a>
+                  </a> -->            
+                <form action="{{ route('events.destroy', $event->id) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                    Delete
+                </button>
+            </form>
                 </td>
                 @endforeach
               </tr>

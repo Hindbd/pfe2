@@ -107,7 +107,7 @@ public function storeEvent(Request $request): RedirectResponse
 {
     $request->validate([
         'titre' => ['required', 'string', 'max:255'],
-        'contenu' => ['required', 'string', 'max:255'],
+        'contenu' => ['required', 'string'],
         'lieu' => ['required', 'string', 'max:255'],
     ]);
 
@@ -129,9 +129,20 @@ public function storeEvent(Request $request): RedirectResponse
     $selectedProjects = $request->input('projects'); 
     $Event->event_prj()->attach($selectedProjects);
         return redirect('events');
-
+    
 
 }
+public function destroy($event): RedirectResponse
+{
+    $event = Events::find($event);
+    if ($event) {
+        $event->delete();
+    }
+    return redirect('events');
+}
+
+
+
 public function indexEventShow(){
     $user=Auth::user();
     $events = DB::table('events')->get();

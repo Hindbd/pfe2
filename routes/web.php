@@ -93,6 +93,7 @@ Route::post('/event-add',[App\Http\Controllers\TeamsController::class, 'storeEve
 Route::get('/events',[App\Http\Controllers\TeamsController::class, 'indexEventShow']);
 Route::get('/event-signup',[App\Http\Controllers\ProjectController::class, 'signup']);
 Route::post('/event-signup',[App\Http\Controllers\ProjectController::class, 'signupevent'])->name('event-signup');
+Route::delete('/events/{event}', 'App\Http\Controllers\TeamsController@destroy')->name('events.destroy');
 
 
 

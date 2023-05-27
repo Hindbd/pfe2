@@ -80,19 +80,19 @@
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contacter</a></li>
           @if (Route::has('login') && Auth::check())
-                          @if($user->role == '4')
+                          @if(Auth::user()->role == '4')
                           <div class="top-right links">
                               <a href="{{ url('/adminDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == '1')
+                          @elseif(Auth::user()->role == '1')
                           <div class="top-right links">
                               <a href="{{ url('/profDashboard') }}"   class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == '2')
+                          @elseif(Auth::user()->role == '2')
                           <div class="top-right links">
                               <a href="{{ url('/doctorantDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
-                          @elseif($user->role == '3')
+                          @elseif(Auth::user()->role == '3')
                           <div class="top-right links">
                               <a href="{{ url('/partenaireDashboard') }}"  class="getstarted scrollto mx-4">{{Auth::user()->name}}</a>
                           </div>
@@ -276,11 +276,12 @@
           <li data-filter=".filter-card">2</li>
           <li data-filter=".filter-web">3</li>
         </ul> -->
-
+<!-- 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           @foreach($events as $event)
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div> 
+
             <div class="portfolio-info">
               <h4>{{$event->titre}}</h4>
               <p>{{$event->Lieu}}</p>
@@ -289,7 +290,39 @@
             </div>
           </div>
           @endforeach
+        </div> -->
+ <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+    @foreach($events as $event)
+        <div class="col-lg-4 col-md-6 portfolio-item">
+            @php
+                $showDefaultImage = true; // Flag to determine if default image should be shown
+            @endphp
+
+            @foreach($publ as $pub)
+                @if($pub->FK_event == $event->id)
+                    @php
+                        $pubb = App\Models\Pubs::find($pub->FK_pub);
+                        $image_path = '/images/' . $pubb->img;
+                        $showDefaultImage = false; // Set flag to false since a matching pub is found
+                    @endphp
+                    <div class="portfolio-img"><img src="{{$image_path}}" class="img-fluid" alt=""></div>
+                    @break // Exit the loop after the first matching pub is found
+                @endif
+            @endforeach
+
+            @if($showDefaultImage)
+                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""></div>
+            @endif
+
+            <div class="portfolio-info">
+                <h4>{{$event->titre}}</h4>
+                <p>{{$event->Lieu}}</p>
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bi bi-zoom-in"></i></a>
+                <a href="{{ route('portfolio', ['id' => $event->id]) }}" class="details-link" title="More Details"><i class="bi bi-eye"></i></a>
+            </div>
         </div>
+    @endforeach
+</div> 
 
       </div>
     </section><!-- End Events Section -->
